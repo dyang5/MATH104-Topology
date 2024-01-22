@@ -77,5 +77,55 @@ Given a set $X$, a $\omega$-tuple of elements of $X$ is a function
 \]
 also known as a \textbf{sequence} (or infinite sequence) of elements of $X$.
 \end{definition}
+
 \subsection{Finite Sets}
 This section contains basic definitions of finite sets, including cardinality and proof of a number of set axioms.
+
+\subsection{Countable and Uncountable Sets}
+\begin{definition}[Countably Infinite]
+A set $A$ is infinite if it is not finite. It is \textbf{countably infinite} of there is a bijective correspondence
+\[
+    f \colon A \rightarrow \Z_+.
+\] 
+\end{definition}
+
+\begin{eg}
+The set $\Z$ of all integers is countably infinite. Similarly, $\Z \times \Z$ is countably infinite. 
+\end{eg}
+
+\begin{proof}[Proof (Countability of $\Z \times \Z$)]
+\textit{Proof 1}. Consider the bijections $f \colon \Z_+ \times \Z_+ \rightarrow A$ and $g \colon A \rightarrow \Z_+$ defined as follows:
+\[
+    f(x, y) = (x + y - 1, y) \text{ and } g(x, y) = \frac{1}{2}(x-1)x + y.    
+\]
+    
+The composition $g \circ f$ is also a bijection from $\Z \times \Z$ to $\Z$, so $\Z \times \Z$ is countably infinite. \\
+
+\textit{Proof 2}. Consider $f(n, m) = 2^n 3^m$, an injective map from $\Z \times \Z$ to $\Z$.
+\end{proof}
+
+\begin{definition}[Countable and Uncountable Sets]
+A set is \textbf{countable} if it is either finite or countably infinite. A set that is not countable is \textbf{uncountable}.
+\end{definition}
+
+\begin{eg}
+$\{0, 1\}^\omega$, $\mathcal{P} (\Z_+)$, and $\R$ are examples of uncountable sets.
+\end{eg}
+
+\begin{theorem}
+Let $B$ be a nonempty set. Then the following are equivalent:
+\begin{enumerate}
+    \item $B$ is countable.
+    \item There is a surjective function $f\colon \Z_+ \rightarrow B$.
+    \item There is an injective function $g\colon B \rightarrow \Z_+$.
+\end{enumerate}    
+\end{theorem}
+
+\begin{theorem}[Countable Union of Countable Sets]
+A countable union of countable sets is countable.
+\end{theorem}
+
+\subsection{Principle of Recursive Definition}
+This section contains recursion axioms and the introduction of the principle of recursion/recursion formula.  
+
+\subsection{Infinite Sets and the Axiom of Choice}

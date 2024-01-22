@@ -207,15 +207,14 @@
     \trivlist
     \item[\hskip\labelsep
                 \color{NavyBlue!70!black}\sffamily\bfseries
-                #1\@addpunct{.}]\ignorespaces
+                #1\@addpunct{.}]
     \begin{mdframed}[linewidth=2pt,rightline=false, topline=false, bottomline=false,linecolor=NavyBlue, backgroundcolor=NavyBlue!1]
-        }{%
+        }{
         \popQED\endtrivlist\@endpefalse
-    \end{mdframed}
-}
+    \end{mdframed}}
 \makeatother
 
-\declaretheorem[style=thmbluebox, numbered=no, name=Example]{eg}
+\declaretheorem[style=thmredbox, numbered=no, name=Example]{eg}
 \declaretheorem[style=thmexplanationbox, numbered=no, name=Proof]{tmpexplanation}
 \newenvironment{explanation}[1][]{\vspace{-10pt}\pushQED{\(\circledast\)}\begin{tmpexplanation}}{\null\hfill\popQED\end{tmpexplanation}}
 
