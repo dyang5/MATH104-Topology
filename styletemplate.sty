@@ -35,11 +35,13 @@
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
     mdframed={
-            linewidth=2pt,
-            rightline=false, topline=false, bottomline=false,
+            linewidth=2pt, skipabove=8pt,
+            rightline=false, leftline = true, topline=false, bottomline=false,
             linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
             nobreak=false
-        }
+        },
+    headpunct={\\[3pt]}
+
 ]{thmgreenbox}
 
 \declaretheoremstyle[
@@ -260,3 +262,12 @@
 \nc{\CO}{\mathcal{O}}
 \nc{\CC}{\mathcal{C}}
 \nc{\stwo}[2]{\genfrac{\{}{\}}{0pt}{}{#1}{#2}}
+
+\usepackage{pgffor}%
+\newcommand{\chapter}[2]{%
+    \foreach \c in {#1,...,#2}{%
+            \IfFileExists{Notes/chapter\c.tex} {%
+                \input{Notes/chapter\c.tex}%
+            }{}%
+        }%
+}
