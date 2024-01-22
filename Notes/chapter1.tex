@@ -129,3 +129,59 @@ A countable union of countable sets is countable.
 This section contains recursion axioms and the introduction of the principle of recursion/recursion formula.  
 
 \subsection{Infinite Sets and the Axiom of Choice}
+
+\begin{theorem}
+Let $A$ be a set. The following statements about $A$ are equivalent:
+\begin{enumerate}
+    \item $A$ is infinite.
+    \item There exists an injective function $f \colon \Z_+ \rightarrow A$
+    \item There exists a bijection of $A$ with a proper subset of itself.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Axiom of Choice]
+Given a collection $\mathcal{A}$ of disjoint nonemopty sets, there exists a set $C$ consisting of exactly
+one element from each element of $\mathcal{A}$; that is, a set $C$ such that $C$ is contained in the union of the
+elements of $\mathcal{A}$, and for each $A \in \mathcal{A}$, the set $C \cap A$ contains a single element.
+\end{theorem}
+
+\subsection{Well-Ordered Sets}
+
+\begin{definition}[Well-Ordered Sets]
+A set $A$ with an order relation $<$ is \textbf{well-ordered} if every nonempty subset of $A$ has a smallest element.
+\end{definition}
+
+\begin{eg}
+The set $\Z_+ \times \Z_+$ is a well-ordered set in the dictionary order. \\
+
+However, the dictionary order does not give a well-ordering of the set $(\Z_+)^\omega$.
+\end{eg}
+
+\begin{theorem}[Well-Ordering Theorem; Zermelo, 1904]
+If $A$ is a set, there exists an order relation on $A$ that is a well-ordering.
+\end{theorem}
+
+\begin{corollary}
+There exists an uncountable well-ordered set.    
+\end{corollary}
+
+\begin{definition}[Section of a Set]
+Let $X$ be a well-ordered set. Given $\alpha \in X$, let $S_\alpha$ denote the set
+\[
+    S_\alpha = \{ x \mid x \in X \text{ and } x < \alpha\}.
+\]
+
+$S_\alpha$ is the \textbf{section} of $X$ by $\alpha$.
+\end{definition}
+
+\begin{lemma}
+There exists a well-ordered set $A$ having a largest element $\Omega$ such that the section
+$S_\Omega$ of $A$ by $\Omega$ is uncountable but every other section of $A$ is countable.   
+\end{lemma}
+
+\begin{theorem}
+If $A$ has a countable subset of $S_\Omega$, then $A$ has an upper bound in $S_\Omega$.     
+\end{theorem}
+
+
+
