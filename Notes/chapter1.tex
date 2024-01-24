@@ -19,20 +19,20 @@ A \textbf{relation} on a set $A$ is a subset $C$ of the Cartesian product $A \ti
 
 \begin{definition}[Equivalence Relation]
 An \textbf{equivalence relation} $\sim$ on a set $A$ is a relation $C$ on $A$ having the following three properties:
-\begin{itemize}
+\begin{enumerate}
     \item (Reflexivity) $x \sim x$ for every $x$ in $A$.
     \item (Symmetry) If $x \sim y$, then $y \sim x$.
     \item (Transitivity) If $x \sim y$ and $y \sim z$, then $x \sim z$.
-\end{itemize}    
+\end{enumerate}    
 \end{definition}
 
-\begin{definition}[Order Relation]
+\begin{definition}[Order Relation]\label{simple_order_relation}
     A relation $C$ on a set $A$ is an \textbf{order relation} (also simple order, or linear order) if it has the following properties: 
-    \begin{itemize}
+    \begin{enumerate}
         \item (Comparability) For every $x$ and $y$ in $A$ for which $x \neq y$, either $xCy$ or $yCx$.
         \item (Nonreflexivity) For no $x$ in $A$ does the relation $xCx$ hold.
         \item (Transitivity) If $xCy$ and $yCz$, then $xCz$.
-    \end{itemize}    
+    \end{enumerate}    
     \textit{Note: the relation $C$ is often replaced as $<$, just as how it is synonyous with $\sim$ in the case of an equivalence relation.}
 \end{definition}
 
@@ -209,5 +209,24 @@ $S_\Omega$ of $A$ by $\Omega$ is uncountable but every other section of $A$ is c
 If $A$ has a countable subset of $S_\Omega$, then $A$ has an upper bound in $S_\Omega$.     
 \end{theorem}
 
+\subsection{The Maximum Principle}
+
+\begin{definition}[Strict Partial Order]
+Given a set $A$, a relation $\prec $ on $A$ is a \textbf{strict partial order} on $A$ if it has the following properties:
+\begin{enumerate}
+    \item (Nonreflexivity) The relation $a \prec a$ never holds.
+    \item (Transitivity) If $a \prec b$ and $b \prec c$, then $a \prec c$.
+\end{enumerate}
+
+\end{definition}
 
 
+\begin{remark}
+    These are the second and third properties of a simple order, defined in \cref{simple_order_relation}. 
+    Consequently, a strict partial order behaves like a simple order except that it need not be true that for
+    every pair of distinct $x$ and $y$ in the set, either $x \prec y$ or $y \prec x$.
+\end{remark}
+
+\begin{theorem}[The Maximum Principle]
+Let $A$ be a set and let $\prec$ be a strict partial order on $A$. Then there exists a maximal simply ordered subset $B$ of $A$.
+\end{theorem}
