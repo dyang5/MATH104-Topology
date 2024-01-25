@@ -211,13 +211,14 @@ If $A$ has a countable subset of $S_\Omega$, then $A$ has an upper bound in $S_\
 
 \subsection{The Maximum Principle}
 
-\begin{definition}[Strict Partial Order]
+\begin{definition}[Partial Order]
 Given a set $A$, a relation $\prec $ on $A$ is a \textbf{strict partial order} on $A$ if it has the following properties:
 \begin{enumerate}
     \item (Nonreflexivity) The relation $a \prec a$ never holds.
     \item (Transitivity) If $a \prec b$ and $b \prec c$, then $a \prec c$.
 \end{enumerate}
 
+If the relation $\prec$ is instead $\preceq$, where $a \preceq b$ implies $a = b$ or $a \prec b$, $\preceq$ is a \textbf{partial order} on $A$. 
 \end{definition}
 
 
@@ -229,4 +230,20 @@ Given a set $A$, a relation $\prec $ on $A$ is a \textbf{strict partial order} o
 
 \begin{theorem}[The Maximum Principle]
 Let $A$ be a set and let $\prec$ be a strict partial order on $A$. Then there exists a maximal simply ordered subset $B$ of $A$.
+\end{theorem}
+
+\begin{eg}
+If $\mathscr{A}$ is the collection of all circular regions in the plane under the ``proper subset of'' relation, a maximal simply
+ordered subcollection of $\mathscr{A}$ consists of all circular regions with centers at the origin.
+\end{eg}
+
+\begin{definition}
+Let $A$ be a set and let $\prec$ be a strict partial order on $A$. If $B$ is a subset of $A$, an 
+\textbf{upper bound} on $B$ is an element $c$ of $A$ such that for every $b$ in $B$, either $b = c$ or $b \prec c$. \\
+
+A \textbf{maximal element} of $A$ is an element $m$ on $A$ such that for no element $a$ of $A$ does the relation $m \prec a$ hold. 
+\end{definition}
+
+\begin{theorem}[Zorn's Lemma]
+Let $A$ be a set that is strictly partially ordered. If every simply ordered subset of $A$ has an upper bound in $A$, then $A$ has a maximal element.
 \end{theorem}

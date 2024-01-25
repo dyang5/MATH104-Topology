@@ -1,0 +1,47 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 1}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 1 (Set Theory and Logic) Problems.} \\
+
+\underline{Section 2 (Functions), 2.5} \\
+
+\textbf{In general, let us denote the \textit{identity function} for a set $C$ by $i_C$. That is,
+define $i_C \colon C \rightarrow C$ to be the function given by the rule $i_C(x) = x$ for all $x \in C$. Given $f \colon A \rightarrow B$, we say that a function
+$g$ is a \textit{left inverse} for $f$ if $g \circ f = i_A$; and we asy that $h \colon B \rightarrow A$ is a \textit{right inverse} for $f$ if
+$f \circ h = i_B$.}
+
+\begin{enumerate}[a)]
+    \item \textbf{Show that if $f$ has a left inverse, $f$ is injective; and if $f$ has a right inverse, $f$ is surjective.}
+    \item \textbf{Give an example of a function that has a left inverse but no right inverse.}
+    \item \textbf{Give an example of a function that has a right inverse but no left inverse.}
+    \item \textbf{Can a function have more than one left inverse? More than one right inverse?}
+    \item \textbf{Show that if a function $f$ has both a left inverse $g$ and right inverse $h$, then $f$ is bijective and $g = h = f^{-1}$.}
+\end{enumerate}
+
+\end{document}
