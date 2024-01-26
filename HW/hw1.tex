@@ -112,16 +112,16 @@ $f \circ h = i_B$.}
 Let $A$ be an ordered set with the least upper bound property and let $B$ be a nonempty subset of $A$ that is bounded below. Consider the set of lower bounds of $B$, which we denote as $L(B)$. Since $B$ is bounded below,
 $L(B)$ is nonempty. Fix some element $b \in B$, and consider any element $l \in L(B)$. Since $l$ is a lower bound in $B$, by definition, $l \leq b$. \\
 
-Consequently, the element $b$ is an upper bound of $L(B)$. $L(B)$ is a subset of $A$ that is bounded above by the element $b$ in $A$. Since $A$ has the least upper bound property,
+Consequently, the element $b$ is an upper bound of $L(B)$. $L(B)$ is a nonempty subset of $A$ that is bounded above by the element $b$ in $A$. Since $A$ has the least upper bound property,
 we know that $L(B)$ must have a least upper bound, which we will denote $l^{\prime}$. We claim that $l^{\prime}$ is the greatest lower bound of $B$; to prove this,
-we will show that $l^{\prime}$ is both a lower bound of $B$ and is the greatest such lower bound.\\
+we will show that $l^{\prime}$ is both a lower bound of $B$ and that it is the greatest such lower bound.\\
 
 First, we claim that $l^{\prime}$ is a lower bound of $B$. Consider any $b \in B$. By construction, $b$ is an upper bound for $L(B)$. Furthermore, $l^{\prime}$ is the least upper bound of $L(B)$;
-consequently, $l^{\prime} \leq b$ for any $b \in B$, and so it is a lower bound for $B$. \\
+consequently, $l^{\prime} \leq b$ for any $b \in B$, and so $l^{\prime}$ is a lower bound for $B$. \\
 
 It remains to show that $l^{\prime}$ is in fact the greatest lower bound of $B$. Note that since $l^{\prime}$ is a lower bound of $B$, $l^{\prime}$ is in $L(B)$. 
 Consider any other lower bound $l$ of $B$, where $l$ is in $L(B)$ by definition.
-Since by construction, $l^{\prime}$ is the least upper bound of $L(B)$, it follows that $l \leq l^{\prime}$. Thus, $l^{\prime}$ is the greatest lower bound of $B$. \\
+Since by construction, $l^{\prime}$ is the least upper bound of $L(B)$, it follows that $l \leq l^{\prime}$ for any $l \in L(B)$. Thus, $l^{\prime}$ is the greatest lower bound of $B$. \\
 
 We conclude that $B$, an arbitrary nonempty subset of $A$ that is bounded below, has a greatest lower bound. Thus, every nonempty subset of $A$ that is bounded below has a greatest lower bound
 and so by definition, $A$ has the greatest lower bound property. 
@@ -141,8 +141,8 @@ Let $J_0$ be an inductive subset of $J$, and assume for the sake of contradictio
 of the well-ordered set $J$, it by definition has a minimal element, which we will denote as $m$. \\
 
 Since $m$ is by definition the minimal element in $J$ that is not in $J_0$, all elements smaller than $J$ under the well-order relation are in $J_0$. 
-Equivalently, the section $S_m$ is a subset of $J_0$. Since $J_0$ is an inductive subset of $J$, this implies that $m$ is itself in $J_0$, which contradicts the fact that
-$m$ is an element in $J \setminus J_0$. \\
+Equivalently, the section $S_m$ is a subset of $J_0$. Since $J_0$ is an inductive subset of $J$, this implies that $m$ is itself in $J_0$, which contradicts 
+the fact that $m$ was defined to be the minimal element in $J \setminus J_0$. \\
 
 Thus, $J_0$ must be equal to $J$. We conclude that if $J$ is a well-ordered set and $J_0$ is an inductive subset of $J$, then $J_0 = J$.
 \end{solution}
