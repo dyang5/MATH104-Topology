@@ -6,6 +6,7 @@
 \usepackage[shortlabels]{enumitem}
 \usepackage[margin=1in]{geometry}
 
+\newcommand{\R}{\mathbb{R}}
 \newenvironment{solution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
   {\end{proof}}
@@ -33,13 +34,13 @@
 
 \textbf{In general, let us denote the \textit{identity function} for a set $C$ by $i_C$. That is,
 define $i_C \colon C \rightarrow C$ to be the function given by the rule $i_C(x) = x$ for all $x \in C$. Given $f \colon A \rightarrow B$, we say that a function
-$g$ is a \textit{left inverse} for $f$ if $g \circ f = i_A$; and we asy that $h \colon B \rightarrow A$ is a \textit{right inverse} for $f$ if
+$g \colon B \rightarrow A$ is a \textit{left inverse} for $f$ if $g \circ f = i_A$; and we say that $h \colon B \rightarrow A$ is a \textit{right inverse} for $f$ if
 $f \circ h = i_B$.}
 
 \begin{enumerate}[a)]
     \item \textbf{Show that if $f$ has a left inverse, $f$ is injective; and if $f$ has a right inverse, $f$ is surjective.}
     \begin{solution}
-    Suppose that $f$ has a left inverse. Then there exists a function $g$ such that 
+    Suppose that $f$ has a left inverse. Then there exists a function $g \colon B \rightarrow A$ such that 
     \[
       g \circ f = i_A.
     \]
@@ -49,18 +50,56 @@ $f \circ h = i_B$.}
     \]
 
     However, since $g \circ f = i_A$, we know that $g(f(a)) = (g \circ f)(a) = a$ and $g(f(a^{\prime})) = (g \circ f)(a^{\prime}) = a^{\prime}$. Thus, it follows that $a = a^{\prime}$
-    and so $f$ is injective. \\
+    and so $f$ is injective. We conclude that if $f$ has a left inverse, $f$ is injective. \\
 
-    Similarly, suppose that $f$ has a right inverse. Then there exists a function $h$ such that 
+    Similarly, suppose that $f$ has a right inverse. Then there exists a function $h \colon B \rightarrow A$ such that 
     \[
       f \circ h = i_B.
     \]
     
+    Consider any $b \in B$. Note that $(f \circ h)(b) = f(h(b)) = b$. Consequently, for any $b \in B$, there exists an element $a = h(b)$ in $A$ such that
+    $f(a) = b$, and equivalently, $f$ is surjective. We conclude that if $f$ has a right inverse, $f$ is surjective.
     \end{solution}
+
     \item \textbf{Give an example of a function that has a left inverse but no right inverse.}
+    
+    \begin{solution}
+    From part (a), we know that a function that has a left inverse but no right inverse is injective but not surjective. 
+    One such function $f \colon \R_{\geq 0} \rightarrow \R$ defined by $f(x) = x^2$ is one such function; its left inverse is the square root function
+    and it has no right inverse as it is not surjective -- for example, $f(-3) = f(3) = 9$.       
+    \end{solution}
     \item \textbf{Give an example of a function that has a right inverse but no left inverse.}
+    
+    \begin{solution}
+    From part (a), we know that a function that has a right inverse but no left inverse is surjective but not injective. 
+    $f \colon \R \rightarrow \R_{\geq 0}$ defined by $f(x) = x^2$ is one such function; its right inverse is the square root function and it has 
+    no left inverse as it is not injective -- for example, $f(-3) = f(3) = 9$. 
+    \end{solution}
+    
     \item \textbf{Can a function have more than one left inverse? More than one right inverse?}
+    
+    \begin{solution}
+    A function can have more than one left inverse. Consider the sets $A = \{1, 2\}$ and $B = \{1, 2, 3\}$. 
+    Define the function $f \colon A \rightarrow B$ as $f(a) = a$ for any element $a \in A$. Define $g \colon B \rightarrow A$ such that
+    $g(1) = 1$, $g(2) = 2$, and $g(3) = 1$, and $g^{\prime}$ similarly, such that $g^{\prime}(1) = 1$, $g^{\prime}(2) = 2$, and $g^{\prime}(3) = 2$. 
+    $g$ and $g^{\prime}$ are two distinct left inverses of $f$. \\
+
+    Similarly, a function can have more than one right inverse. Consider the sets $A = \{1, 2\}$ and $B = \{1\}$. 
+    Define the function $f \colon A \rightarrow B$ as $f(1) = f(2) = 1$. Furthermore, define $h \colon B \rightarrow A$ such that $h(1) = 1$ and $h^{\prime}$ similarly, such that $h^{\prime}(1) = 2$.
+    $h$ and $h^{\prime}$ are two distinct right inverses of $f$.
+    \end{solution}
+    
     \item \textbf{Show that if a function $f$ has both a left inverse $g$ and right inverse $h$, then $f$ is bijective and $g = h = f^{-1}$.}
+
+    \begin{solution}
+    Consider $(g \circ f) \circ h$ and $g \circ (f \circ h)$, which are equivalent due to the associativity of functions. 
+    Note that since $g$ is a left inverse of $f$, $g \circ f = id_A$; similarly, since $h$ is a right inverse of $f$, $f \circ h = id_B$. It follows that
+    \[
+      (g \circ f) \circ h = id_A \circ h = h \text{ and } g \circ (f \circ h) = g \circ id_B = g.
+    \]
+
+    Thus, $g = h$ and they are both equal to $f^{-1}$, as $f^{-1}$ is by definition the function that is both the right and left inverse of $f$.
+    \end{solution}
 \end{enumerate}
 
 \newpage
