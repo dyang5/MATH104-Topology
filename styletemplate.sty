@@ -3,8 +3,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{styletemplate}
 
-\usepackage{amsmath,amssymb,latexsym,amsfonts,amscd,amsthm,framed,dsfont,fullpage,enumitem,appendix}
+\usepackage{amsmath,amssymb,latexsym,amsfonts,amscd,amsthm,framed,dsfont,fullpage,appendix}
 \usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[shortlabels]{enumitem}
 \usepackage{mathtools}
 \usepackage[mathscr]{euscript}
 \setlength\parindent{0pt}
@@ -96,11 +97,11 @@
 ]{thmred2box}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{SeaGreen!70!black}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{OliveGreen!70!black}, bodyfont=\normalfont,
     mdframed={
             linewidth=2pt,
             rightline=false, topline=false, bottomline=false,
-            linecolor=SeaGreen, backgroundcolor=SeaGreen!2,
+            linecolor=OliveGreen, backgroundcolor=OliveGreen!2,
             nobreak=false
         }
 ]{thmgreen3box}
