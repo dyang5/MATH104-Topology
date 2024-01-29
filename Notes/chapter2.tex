@@ -254,3 +254,73 @@ interval $(a, b)$ of points of $X$ lies in $Y$.\\
 Let $X$ be an ordered set in the order topology; let $Y$ be a subset of $X$ that is convex in $X$. Then the order topology on $Y$ is the
 same as the topology $Y$ inherits as a subspace of $X$.
 \end{theorem}
+
+\subsection{Closed Sets and Limit Points}
+
+\begin{definition}[Closed Set]
+A subset $A$ of a topological space $X$ is said to be \textbf{closed} if the set $X -- A$ is open. 
+\end{definition}
+
+\begin{eg}
+The subsets $[a, b]$ and $[a, \infty)$ of $\R$ are closed, while $[a, b)$ of $\R$ is neither open nor closed.
+\end{eg}
+
+\begin{eg}
+In the discrete topology on the set $X$, every set is both open and closed.
+\end{eg}
+
+\begin{definition}[Interior and Closure]
+Given a subset $A$ of a topological space $X$, the \textbf{interior} of $A$, denoted $\mathrm{Int} \, A$, is the union of all open sets contained in $A$. \\
+
+The \textbf{closure} of $A$, denoted $\mathrm{Cl} \, A$ or $\overline{A}$, is the intersection of all closed sets containing $A$. \\
+
+It follows by definition that $\mathrm{Int} \, A \subset A \subset \overline{A}$.  
+\end{definition}
+
+\begin{theorem}
+Let $Y$ be a subspace of $X$, let $A$ be a subset of $Y$, and let $\overline{A}$ denote the closure of $A$ in $X$. Then the closure of $A$ in $Y$ is $\overline{A} \cap Y$.  
+\end{theorem}
+
+\begin{theorem}
+Let $A$ be a subset of the topological space $X$. 
+\begin{enumerate}[a)]
+    \item Then $x \in \overline{A}$ if and only if every open set $U$ containing $x$ (i.e. neighborhood of $x$) intersects $A$.
+    \item Supposing that the topology of $X$ is given by a basis, then $x \in \overline{A}$ if and only if every
+    basis element $B$ containing $x$ intersects $A$.
+\end{enumerate}    
+\end{theorem}
+
+\begin{eg}
+If $A = (0, 1]$, then $\overline{A} = [0, 1]$. If $B = \{ \frac{1}{n} \mid n \in \Z_+ \} $, then $\overline{B} = 0 \cup B$.
+\end{eg}
+
+\begin{eg}
+Consider $Y = (0, 1]$, a subspace of $\R$, and the set $A = (0, \frac{1}{2})$, a subset of $Y$. \\
+
+$\overline{A} = [0, \frac{1}{2}]$ in $\R$ while the closure of $A$ in $Y$ is $\overline{A} \cap Y  = (0, \frac{1}{2}]$. 
+\end{eg}
+
+\begin{definition}[Limit Points]
+Let $A$ be a subset of the topological space $X$ and let $x$ be a point of $X$. \\
+
+$x$ is a \textbf{limit point} (or ``cluster point'', or ``point of accumulation'') of $A$ if every neighborhood of $x$ intersects $A$
+in some point \textit{other than $x$ itself}. \\
+
+Equivalently, $x$ is a limit point of $A$ if it belongs to the closure of $A -- \{ x \}$.
+\end{definition}
+
+\begin{theorem}
+Let $A$ be a subset of the topological space $X$ and let $A^{\prime}$ be the set of all limit points of $A$. Then
+\[
+    \overline{A} = A \cup A^{\prime}. 
+\]
+\end{theorem}
+
+\begin{definition}[Hausdorff Spaces]
+A topological space $X$ is a \textbf{Hausdorff space} if for each pair $x_1$, $x_2$ of distinct points of $X$, there exist
+neighborhoods $U_1$ and $U_2$ of $x_1$ and $x_2$, respectively, that are disjoint.
+\end{definition}
+
+\begin{theorem}
+If $X$ is a Hausdorff space, then a sequence of points of $X$ converges to at most one point of $X$, known as the \textbf{limit} of that sequence of points.
+\end{theorem}
