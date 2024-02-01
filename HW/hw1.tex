@@ -1,0 +1,150 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 1}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 1 (Set Theory and Logic) Problems.} \\
+
+\underline{Section 2 (Functions), 2.5} \\
+
+\textbf{In general, let us denote the \textit{identity function} for a set $C$ by $i_C$. That is,
+define $i_C \colon C \rightarrow C$ to be the function given by the rule $i_C(x) = x$ for all $x \in C$. Given $f \colon A \rightarrow B$, we say that a function
+$g \colon B \rightarrow A$ is a \textit{left inverse} for $f$ if $g \circ f = i_A$; and we say that $h \colon B \rightarrow A$ is a \textit{right inverse} for $f$ if
+$f \circ h = i_B$.}
+
+\begin{enumerate}[a)]
+    \item \textbf{Show that if $f$ has a left inverse, $f$ is injective; and if $f$ has a right inverse, $f$ is surjective.}
+    \begin{solution}
+    Suppose that $f$ has a left inverse. Then there exists a function $g \colon B \rightarrow A$ such that 
+    \[
+      g \circ f = i_A.
+    \]
+    Suppose that $f(a) = f(a^{\prime})$ for two (not necessarily distinct) elements $a$ and $a^{\prime}$ in $A$. Note that since $f(a) = f(a^{\prime})$, it follows that
+    \[
+      g(f(a)) = g(f(a^{\prime}))
+    \]
+
+    However, since $g \circ f = i_A$, we know that $g(f(a)) = (g \circ f)(a) = a$ and $g(f(a^{\prime})) = (g \circ f)(a^{\prime}) = a^{\prime}$. Thus, it follows that $a = a^{\prime}$
+    and so $f$ is injective. We conclude that if $f$ has a left inverse, $f$ is injective. \\
+
+    Similarly, suppose that $f$ has a right inverse. Then there exists a function $h \colon B \rightarrow A$ such that 
+    \[
+      f \circ h = i_B.
+    \]
+    
+    Consider any $b \in B$. Note that $(f \circ h)(b) = f(h(b)) = b$. Consequently, for any $b \in B$, there exists an element $a = h(b)$ in $A$ such that
+    $f(a) = b$, and equivalently, $f$ is surjective. We conclude that if $f$ has a right inverse, $f$ is surjective.
+    \end{solution}
+
+    \item \textbf{Give an example of a function that has a left inverse but no right inverse.}
+    
+    \begin{solution}
+    From part (a), we know that a function that has a left inverse but no right inverse is injective but not surjective. 
+    One such function $f \colon \R_{\geq 0} \rightarrow \R$ defined by $f(x) = x^2$ is one such function; its left inverse is the square root function
+    and it has no right inverse as it is not surjective -- for example, $f(-3) = f(3) = 9$.       
+    \end{solution}
+    \item \textbf{Give an example of a function that has a right inverse but no left inverse.}
+    
+    \begin{solution}
+    From part (a), we know that a function that has a right inverse but no left inverse is surjective but not injective. 
+    $f \colon \R \rightarrow \R_{\geq 0}$ defined by $f(x) = x^2$ is one such function; its right inverse is the square root function and it has 
+    no left inverse as it is not injective -- for example, $f(-3) = f(3) = 9$. 
+    \end{solution}
+    
+    \item \textbf{Can a function have more than one left inverse? More than one right inverse?}
+    
+    \begin{solution}
+    A function can have more than one left inverse. Consider the sets $A = \{1, 2\}$ and $B = \{1, 2, 3\}$. 
+    Define the function $f \colon A \rightarrow B$ as $f(a) = a$ for any element $a \in A$. Define $g \colon B \rightarrow A$ such that
+    $g(1) = 1$, $g(2) = 2$, and $g(3) = 1$, and $g^{\prime}$ similarly, such that $g^{\prime}(1) = 1$, $g^{\prime}(2) = 2$, and $g^{\prime}(3) = 2$. 
+    $g$ and $g^{\prime}$ are two distinct left inverses of $f$. \\
+
+    Similarly, a function can have more than one right inverse. Consider the sets $A = \{1, 2\}$ and $B = \{1\}$. 
+    Define the function $f \colon A \rightarrow B$ as $f(1) = f(2) = 1$. Furthermore, define $h \colon B \rightarrow A$ such that $h(1) = 1$ and $h^{\prime}$ similarly, such that $h^{\prime}(1) = 2$.
+    $h$ and $h^{\prime}$ are two distinct right inverses of $f$.
+    \end{solution}
+    
+    \item \textbf{Show that if a function $f$ has both a left inverse $g$ and right inverse $h$, then $f$ is bijective and $g = h = f^{-1}$.}
+
+    \begin{solution}
+    Consider $(g \circ f) \circ h$ and $g \circ (f \circ h)$, which are equivalent due to the associativity of functions. 
+    Note that since $g$ is a left inverse of $f$, $g \circ f = id_A$; similarly, since $h$ is a right inverse of $f$, $f \circ h = id_B$. It follows that
+    \[
+      (g \circ f) \circ h = id_A \circ h = h \text{ and } g \circ (f \circ h) = g \circ id_B = g.
+    \]
+
+    Thus, $g = h$ and they are both equal to $f^{-1}$, as $f^{-1}$ is by definition the function that is both the right and left inverse of $f$.
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+\underline{Section 3 (Relations), 3.13} \\
+
+\textbf{Prove the following Theorem: \textit{If an ordered set $A$ has the least upper bound property, then it has the greatest lower bound property.}}
+
+\begin{solution}
+Let $A$ be an ordered set with the least upper bound property and let $B$ be a nonempty subset of $A$ that is bounded below. Consider the set of lower bounds of $B$, which we denote as $L(B)$. Since $B$ is bounded below,
+$L(B)$ is nonempty. Fix some element $b \in B$, and consider any element $l \in L(B)$. Since $l$ is a lower bound in $B$, by definition, $l \leq b$. \\
+
+Consequently, the element $b$ is an upper bound of $L(B)$. $L(B)$ is a nonempty subset of $A$ that is bounded above by the element $b$ in $A$. Since $A$ has the least upper bound property,
+we know that $L(B)$ must have a least upper bound, which we will denote $l^{\prime}$. We claim that $l^{\prime}$ is the greatest lower bound of $B$; to prove this,
+we will show that $l^{\prime}$ is both a lower bound of $B$ and that it is the greatest such lower bound.\\
+
+First, we claim that $l^{\prime}$ is a lower bound of $B$. Consider any $b \in B$. By construction, $b$ is an upper bound for $L(B)$. Furthermore, $l^{\prime}$ is the least upper bound of $L(B)$;
+consequently, $l^{\prime} \leq b$ for any $b \in B$, and so $l^{\prime}$ is a lower bound for $B$. \\
+
+It remains to show that $l^{\prime}$ is in fact the greatest lower bound of $B$. Note that since $l^{\prime}$ is a lower bound of $B$, $l^{\prime}$ is in $L(B)$. 
+Consider any other lower bound $l$ of $B$, where $l$ is in $L(B)$ by definition.
+Since by construction, $l^{\prime}$ is the least upper bound of $L(B)$, it follows that $l \leq l^{\prime}$ for any $l \in L(B)$. Thus, $l^{\prime}$ is the greatest lower bound of $B$. \\
+
+We conclude that $B$, an arbitrary nonempty subset of $A$ that is bounded below, has a greatest lower bound. Thus, every nonempty subset of $A$ that is bounded below has a greatest lower bound
+and so by definition, $A$ has the greatest lower bound property. 
+\end{solution}
+\newpage
+
+\underline{Section 10 (Well-Ordered Sets), 10.7} \\
+
+\textbf{Let $J$ be a well-ordered set. A subset $J_0$ of $J$ is said to be \textit{inductive} if for every $\alpha \in J$,}
+\[
+  (S_\alpha \subset J_0) \implies \alpha \in J_0.
+\]
+\textbf{\textit{Theorem (The Principle of Transinfinite Induction). If $J$ is a well-ordered set and $J_0$ is an inductive subset of $J$, then $J_0 = J$.}}
+
+\begin{solution}
+Let $J_0$ be an inductive subset of $J$, and assume for the sake of contradiction that $J_0 \neq J$. Then the set $J \setminus J_0$ is nonempty, and since it is a subset
+of the well-ordered set $J$, it by definition has a minimal element, which we will denote as $m$. \\
+
+Since $m$ is by definition the minimal element in $J$ that is not in $J_0$, all elements smaller than $J$ under the well-order relation are in $J_0$. 
+Equivalently, the section $S_m$ is a subset of $J_0$. Since $J_0$ is an inductive subset of $J$, this implies that $m$ is itself in $J_0$, which contradicts 
+the fact that $m$ was defined to be the minimal element in $J \setminus J_0$. \\
+
+Thus, $J_0$ must be equal to $J$. We conclude that if $J$ is a well-ordered set and $J_0$ is an inductive subset of $J$, then $J_0 = J$.
+\end{solution}
+\end{document}
