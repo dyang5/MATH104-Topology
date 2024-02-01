@@ -298,7 +298,7 @@ Let $A$ be a subset of the topological space $X$.
 \end{theorem}
 
 \begin{eg}
-If $A = (0, 1]$, then $\overline{A} = [0, 1]$. If $B = \{ \frac{1}{n} \mid n \in \Z_+ \} $, then $\overline{B} = 0 \cup B$.
+If $A = (0, 1]$, then $\overline{A} = [0, 1]$. If $B = \{ \frac{1}{n} \mid n \in \Z_+ \} $, then $\overline{B} = \{0\} \cup B$.
 \end{eg}
 
 \begin{eg}
@@ -339,3 +339,114 @@ Let $X$ and $Y$ be topological spaces. A function $f \colon X \rightarrow Y$ is 
 the set $f^{-1}(V)$ is an open subset of $X$.
 \end{definition}
 
+\begin{remark}
+To prove continuity of $f$, it suffices to show that the inverse image of every basis element is open; 
+it can even suffice to show that the inverse of each subbasis is open.
+\end{remark}
+
+\begin{theorem}[Continuity Equivalences]
+Let $X$ and $Y$ be topological spaces; let $f \colon X \rightarrow Y$. Then the following are equivalent:
+\begin{enumerate}
+    \item $f$ is continuous.
+    \item For every subset $A$ of $X$, one has $f(\overline{A}) \subset \overline{f(A)}$.
+    \item For every closed set $B$ of $Y$, the set $f^{-1}(B)$ is closed in $X$.
+    \item For each $x \in X$ and each neighborhood $V$ of $f(x)$, there is a neighborhood $U$ of $x$ such that $f(U) \subset V$. 
+\end{enumerate}
+
+If condition 4 holds for the point $x$ of $X$, we say $f$ is \textbf{continuous at the point $x$}.
+\end{theorem}
+
+\begin{definition}[Homeomorphism]
+Let $X$ and $Y$ be topological spaces; let $f \colon X \rightarrow Y$ be a bijection. If both the function $f$ and the inverse function
+\[
+    f^{-1} \colon Y \rightarrow X
+\]
+
+are continuous, then $f$ is a \textbf{homeomorphism}. \\
+
+Equivalently, $f$ is a homeomorphism if there is a bijective correspondence $f \colon X \rightarrow Y$ such that $f(U)$ is open if and only if $U$ is open.
+\end{definition}
+
+\begin{remark}
+Just as isomorphisms preserve algebraic properties of groups/rings, homeomorphisms preserve topological structures.
+\end{remark}
+
+\begin{definition}[Imbedding]
+Let $f \colon X \rightarrow Y$ be an injective continuous map between topological spaces $X$ and $Y$. Let $Z$ be the image set $f(X)$ considered as a subspace of $Y$;
+then the function $f^{\prime} \colon X \rightarrow Z$ obtained by restricting the range is bijective. \\
+
+If $f^{\prime}$ is a homemorphism of $X$ with $Z$, then the map $f$ is a \textbf{topological imbedding} (or \textbf{imbedding}) of $X$ in $Y$.
+\end{definition}
+
+\begin{eg}
+The function $F: (-1, 1) \rightarrow \R$ defined by $F(x) = \frac{x}{1-x^2}$ is a homemomorphism.
+\end{eg}
+
+\begin{remark}
+A bijective function $f \colon X \rightarrow Y$ can be continuous without being a homomorphism: consider $F: [0, 1) \rightarrow S^1$ by $f(t) = (\cos 2\pi t, \sin 2\pi  t)$;
+$f^{-1}$ is not continuous, as $f^{-1}([0, \frac{1}{4}))$ does not lie in an open set $V$ of $\R^2$ such that $V \cap S^1 \subset f([0, \frac{1}{4}))$.
+\end{remark}
+
+\begin{theorem}[Rules for Constructing Continuous Functions]
+Let $X$, $Y$, and $Z$ be topological spaces. 
+\begin{enumerate}[a)]
+    \item (Constant function) If $f \colon X \rightarrow Y$ maps all of $X$ into the single point $y_0$ of $Y$, then $f$ is continuous.
+    \item (Inclusion) If $A$ is a subspace of $X$, the inclusion function $j \colon A \rightarrow X$ is continuous. 
+    \item (Composites) If $f \colon X \rightarrow Y$ and $g \colon Y \rightarrow Z$ are continuous, then so is $g \circ f : X \rightarrow Z$.
+    \item (Restricting the domain) If $f \colon X \rightarrow Y$ is continuous, and if $A$ is a subspace of $X$, then the restricted function $f \mid A \colon A \rightarrow Y$ is continuous.
+    \item (Restricting or expanding the range) Let $f \colon X \rightarrow Y$ be continuous. If $Z$ is a subspace of $Y$ containing the image set $f(X)$, then the function
+    $g \colon X \rightarrow Z$ obtained by restricting the range of $f$ is continuous. If $Z$ is a space having $Y$ as a subspace, then the function $h \colon X \rightarrow Z$ obtained by
+    by expanding the range of $f$ is continuous.
+    \item (Local formulation of continuinity) The map $f \colon X \rightarrow Y$ is continuous if $X$ can be written as the union of open sets $U_\alpha$ such that $f \mid U_\alpha$ is continuous for each $\alpha$.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[The Pasting Lemma]
+Let $X = A \cup B$ where $A$ and $B$ are closed in $X$, and let $f \colon A \rightarrow Y$ and $g \colon B \rightarrow Y$ be continuous. 
+If $f(x) = g(x)$ for every $x \in A \cap B$, then $f$ and $g$ combine to give a continuous function $h\colon X \rightarrow Y$, defined by
+$h(x) = f(x)$ if $x \in A$ and $h(x) = g(x)$ if $x \in B$.
+\end{theorem}
+
+\begin{theorem}[Maps into Products]
+Let $f \colon A \rightarrow X \times Y$ be given by the equation $f(a) = (f_1(a), f_2(a))$. Then $f$ is continuous if and only if the functions
+$f_1 \colon A \rightarrow X$ and $f_2\colon A \rightarrow Y$ are continuous.
+\end{theorem}
+
+\subsection{The Product Topology}
+
+\begin{definition}[Box Topology]
+Let $\{ X_\alpha \}_{\alpha \in J}$ be an indexed family of topological spaces. Take as a basis for a topology on the product space $\prod _{\alpha \in J} X_\alpha$ the collection of all sets of the form
+\[
+    \prod_{\alpha \in J} U_\alpha,
+\]
+where $U_\alpha$ is open in $X_\alpha$, for each $\alpha \in J$. The topology generated by this basis is the \textbf{box topology}.
+\end{definition}
+
+\begin{definition}[Projection Mapping]
+Let $\pi_{\beta} \colon  \prod _{\alpha \in J} X_\alpha \rightarrow X_\beta$ be the function assigning to each element of the product space its $\beta$th coordinate, 
+\[
+    \pi _\beta((x_\alpha)_{\alpha \in J}) = x_\beta.
+\]
+$\pi_\beta$ is the \textbf{projection mapping} associated with index $\beta$.
+\end{definition}
+
+\begin{definition}[Product Topology]
+Let $\mathscr{S}_\beta$ denote the collection
+\[
+    \mathscr{S}_\beta = \{ \pi _\beta^{-1} (U_\beta) \mid U_\beta \text{ open in $X_\beta$}\} 
+\]
+
+and let $S$ denote the union of these collections, $S = \bigcup_{\beta \in J} \mathscr{S}_\beta$. \\
+
+The topology generated by the subbasis $\mathscr{S}$ is the \textbf{product topology} and the topology $\prod_{\alpha \in J} X_\alpha$ is a \textbf{product space}. 
+\end{definition}
+
+\begin{theorem}[Comparison of Box and Product Topologies]
+The box topology on $\prod X_\alpha$ has as basis all sets of the form $\prod  U_\alpha$ where $U_\alpha$ is open in $X_\alpha$ for each $\alpha$. \\
+
+The product topology on $\prod X_\alpha$ has as basis all sets of the form $\prod  U_\alpha$ where $U_\alpha$ is open in $X_\alpha$ for each $\alpha$ and $U_\alpha$ equals $X_\alpha$ except for finitely many values of $\alpha$.
+\end{theorem}
+
+\begin{remark}
+For finite products, these topologies are identical. Furthermore, the box topology is in general finer than the product topology.
+\end{remark}
