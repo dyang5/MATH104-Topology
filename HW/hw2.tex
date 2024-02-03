@@ -44,7 +44,7 @@ Let $S$ be the product topology on $X \times Y$ induced by $T$ and $U$, and let 
 	\begin{solution}
 	Let $A \times B$ be an open set in $(X \times Y, S)$. Since $(X, T)$ is coarser than $(X, T^{\prime})$, it follows that $A \subset A^{\prime}$, where $A^{\prime}$ is an open
 	set in $(X, S^{\prime})$. Similarly, since $(Y, U)$ is coarser than $(Y, U^{\prime})$, it follows that $B \subset B^{\prime}$ where $B^{\prime}$ is an open
-	set in $(Y, U^{\prime})$. Thus, $A^{\prime} \times B^{\prime}$ is an open set in $(X \times Y, S^{\prime})$. Since every open set in $(X \times Y, S)$ is an open set in $(X^{\prime} \times Y^{\prime}, S^{\prime})$,
+	set in $(Y, U^{\prime})$. Thus, $A^{\prime} \times B^{\prime}$ is an open set in $(X \times Y, S^{\prime})$. Since every open set in $(X \times Y, S)$ is an open set in $(X \times Y, S^{\prime})$,
 	it follows that $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$, as desired.
 	\end{solution}
 	
@@ -56,7 +56,7 @@ Let $S$ be the product topology on $X \times Y$ induced by $T$ and $U$, and let 
 	Let $A$ be a nonempty open set in $(X, T)$. We will show that $A$ is open in $(X, T^{\prime})$. \\
 
 	By definition, since $A$ is open in $(X, T)$ and $Y$ is open in $U$, it follows that $A \times Y$ is open in the product topology $S$. Furthermore, since $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$, this means that
-	$A \times Y$ is also open in the product topology $S^{\prime}$. By definition, then, it can be written as the union of nonempty open sets in $S^{\prime}$:
+	$A \times Y$ is also open in the product topology $S^{\prime}$. Consequently, $A \times Y$ can be written as the union of nonempty open sets in $S^{\prime}$:
 	\[
 		A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}
 	\]
@@ -64,7 +64,7 @@ Let $S$ be the product topology on $X \times Y$ induced by $T$ and $U$, and let 
 	were empty for a given $\alpha$, then the product $V_\alpha \times W_\alpha$ would be the empty set.} \\
 
 	We claim that $A = \bigcup\limits_{\alpha \in J} V_\alpha$, and we will show containment in both directions. First, we will show that $A \in \bigcup\limits_{\alpha \in J} V_\alpha$. Let $x \in A$ and let $y$ be an arbitrary element in $Y$.
-	Since $A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and $x \in A$, it follows that $x \times y \in \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and so $x \times y \in V_\alpha \times W_\alpha$ for a specific value of $\alpha$. Consequently, $x \in V_\alpha$ for that 
+	Since $A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and $x \in A$, it follows that $x \times y \in \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and so $x \times y \in V_\alpha \times W_\alpha$ for at least one value of $\alpha$. Consequently, $x \in V_\alpha$ for that 
 	value of $\alpha$, and so $x \in \bigcup\limits_{\alpha \in J} V_\alpha$. Thus, $A \subseteq \bigcup\limits_{\alpha \in J} V_\alpha$. \\
 
 	For the other direction of containment, let $x \in \bigcup\limits_{\alpha \in J} V_\alpha$. Then $x \in V_\alpha$ for some value of $\alpha$. We can pick any arbitrary $y \in W_\alpha$ for that same value of $\alpha$, as $W_\alpha$ is nonempty. Then
@@ -85,6 +85,18 @@ Let $S$ be the product topology on $X \times Y$ induced by $T$ and $U$, and let 
 
 \textbf{Show that $X$ is Hausdorff if and only if the diagonal $\triangle = \{ x \times x \mid x \in X \}$ is closed in $X \times X$.}
 
+\begin{solution}
+Suppose that $X$ is Hausdorff. Consider two distinct elements $x$ and $y$ in $X$. Since $X$ is Hausdorff, there exists 
+disjoint open sets $A$ and $B$ in $X$ such that $x \in A$, $y \in B$. Since $A$ and $B$ are disjoint, they have no elements of $X$ in common. Consequently, it follows that $(A \times B) \cap \triangle = \varnothing$.
+Since $A \times B$ is an open set $U$ in $X \times X$ containing $(x, y)$ that does not intersect $\triangle$, it follows that any point $(x, y)$ cannot be in the closure of $\triangle$, and so 
+$\triangle = \overline{\triangle}$. Equivalently, $\triangle$ is closed. \\
+
+The reverse implication follows similarly. Suppose that $\triangle$ is closed, so it is its own closure. Consequently, every point $(x, y) \in X \times X$ with $x \neq y$ is not in $\overline{\triangle}$.
+It follows that there exists an open set $A \times B$ in $X \times X$ containing $(x, y)$ such that $(A \times B) \cap \triangle$ is empty. Equivalently, $A$ and $B$ must be disjoint open sets in $X$ where $x \in A$ and $y \in B$.
+By definition, this tells us that $X$ is Hausdorff. \\
+
+Thus, we conclude that $X$ is Hausdorff if and only if the diagonal $\triangle = \{ x \times x \mid x \in X \}$ is closed in $X \times X$. 
+\end{solution}
 \newpage
 
 \underline{Section 17 (Closed Sets and Limit Points), 17.8} \\
@@ -102,17 +114,40 @@ one of the inclusions $\subset$ or $\supset$ holds.}
 	\] 
 	Let $x \in \overline{A \cap B}$. By definition, every open set $U$ of $X$ containing $x$
 	must intersect $A \cap B$. Consequently, $U$ must intersect both $A$ and $B$. Since every open set $U$ of $X$ containing $x$ intersects $A$, and every open set $U$ of $X$ containing $x$ intersects $B$, it follows
-	that $x \in \overline{A}$ and $x \in \overline{B}$. Thus, $x \in \overline{A} \cap \overline{B}$. \\
+	that $x \in \overline{A}$ and $x \in \overline{B}$. Thus, $x \in \overline{A} \cap \overline{B}$. We conclude that $\overline{A \cap B} \subset \overline{A} \cap \overline{B}$. \\
 
-	On the other hand, let $A$ be the set of all positive real numbers, and let $B$ be the set of all negative real numbers; $A$ and $B$ are subsets of $\R$. Note that
+	As a counterexample for the other direction of containment, let $A$ be the set of all positive real numbers, and let $B$ be the set of all negative real numbers; $A$ and $B$ are subsets of $\R$. Note that
 	$\overline{A} \cap \overline{B} = \{ 0 \}$ whereas $\overline{A \cap B} = \overline{\varnothing} = \varnothing$. Thus, $\overline{A} \cap \overline{B} \not\subset \overline{A \cap B}$.
 	\end{solution}
 
 	\item $\overline{\bigcap A_\alpha} = \bigcap \overline{A}_\alpha$.
 	
 	\begin{solution}
-		
+	We claim that
+	\[
+		\boxed{\overline{\bigcap A_\alpha} \subset \bigcap \overline{A}_\alpha}.
+	\]
+
+	Let $x \in \overline{\bigcap A_\alpha}$. By definition, every open set $U$ of $X$ containing $x$ must intersect $\bigcap A_\alpha$. Since $U$ intersects the intersection of the $A_\alpha$,
+	it must also intersect each $A_\alpha$. Thus, for each $\alpha$, $x \in \overline{A}_\alpha$; equivalently, $x \in \bigcap \overline{A}_\alpha$. We conclude that $\overline{\bigcap A_\alpha} \subset \bigcap \overline{A}_\alpha$. \\
+
+	As a counterexample for the other direction of containment, we can refer to the example in part (a); let $A_1$ be the set of all positive real numbers, and let $A_2$ be the set of all negative real numbers; $A_1$ and $A_2$ are subsets of $\R$. 
+	Since $\overline{A_1} \cap \overline{A_2} = \{ 0 \}$ whereas $\overline{A_1 \cap A_2} = \overline{\varnothing} = \varnothing$, we conclude that $\bigcap \overline{A}_\alpha \not\subset \overline{\bigcap A_\alpha}$.
 	\end{solution}
-	\item $\overline{A \text{ -- } B} = \overline{A} \text{--} \overline{B}$. 
+
+	\item $\overline{A \text{ -- } B} = \overline{A} \text{ -- } \overline{B}$. 
+	
+	\begin{solution}
+	We claim that
+	\[
+		\boxed{\overline{A} \text{ -- } \overline{B} \subset \overline{A \text{ -- } B}}.
+	\]
+
+	Let $x \in \overline{A} \text{ -- } \overline{B}$. By definition, every open set $U$ of $X$ containing $x$ must intersect $A$ and some open set $U^{\prime}$ containing $x$ will not intersect $B$. 
+	However, every open set of $X$ containing $x$ will intersect $A \text{ -- } B$. Thus, $x \in \overline{A \text{ -- } B}$ and we conclude that $\overline{A} \text{ -- } \overline{B} \subset \overline{A \text{ -- } B}$. \\
+
+	As a counterexample for the other direction of containment, let $A$ be the set of real numbers and let $B$ be the set of rationals; $A$ and $B$ are both subsets of $\R$. 
+	Note that $\overline{A} = \R$, $\overline{B}  = \R$ (as the rationals are dense in the reals), and $\overline{A \text{ -- } B} = \R$ (as the irrationals are also dense in the reals). 
+	Consequently, $\overline{A \text{ -- } B} = \R$ is not contained in $\overline{A} \text{ -- } \overline{B} = \varnothing$, and we conclude that $\overline{A \text{ -- } B} \not\subset \overline{A} \text{ -- } \overline{B}$. 	\end{solution}
 \end{enumerate}
 \end{document}
