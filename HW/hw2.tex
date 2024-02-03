@@ -31,8 +31,88 @@
 
 \textit{Chapter 2 (Topological Spaces and Continuous Functions) Problems.} \\
 
+\underline{Section 16 (The Subspace Topology), 16.5 (reformulated)} \\
+
+\textbf{Let $X$ and $Y$ be two sets, each with two topologies. So we have $4$ topological spaces: $(X, T)$, $(X, T^{\prime})$, $(Y, U)$, $(Y, U^{\prime})$. 
+Let $S$ be the product topology on $X \times Y$ induced by $T$ and $U$, and let $S^{\prime}$ be the product topology on $X \times Y$ induced by $T^{\prime}$ and $U^{\prime}$. 
+(So a \textit{basis} for S consists of sets of the form $V \times W$ for $V$ in $T$ and $W$ in $U$,  but $S$ itself does not just equal $T \times U$).}
+
+\begin{enumerate}[a)]
+	\item \textbf{Suppose that $(X,T)$ is coarser than $(X, T^{\prime})$ and $(Y,U)$ is coarser than $(Y,U^{\prime})$. 
+	Prove that $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$.}
+
+	\begin{solution}
+	Let $A \times B$ be an open set in $(X \times Y, S)$. Since $(X, T)$ is coarser than $(X, T^{\prime})$, it follows that $A \subset A^{\prime}$, where $A^{\prime}$ is an open
+	set in $(X, S^{\prime})$. Similarly, since $(Y, U)$ is coarser than $(Y, U^{\prime})$, it follows that $B \subset B^{\prime}$ where $B^{\prime}$ is an open
+	set in $(Y, U^{\prime})$. Thus, $A^{\prime} \times B^{\prime}$ is an open set in $(X \times Y, S^{\prime})$. Since every open set in $(X \times Y, S)$ is an open set in $(X^{\prime} \times Y^{\prime}, S^{\prime})$,
+	it follows that $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$, as desired.
+	\end{solution}
+	
+	\item \textbf{Suppose that $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$. 
+	Does it necessarily follow that $(X, T)$ is coarser than $(X, T^{\prime})$ and that $(Y, U)$ is coarser than $(Y, U^{\prime})$?}
+
+	\begin{solution}
+	Let $(X \times Y, S)$ be coarser than $(X \times Y, S^{\prime})$. To show that $(X, T)$ is coarser than $(X, T^{\prime})$, we will show that any arbitrary open set in $(X, T)$ is also an open set in $(X, T^{\prime})$. 
+	Let $A$ be a nonempty open set in $(X, T)$. We will show that $A$ is open in $(X, T^{\prime})$. \\
+
+	By definition, since $A$ is open in $(X, T)$ and $Y$ is open in $U$, it follows that $A \times Y$ is open in the product topology $S$. Furthermore, since $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$, this means that
+	$A \times Y$ is also open in the product topology $S^{\prime}$. By definition, then, it can be written as the union of nonempty open sets in $S^{\prime}$:
+	\[
+		A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}
+	\]
+	where $V_{\alpha}$ is nonempty and open in $(X, T^{\prime})$ and $W_{\alpha}$ is nonempty open in $(Y, U^{\prime})$.\footnote{Note that we can assume that $V_\alpha$ and $W_\alpha$ are nonempty for each $\alpha$ as if either of them 
+	were empty for a given $\alpha$, then the product $V_\alpha \times W_\alpha$ would be the empty set.} \\
+
+	We claim that $A = \bigcup\limits_{\alpha \in J} V_\alpha$, and we will show containment in both directions. First, we will show that $A \in \bigcup\limits_{\alpha \in J} V_\alpha$. Let $x \in A$ and let $y$ be an arbitrary element in $Y$.
+	Since $A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and $x \in A$, it follows that $x \times y \in \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$ and so $x \times y \in V_\alpha \times W_\alpha$ for a specific value of $\alpha$. Consequently, $x \in V_\alpha$ for that 
+	value of $\alpha$, and so $x \in \bigcup\limits_{\alpha \in J} V_\alpha$. Thus, $A \subseteq \bigcup\limits_{\alpha \in J} V_\alpha$. \\
+
+	For the other direction of containment, let $x \in \bigcup\limits_{\alpha \in J} V_\alpha$. Then $x \in V_\alpha$ for some value of $\alpha$. We can pick any arbitrary $y \in W_\alpha$ for that same value of $\alpha$, as $W_\alpha$ is nonempty. Then
+	$x \times y \in \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$. Since $A \times Y = \bigcup\limits_{\alpha \in J} V_{\alpha} \times W_{\alpha}$, it follows that $x \times y \in A \times Y$ and so $x \in A$ as desired. \\
+
+	Thus, by proving containment in both directions, we know $A = \bigcup\limits_{\alpha \in J} V_\alpha$. Since $A$ is a union of open sets $V_\alpha$ in $(X, T^{\prime})$, it follows that
+	$A$ is also open in $(X, T^{\prime})$. \\
+
+	Finally, since every open set in $(X, T)$ is also open in $(X, T^{\prime})$, we know that $(X, T)$ is coarser than $(X, T^{\prime})$. The same argument can be made
+	to show that $(Y, U)$ is coarser than $(Y, U^{\prime})$. We conclude that if $(X \times Y, S)$ is coarser than $(X \times Y, S^{\prime})$, it follows that 
+	$(X, T)$ is coarser than $(X, T^{\prime})$ and that $(Y, U)$ is coarser than $(Y, U^{\prime})$.
+	\end{solution}
+\end{enumerate}
+
+\newpage
+
 \underline{Section 17 (Closed Sets and Limit Points), 17.13} \\
 
 \textbf{Show that $X$ is Hausdorff if and only if the diagonal $\triangle = \{ x \times x \mid x \in X \}$ is closed in $X \times X$.}
 
+\newpage
+
+\underline{Section 17 (Closed Sets and Limit Points), 17.8} \\
+
+\textbf{Let $A$, $B$, and $A_\alpha$ denote subsets of a space $X$. Determine whether the following equations hold; if an equality fails, determine whether
+one of the inclusions $\subset$ or $\supset$ holds.}
+
+\begin{enumerate}[a)]
+	\item $\overline{A \cap B} = \overline{A} \cap \overline{B}$.
+	
+	\begin{solution}
+	We claim that 
+	\[
+		\boxed{\overline{A \cap B} \subset \overline{A} \cap \overline{B}}.
+	\] 
+	Let $x \in \overline{A \cap B}$. By definition, every open set $U$ of $X$ containing $x$
+	must intersect $A \cap B$. Consequently, $U$ must intersect both $A$ and $B$. Since every open set $U$ of $X$ containing $x$ intersects $A$, and every open set $U$ of $X$ containing $x$ intersects $B$, it follows
+	that $x \in \overline{A}$ and $x \in \overline{B}$. Thus, $x \in \overline{A} \cap \overline{B}$. \\
+
+	On the other hand, let $A$ be the set of all positive real numbers, and let $B$ be the set of all negative real numbers; $A$ and $B$ are subsets of $\R$. Note that
+	$\overline{A} \cap \overline{B} = \{ 0 \}$ whereas $\overline{A \cap B} = \overline{\varnothing} = \varnothing$. Thus, $\overline{A} \cap \overline{B} \not\subset \overline{A \cap B}$.
+	\end{solution}
+
+	\item $\overline{\bigcap A_\alpha} = \bigcap \overline{A}_\alpha$.
+	
+	\begin{solution}
+		
+	\end{solution}
+	\item $\overline{A \text{ -- } B} = \overline{A} \text{--} \overline{B}$. 
+\end{enumerate}
 \end{document}
