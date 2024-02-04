@@ -1,0 +1,63 @@
+\newpage
+
+\section{Chapter 3: Connectedness and Compactness}
+\setcounter{subsection}{22}
+
+\subsection{Connected Spaces}
+
+\begin{definition}[Separation and Connected Spaces]
+Let $X$ be a topological space. A \textbf{separation} of $X$ is a pair $U$, $V$ of disjoint nonempty open subsets of $X$
+whose union is $X$. \\
+
+The space is said to be \textbf{connected} if there does not exist a separation of $X$.
+\end{definition}
+
+\begin{remark}
+An equivalent formulation of a connected space is that $X$ is a connected space if and only if the subsets of $X$
+that are both open and closed in $X$ are the empty set and $X$ itself.
+\end{remark}
+
+\begin{lemma}
+If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint nonempty sets $A$ and $B$ whose union is $Y$, neither of which
+contains a limit point of each other. The space $Y$ is connected if there exists no separation of $Y$.
+\end{lemma}
+
+\begin{eg}
+The rationals are not connected: if $Y$ is a subspace of $\Q$ containing two points $p$ and $q$, one can choose
+an irrational number $a \in (p, q)$ and write $Y$ as the union of the open sets 
+\[
+    Y \cap (-\infty, a) \text{ and } Y \cap (a, \infty),
+\]
+thus showing that there exists a separation of $Y$ and proving that $Y$ is not connected. \\
+
+Consequently, the only connected subspaces of $\Q$ are the one-point sets.
+\end{eg}
+
+\begin{eg}
+Consider the following subset of the plane $\R^2$:
+\[
+    X = \{ x \times y \mid y = 0 \} \cup \{ x \times y \mid x > 0 \text{ and } y = \frac{1}{x} \}. 
+\]
+Then $X$ is not connected, as neither subset contains a limit point of the other.
+\end{eg}
+
+\begin{lemma}
+If the sets $C$ and $D$ form a separation of $X$ and if $Y$ is a connected subspace of $X$, then $Y$ lies entirely
+within either $C$ or $D$.
+\end{lemma}
+
+\begin{theorem}
+The union of a collection of connected subspaces of $X$ that have a point in common is connected.
+\end{theorem}
+
+\begin{theorem}
+Let $A$ be a connected subspace of $X$. If $A \subset B \subset \overline{A}$, then $B$ is also connected.
+\end{theorem}
+
+\begin{theorem}
+The image of a connected space under a continuous map is connected.
+\end{theorem}
+
+\begin{theorem}
+A finite cartesian product of connected spaces is connected.    
+\end{theorem}
