@@ -466,7 +466,7 @@ A \textbf{metric} on a set $X$ is a function $d \colon X \times X \rightarrow R$
 There is also the idea of a \textbf{$\varepsilon$-ball centered at $x$}: $B_d(x, \varepsilon) = \{ y \mid d(x, y) < \varepsilon \}$
 which we have grown to love from our Analysis classes. \\
 
-\begin{definition}[Metric Topology]
+\begin{definition}[The Metric Topology]
 If $d$ is a metric on the set $X$, then the collection of all $\varepsilon$-balls $B_d(x, \varepsilon)$, for $x \in X$ and $\varepsilon > 0$, is a basis for a topology on $X$,
 called the \textbf{metric topology} induced by $d$.
 \end{definition}
@@ -508,5 +508,87 @@ Given an index set $J$ and points $\mathbf{x} = (x_\alpha)_{\alpha \in J}$ and $
 where $\overline{d}$ is the standard bounded metric on $\R$ is known as the \textbf{uniform metric} on $\R^J$, and
 the topology it induces is called the \textbf{uniform topology}.
 \end{definition}
+
+\subsection{The Metric Topology (Continued)}
+
+\begin{theorem}
+Let $f \colon X \rightarrow Y$; let $X$ and $Y$ be metrizable with metrics $d_X$ and $d_Y$, respectively. Then continuity of $f$ is equivalent to the
+requirement that given $x \in X$ and given $\varepsilon > 0$, there exists $\delta > 0$ such that
+\[
+    d_X(x, y) < \delta \implies d_Y(f(x), f(y)) < \varepsilon.
+\]
+\end{theorem}
+
+\begin{lemma}[The Sequence Lemma]
+Let $X$ be a topological space; let $A \subset X$. If there is a sequence of points of $A$ converging to $x$, then $x \in \overline{A}$; the converse holds
+if $X$ is metrizable.
+\end{lemma}
+
+\begin{definition}[Countable Basis, First Countability Axiom]
+A space $X$ is said to have a \textbf{countable basis at the point $x$} if there is a countable collection $\{ U_n \}_{n \in \Z_+}$ of neighborhoods of $x$
+such that any neighborhood $U$ of $x$ contains \textit{at least one} of the sets $U_n$. \\
+
+A space $X$ that has a countable basis at each of its points is said to satisfy the \textbf{first countability axiom}.
+\end{definition}
+
+\begin{theorem}[Uniform Limit Theorem]
+Let $f_n \colon X \rightarrow Y$ be a sequence of continuous functions from the topological space $X$ to the metric space $Y$. If $(f_n)$ converges uniformly to $f$, then
+$f$ is continuous.
+\end{theorem}
+
+\begin{eg}
+$\R^\omega$ in the box topology is not metrizable. \\
+
+An uncountable product of $\R$ with itself is not metrizable.
+\end{eg}
+
+\subsection{The Quotient Topology}
+
+\begin{definition}[Quotient Map]
+Let $X$ and $Y$ be topological spaces; let $p \colon X \rightarrow Y$ be a surjective map. The map $p$ is said to be a \textbf{quotient map} 
+provided a subset $U$ of $Y$ is open in $Y$ if and only if $p^{-1}(U)$ is open in $X$. \\
+
+Equivalently, $p$ is a quotient map if every subset $A$ of $Y$ is closed in $Y$ if and only if $p^{-1}(A)$ is closed in $X$.
+\end{definition}
+
+\begin{definition}
+A subset $C$ of $X$ is \textbf{saturated} (with respect to the surjective map $p\colon X \rightarrow Y$) if $C$ contains every set $p^{-1}(\{ y \})$ that it intersects.
+Thus $C$ is saturated if it equals the converse inverse image of a subset of $Y$. \\
+
+The statement ``$p$ is a quotient map'' is equivalent to the statement that ``$p$ is continuous and maps saturated open sets of $X$ to open sets of $Y$'' (or 
+saturated closed sets of $X$ to closed sets of $Y$).
+\end{definition}
+
+\begin{definition}[Open and Closed Maps]
+A map $f \colon  X \rightarrow Y$ is an \textbf{open map} if for each open set $U$ of $X$, the set $f(U)$ is open in $Y$. \\
+
+A map $f \colon  X \rightarrow Y$ is a \textbf{closed map} if for each closed set $A$ of $X$, the set $f(A)$ is closed in $Y$.
+\end{definition}
+
+\begin{remark}
+Any surjective continuous map $p\colon X \rightarrow Y$ that is either open or closed is a quotient map. \\
+
+However, there are quotient maps that are neither open nor closed.
+\end{remark}
+
+\begin{definition}[Quotient Topology]
+If $X$ is a space and $A$ is a set and if $p \colon X \rightarrow A$ is a surjective map, then there exists exactly one topology $\mathscr{T}$ on $A$ relative to which
+$p$ is a quotient map, and this is the \textbf{quotient topology} induced by $p$. \\
+
+The topology itself consists of subsets $U$ of $A$ such that $p^{-1}(U)$ is open in $X$.
+\end{definition}
+
+\begin{definition}[Quotient Space]
+Let $X$ be a topological space, and let $X^*$ be a partition of $X$ into distinct subsets whose union is $X$. Let $p \colon  X \rightarrow  X^*$ be the surjective map that
+carries each point of $X$ to the element of $X^*$ containing it. In the quotient topology induced by $p$, the space $X^*$ is called a \textbf{quotient space} of $X$.
+\end{definition}
+
+\begin{theorem}
+Let $p\colon X \rightarrow Y$ be a quotient map; let $A$ be a subspace of $X$ that is saturated with respect to $p$; let $q \colon A \rightarrow p(A)$ be the map obtained by restricting $p$.
+\begin{enumerate}
+    \item If $A$ is either open or closed in $X$, then $q$ is a quotient map.
+    \item If $p$ is either an open map or a closed map, then $q$ is a quotient map.
+\end{enumerate}
+\end{theorem}
 
 
