@@ -61,3 +61,41 @@ The image of a connected space under a continuous map is connected.
 \begin{theorem}
 A finite cartesian product of connected spaces is connected.    
 \end{theorem}
+
+\subsection{Connected Subspaces of the Real Line}
+
+\begin{definition}[Linear Continuum]
+A simply ordered set $L$ having more than one element is called a
+\textbf{linear continuum} if the following hold:
+\begin{enumerate}
+    \item $L$ has the least upper bound property.
+    \item If $x < y$, there exists $z$ such that $x < z < y$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+If $L$ is a linear continuum in the order topology, then $L$
+is connected and so are intervals and rays in $L$.
+\end{theorem}
+
+\begin{theorem}[Intermediate Value Theorem]
+Let $f\colon X \rightarrow Y$ be a continuous map, where $X$ is a connected space and $Y$ is an ordered set in the order topology.
+If $a$ and $b$ are two points of $X$ and if $r$ is a point of $Y$ lying between
+$f(a)$ and $f(b)$, then there exists a point $c$ of $X$ such that $f(c) = r$.
+\end{theorem}
+
+\begin{definition}
+Given points $x$ and $y$ of the space $X$, a \textbf{path} in $X$ from $x$ to $y$
+is a continuous map $f\colon [a, b] \rightarrow X$ of some closed interval in the real line into $X$, such
+that $f(a) = x$ and $f(b) = y$. \\
+
+A space $X$ is said to be \textbf{path connected} if every pair of points of $X$ can be joined by a path in $X$.
+\end{definition}
+
+\begin{remark}
+A path-connected space $X$ is connected; suppose that $X = A \cup B$ is a separation of $X$. Let $f\colon [a, b] \rightarrow X$ be any path in $X$. 
+The set $f([a, b])$ is the image of a connected set, so it is connected, and must lie entirely in $A$ or $B$. Thus, there is no path $X$
+joining a point of $A$ to a point of $B$, contradicting the assumption of path connectedness of $X$. \\
+
+On the other hand, the converse does not hold.
+\end{remark}
