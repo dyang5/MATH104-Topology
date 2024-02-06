@@ -1,0 +1,124 @@
+\documentclass[11pt]{article}
+\usepackage{../styletemplate}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Spring 2024}\newline
+
+		{\Large Connected Subspaces of the Real Line}
+
+		David Yang and Adin Aberbach
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\section{Introduction and Relevant Theorems}
+
+\begin{definition}[Linear Continuum]
+A simply ordered set $L$ having more than one element is called a
+\textbf{linear continuum} if the following hold:
+\begin{enumerate}
+    \item $L$ has the least upper bound property.
+    \item If $x < y$, there exists $z$ such that $x < z < y$.
+\end{enumerate}
+\end{definition}
+
+\begin{eg}[Example 1, page 155]
+The ordered square (under the dictionary topology) is a linear continuum. (\textit{See example in textbook for more details}.)
+\end{eg}
+
+\begin{definition}[Path and Path Connectedness]
+Given points $x$ and $y$ of the space $X$, a \textbf{path} in $X$ from $x$ to $y$
+is a continuous map $f\colon [a, b] \rightarrow X$ of some closed interval in the real line into $X$, such
+that $f(a) = x$ and $f(b) = y$. \\
+
+\noindent A space $X$ is said to be \textbf{path connected} if every pair of points of $X$ can be joined by a path in $X$.
+\end{definition}
+
+\begin{theorem}[Theorem 21.3, page 130]
+Let $f\colon X\rightarrow Y$. If the function $f$ is continuous, then for every convergent sequence $x_n \rightarrow x$ in $X$, the sequence $f(x_n)$ converges to $f(x)$. 
+The converse holds if $X$ is metrizable.
+\end{theorem}
+
+\begin{theorem}[Theorem 23.4, page 150]
+Let $A$ be a connected subspace of $X$. If $A \subset B \subset \overline{A}$, then $B$ is also connected.
+\end{theorem}
+
+\begin{theorem}[Theorem 23.5, page 150]
+The image of a connected space under a continuous map is connected.
+\end{theorem}
+
+\begin{theorem}[Theorem 24.1, page 153]
+If $L$ is a linear continuum in the order topology, then $L$ is connected, and so are intervals and rays in $L$.
+\end{theorem}
+
+\begin{theorem}[Theorem 24.3, page 154 -- Intermediate Value Theorem]
+Let $f \colon X \rightarrow Y$ be a continuous map, where $X$ is a connected space and $Y$ is an ordered set in the order topology. If $a$ and $b$ are two points of $X$ and if $r$ is a point of $Y$ lying between $f(a)$ and $f(b)$, then there exists a point $c$ of $X$ such that $f(c) = r$.
+\end{theorem}
+
+\newpage
+
+\section{Main Examples}
+
+\begin{eg}[Example 6, page 156]
+The ordered square $I_o^2$ is connected but not path connected.
+\end{eg}
+
+\begin{proof}
+By Theorem 24.1, since $I_o^2$ is a linear continuum under the order topology, it is connected. We will show that it is not path connected by showing that there is no path between points $p = 0 \times 0$ and $q = 1 \times 1$ in $I_o^2$. \\
+
+Suppose for the sake of contradiction that there is a path $f \colon [a, b] \rightarrow I_o^2$. $f$ is a continuous map from the connected interval $[a, b]$ to $I_o^2$. By the Intermediate Value Theorem, the image set $f([a, b])$ (which contains $p$ and $q$, the smallest and largest elements in $I_o^2$) must contain every point $x \times y$ of $I_o^2$. \\
+
+Consider the subsets 
+\[
+    U_x = f^{-1}\left( x \times (0, 1) \right)
+\]
+
+for each $x \in I$. Note that since $f$ is continuous, each $U_x$ is open. Furthermore, by construction, each $U_x$ is disjoint, as $f^{-1}\left( x \times (0, 1) \right) \cap f^{-1}\left( y \times (0, 1) \right)$ for $x \neq y$. \\
+
+For each $x \in I$, pick a rational number $q_x \in \mathbb{Q} \cap U_x$. Consider the map $g \colon I \rightarrow \mathbb{Q}$
+\[
+    g(x) = q_x.
+\]
+Since each $Q_x$ is disjoint, this is an injective mapping from $I$ into $\mathbb{Q}$. Consequently, we find that $|\mathbb{Q}| \geq |I|$. But $\mathbb{Q}$ is countable whereas $I$ is uncountable, so we have a contradiction.\\
+
+We conclude that there is no path between points $p$ and $q$ in $I_o^2$, so $I_o^2$ is not path connected.\end{proof}
+
+\begin{eg}
+Let $S$ denote the following subset of the plane:
+\[
+    S = \{ x \times \sin \left( \frac{1}{x} \right) \mid 0 < x < 1\}. 
+\]
+$\overline{S}$ is known as the \textbf{topologist's sine curve}, and is not path-connected.
+\end{eg}
+
+Before we begin, note that by Theorem 23.5, $S$ is connected. \\
+
+Furthermore, by Theorem 23.4, it follows that $\overline{S} = S \cup \{ 0 \times [-1, 1] \}$ is connected.
+\begin{proof}
+Suppose for the sake of contradiction that there is a path $f \colon [a, c] \rightarrow \overline{S}$ beginning at $0 \times 0$ and ending at some point of $S$. Define
+\[
+    L = \{ t \mid f(t) \in 0 \times [-1, 1]\}.
+\]
+
+Since $f$ is c continuous, $L$ is closed, so it has a larger element, which we can denote as $b$. By construction, $f \mid [b, c]$ ($f$ restricted to the interval $[b, c]$) is a path with $f(b) \in 0 \times [-1, 1]$ and $f((b ,c]) \subseteq S$. For the remainder of the proof, we will focus on the restricted map $f \mid [b, c]$.\\
+
+Let $f(t) = (x(t), y(t))$. Note that by definition of $b$, $x(b) = 0$ and $x(t) > 0$ for any $t > b$. Furthermore, $y(t) = \sin\left( \frac{1}{x(t)}\right)$ for $t > b$. \\
+
+To show that $f$ is in fact not continuous, we show that there is a sequence of points $(t_n) \subseteq [b, c]$ such that $t_n \rightarrow b$ and $y(t_n) = (-1)^n$, contradicting the result from Theorem 21.3. \\
+
+Let $n \in \mathbb{N}$. Choose $u$ such that 
+\[ 
+    x(b) < u < x\left( b + \frac{1}{n}\right)
+\]
+satisfying $\sin \left( \frac{1}{u} \right) = (-1)^n$; such a value $u$ exists as there are infinitely many oscillations between $x(b) = 0$ and $x\left( b + \frac{1}{n}\right)$. \\
+
+Since $x$ is a continuous function from a connected set $[b, c]$ to the ordered set $[0, 1]$ in $\overline{S}$, it follows from the Intermediate Value Theorem that there exists some $t_n \in \left(b, b + \frac{1}{n}\right)$ satisfying $x(t_n) = u$. \\
+
+Thus, we've constructed a sequence of points $(t_n) \subseteq [b, c]$ such that $t_n \rightarrow b$ and $y(t_n) = (-1)^n$; since the sequence $f(t_n) = (x(t_n), y(t_n))$ does not converge to $f(b)$, we know by Theorem 21.3 that $f$ is not continuous. We conclude that $\overline{S}$ is not path-connected.
+\end{proof}
+\end{document}

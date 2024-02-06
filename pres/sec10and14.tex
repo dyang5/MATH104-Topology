@@ -1,0 +1,63 @@
+\documentclass[11pt]{article}
+\usepackage{../styletemplate}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Spring 2024}\newline
+
+		{\Large The Order Topology and the First Uncountable Ordinal}
+
+		David Yang and Spencer Martin
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\section{Introduction}
+
+\begin{definition}[Order Topology]
+Let $X$ be a set with a simple order relation and assume that $X$ has more than one element. Let $\mathscr{B}$ be the collection of all sets of the following types:
+\begin{enumerate}
+    \item All open intervals $(a, b)$ in $X$.
+    \item All intervals of the form $[a_0, b)$ where $a_0$ is the smallest element (if any) of $X$.
+    \item All intervals of the form $(a, b_0]$ where $b_0$ is the largest element (if any) of $X$.
+\end{enumerate}
+
+The collection $\mathscr{B}$ is a basis for a topology on $X$, known as the \textbf{order topology}. \\
+
+\textit{If $X$ has no smallest element, there are no sets of type $2$, and if $X$ has no largest element, there are no sets of type $3$.}
+\end{definition}
+
+\begin{lemma}[Lemma 13.1, page 80]
+Let $X$ be a set; let $\mathscr{B}$ be a basis for a topology $\mathcal{T}$ on $X$. Then $\mathcal{T}$ equals the collection of all unions of elements of $\mathscr{B}$.
+\end{lemma}
+
+
+\begin{lemma}[Lemma 10.2, page 66]
+There exists a well-ordered set $A$ having a largest element $\Omega$, such that $S_\Omega$ of $A$ by $\Omega$
+is uncountable but every other section of $A$ is uncountable.
+\end{lemma}
+
+We can actually construct such a well-ordered set! Assuming the existence of an uncountable well-ordered set $B$ (a weaker result following from the axiom of choice), define $C$ to be the well-ordered set $\{1, 2\} \times B$ in the dictionary order; a section of $C$ is uncountable (for example, the section of $C$ by any element of the form $2 \times b$). Let $\Omega$ be the smallest element of $C$ for which the section of $C$ by $\Omega$ is uncountable, and let $A$ be this section along with $\Omega$.
+
+\begin{definition}[Minimal Uncountable Well-Ordered Set]
+$S_\Omega$ is an uncountable well-ordered set, every section of which is countable; it is known as the \textbf{minimal uncountable well-ordered set}. \\
+
+Alternatively, $S_\Omega$ is known as the \textbf{first uncountable ordinal}, and the closure of $\overline{S}_\Omega$ is $\overline{S}_\Omega = S_\Omega \cup \{ \Omega\}$.
+\end{definition}
+
+\section{The Order Topology of the First Uncountable Ordinal}
+
+\begin{itemize}
+    \item Sets of type $2$ in the order topology can be thought of as sections of $S_{\Omega}$, and are countable.
+    \item By problem 10.6(a) on page 67, $S_{\Omega}$ has no largest element, so no set of type $3$ exists in $S_{\Omega}$.
+    \item Since $S_\Omega$ is well-ordered, any nonempty subset has to have a minimal element; consequently, all basis elements in the order topology can be written in the form $[a,b)$.  
+    \item We can characterize all open sets of $S_\Omega$: they must be unions of our basis elements. These look like unions of disjoint intervals of open sets, or are of the form of our basis elements.
+\end{itemize}
+
+
+
+\end{document}
