@@ -102,8 +102,8 @@ On the other hand, the converse does not hold.
 
 \begin{eg}
 The ordered square $I_o^2$ is connected but not path connected.
-\end{eg}
-
+\end{eg} 
+\vspace{1cm}
 \begin{eg}
 Let $S$ denote the following subset of the plane:
 \[
@@ -111,3 +111,134 @@ Let $S$ denote the following subset of the plane:
 \]
 $\overline{S}$ is known as the \textbf{topologist's sine curve}, and is not path-connected.
 \end{eg}
+
+\subsection{Components and Local Connectedness}
+
+\begin{definition}[Components]
+Given $X$, define an equivalence relation on $X$ by setting $x \sim y$ if there is a connected subspace of $X$ containing both $x$ and $y$. \\
+
+The equivalence classes are the \textbf{components} (or connected components) of $X$.
+\end{definition}
+
+\begin{theorem}
+The components of $X$ are connected disjoint subspaces of $X$ whose union is $X$, such that each nonempty connected subspace of $X$ intersects only one of them.
+\end{theorem}
+
+\begin{definition}[Path Components]
+Given $X$, define an equivalence relation on $X$ by setting $x \sim y$ if there is a path in $X$ from $x$ to $y$. \\
+
+The equivalence classes form the \textbf{path components}.
+\end{definition}
+
+\begin{theorem}
+The path components of $X$ are path-connected disjoint subspaces of $X$ whose union is $X$, such that each nonempty path-connected subspace of $X$ intersects only one of them.
+\end{theorem}
+
+\begin{remark}
+Each component of $X$ is closed in $X$, since its closure is also connected. If $X$ has a finite number of components, each component is also open. \\
+
+On the other hand, the path components of $X$ do not need not be open nor closed in $X$.
+\end{remark}
+
+\begin{eg}
+Each component of the subspace $\Q$ of $\R$ is a single point -- none of these components are open in $\Q$. \\
+
+$\overline{S}$ is a space with a single component and two path components ($S$ and $V = 0 \times [-1, 1]$). Note that $S$ in open in $\overline{S}$ but not closed, while $V$ is closed but not open.
+\end{eg}
+    
+\begin{definition}[Local Connectedness]
+A space $X$ is said to be \textbf{locally connected at $x$} if for every neighborhood $U$ of $x$, there is a connected neighborhood $V$ of $x$ contained in $U$.
+If $X$ is locally connected at each of its points, it is said simply to be \textbf{locally connected}. \\
+
+Similarly, a space $X$ is said to be \textbf{locally path connected at $x$} if for every neighborhood $U$ of $x$, there is a path connected neighborhood $V$ of $x$ contained in $U$.
+If $X$ is locally path connected at each of its points, it is said simply to be \textbf{locally path connected}. \\
+\end{definition}
+
+\begin{eg}
+The subspace $[-1, 0) \subset (0, 1]$ of $\R$ is not connected, but is locally connected. \\
+
+The topologist's sine curve is connected but not locally connected. The rationals are neither connected nor locally connected.
+\end{eg}
+
+\begin{theorem}
+A space $X$ is locally (path) connected if and only if for every open set $U$ of $X$, each (path) component of $U$ is open in $X$.
+\end{theorem}
+
+\begin{theorem}
+If $X$ is a topological space, each path component of $X$ lies in a component of $X$. If $X$ is locally path connected, then the components and the path components of $X$ are the same.
+\end{theorem}
+
+
+\subsection{Compact Spaces}
+
+\begin{definition}[Cover and Open Cover]
+A collection $\mathscr{A}$ of subsets of a space $X$ \textbf{covers} $X$ if the union of the elements of $\mathscr{A}$ is equal to $X$. \\
+
+It is an \textbf{open cover} if the subsets in $\mathscr{A}$ are open sets.
+\end{definition}
+
+\begin{definition}[Compact]
+A space $X$ is \textbf{compact} if every open covering $\mathscr{A}$ of $X$ contains a finite subcollection that covers $X$.
+\end{definition}
+
+\begin{eg}
+$\R$ is not compact but the subspace 
+\[
+    X = \{ 0 \} \cup \left\{ \frac{1}{n} \mid n \in \Z_+ \right\}  
+\]
+of $\R$ is compact.
+\end{eg}
+
+\begin{lemma}
+Let $Y$ be a subspace of $X$. Then $Y$ is compact if and only if every covering of $Y$ by sets open in $X$ contains a finite subcollection covering $Y$.
+\end{lemma}
+
+\begin{theorem}
+Every closed subspace of a compact space is compact.
+\end{theorem}
+
+\begin{theorem}
+Every compact subspace of a Hausdorff space is closed.
+\end{theorem}
+
+\begin{lemma}
+If $Y$ is a compact subspace of the Hausdorff space $X$ and $x_0$ in $Y$, then there exist disjoint open sets $U$ and $V$ of $X$ containing $x_0$ and $Y$, respectively. 
+\end{lemma}
+
+\begin{theorem}
+The image of a compact space under a continuous map is compact.
+\end{theorem}
+
+\begin{theorem}
+Let $f\colon X \rightarrow Y$ be a bijective continuous function. If $X$ is compact and $Y$ is Hausdorff, then $f$ is a homeomorphism.
+\end{theorem}
+
+\begin{theorem}
+The product of finitely many compact spaces is compact.
+\end{theorem}
+
+\begin{proof}
+Apply tube lemma (below), and take the union of finitely many tubes to be a finite subcollection covering the entire space.
+\end{proof}
+
+\begin{lemma}[Tube Lemma]
+Consider the product space $X \times Y$, where $Y$ is compact. If $N$ is an open set of $X \times Y$ containing the slice $x_0 \times Y$ of $X \times Y$, then $N$
+contains some tube $W \times Y$ about $x_0 \times Y$, where $W$ is a neighborhood of $x_0$ in $X$.    
+\end{lemma}
+
+\begin{theorem}[Tychnoff Theorem]
+The product of infinitely many compact spaces is compact.
+\end{theorem}
+
+\begin{definition}[Finite Intersection Property]
+A collection $\mathscr{C}$ of subsets of $X$ has the \textbf{finite intersection property} if for every finite subcollection 
+\[
+    \{ C_1, \dots, C_n \} 
+\]
+of $\mathscr{C}$, the intersection $C_1 \cap \dots \cap C_n$ is nonempty.
+\end{definition}
+
+\begin{theorem}
+Let $X$ be a topological space. Then $X$ is compact if and only if for every collection $\mathscr{C}$ of closed sets of $X$ having the finite intersection property,
+the intersection $\bigcap_{C \in \mathscr{C}} C$ of all the elements of $\mathscr{C}$ is nonempty.
+\end{theorem}

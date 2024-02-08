@@ -23,6 +23,7 @@
 \newcommand{\nc}{\newcommand}
 \nc{\nt}{\newtheorem}
 \nc{\on}{\operatorname}
+\renewcommand{\thesubsection}{\arabic{subsection}}
 
 
 % theorems
@@ -189,11 +190,14 @@
         }
 ]{conjpurplebox}
 
-\declaretheorem[style=thmgreenbox, name=Definition, numberwithin=section]{definition}
+
+\declaretheorem[style=thmgreenbox, name=Definition, numberwithin=subsection]{definition}
 \declaretheorem[style=thmgreen2box, name=Definition, numbered=no]{definition*}
-\declaretheorem[style=thmbluebox, name=Theorem, numberwithin=section]{theorem}
+\declaretheorem[style=thmbluebox, name=Theorem, numberwithin=subsection]{theorem}
 \declaretheorem[style=thmbluebox, name=Theorem, numbered=no]{theorem*}
-\declaretheorem[style=thmbluebox, name=Lemma, numberwithin=section]{lemma}
+\declaretheorem[style=thmbluebox, name=Lemma, numberwithin=subsection]{lemma}
+\declaretheorem[style=thmbluebox, name=Lemma, numbered=no]{lemma*}
+
 \declaretheorem[style=thmbluebox, name=Proposition, numberwithin=section]{proposition}
 \declaretheorem[style=thmbluebox, name=Corollary, numberwithin=section]{corollary}
 \declaretheorem[style=thmpinkbox, name=Problem, numberwithin=section]{problem}
@@ -228,9 +232,6 @@
 \declaretheorem[style=notgraybox, numbered=no, name=Notation]{notation}
 \declaretheorem[style=thmanswerbox, numbered=no, name=Answer]{tmpanswer}
 \newenvironment{answer}[1][]{\vspace{-10pt}\pushQED{\(\circledast\)}\begin{tmpanswer}}{\null\hfill\popQED\end{tmpanswer}}
-
-
-
 
 \nc{\C}{\mathbb{C}}
 \nc{\F}{\mathbb{F}}

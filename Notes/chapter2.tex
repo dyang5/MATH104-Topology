@@ -368,7 +368,11 @@ Equivalently, $f$ is a homeomorphism if there is a bijective correspondence $f \
 \end{definition}
 
 \begin{remark}
-Just as isomorphisms preserve algebraic properties of groups/rings, homeomorphisms preserve topological structures.
+Just as isomorphisms preserve algebraic properties of groups/rings, homeomorphisms preserve topological structures (e.g. connectedness).
+\end{remark}
+
+\begin{remark}
+Two spaces are homemorphic if and only if the two resulting spaces, after removing a point, are also homeomorphic.
 \end{remark}
 
 \begin{definition}[Imbedding]
@@ -596,4 +600,10 @@ Let $p\colon X \rightarrow Y$ be a quotient map; let $A$ be a subspace of $X$ th
 \end{enumerate}
 \end{theorem}
 
+\begin{theorem}
+Let $p \colon X \rightarrow Y$ be a quotient map. Let $Z$ be a space and let $g\colon X \rightarrow Z$ be a map that is constant on each set $p^{-1}(\{ y \})$, for $y \in Y$.
+Then $g$ induces a map $f\colon Y \rightarrow Z$ such that $f \circ p = g$. \\
+
+The induced map $f$ is continuous if and only if $g$ is continuous; $f$ is a quotient map if and only if $g$ is a quotient map.
+\end{theorem}
 
