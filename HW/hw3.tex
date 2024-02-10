@@ -41,7 +41,23 @@
 [\textit{Hint:} Set $g(x \times y) = x + y^2$.]} \\
 
 \begin{solution}
+We will show that $X^*$ is homeomomorphic to $\R$. We define, as per the hint, the continuous map $g\colon \R^2 \rightarrow \R$ defined by
+$g(x \times y) = x + y^2$. Let us define the continuous map $f \colon \R \rightarrow \R^2$ by $f(x) = x \times 0$. Note that
+\[
+	(g \circ f)(x) = g(f(x)) = g(x \times 0) = x,
+\]
+for any $x \in \R$, so $g \circ f$ is the identity map of $\R$. By Exercise 22.2(a), it follows that $g$ is a quotient map from $\R^2$ to $\R$,
+or equivalently, from $X$ to $R$. \\
 
+Define $p \colon X \rightarrow X^*$ to be the surjective map mapping each point in the plane $X$ to its equivalence class. Equivalently,
+since $g$ is a map from $X$ to $\R$, we can write the quotient space as
+\[
+	X^* = \{ g^{-1}(\{ r \}) \mid r \in \R\},
+\]
+matching the definition in Corollary 22.3. By Corollary 22.3(a), since $g$ is a quotient map, 
+it induces a homeomorphism from the quotient space $X^*$ to $\R$. \\
+
+Thus, we conclude that $X^*$ is homeomorphic to $\R$.
 \end{solution}
 
 \newpage
@@ -49,8 +65,88 @@
 \underline{Section 26 (Compact Spaces), 26.5} \\
 
 \textbf{Let $A$ and $B$ be disjoint compact subspaces of the Hausdorff space $X$. Show that there exist disjoint
-open sets $U$ and $V$ containing $A$ and $B$, respectively.} \\
+open sets $U$ and $V$ containing $A$ and $B$, respectively.}
+
+\begin{solution}
+Let $a$ be an element of $A$. Since $A$ and $B$ are disjoint, it follows that $a$ is not in $B$. By Lemma 26.4, since 
+$B$ is a compact subspace of the Hausdorff space $X$ and $a \notin B$, we know that there exist disjoint open sets $U_a$ and $V_a$ containing $a$ and $B$, respectively. 
+\\
+
+Consider the union of each of these respective open sets $U_a$ across all elements of $a$ in $A$:
+\[
+	\tilde{U} = \bigcup_{a \in A} U_a.
+\]
+By construction, $\tilde{U}$ is a union of open sets that contains every element in $A$, so it is an open covering of $A$. Since $A$ is compact, $\tilde{U}$ must have a finite
+subcover consisting of open sets $U_{a_1}, U_{a_2}, \dots, U_{a_n}$ where each $a_1, \dots, a_n$ is a distinct element of $A$. Similarly, consider the 
+corresponding finite collection of open sets $V_{a_1}, V_{a_2}, \dots, V_{a_n}$ in $B$ defined for those same elements $a_1, \dots, a_n$. \\
 
 
+We define 
+\[
+	U = \bigcup_{i \in \{ 1, \dots, n \}} U_{a_i}
+\]
+and 
+\[
+	V = \bigcap_{i \in \{ 1, \dots, n \}} V_{a_i}.
+\]
 
+Note that $U$ is by construction a union of open sets in $A$ covering $A$ -- a finite subcover of $A$ -- so it is open and contains $A$. 
+Similarly, $V$ is an intersection of finitely many open sets in $B$, so it is also open. Furthermore, since each open set $V_{a_i}$ contains $B$ by construction, the intersection $V$ also contains $B$. \\
+
+It remains to show that $U$ and $V$ are disjoint. Indeed, suppose that $x \in U \cap V$. It follows that $x \in U$ so $x \in U_{a_j}$ for some $j$. Since $x \in V$, $x$ is in every $V_{a_i}$ for $i$ from $1$ to $n$. Consequently,
+$x \in V_{a_j}$. It follows that $x \in U_{a_j} \cap V_{a_j}$ for the same $j$, contradicting the disjoint property each pair of corresponding open sets given by Lemma 26.4. \\
+
+Thus, $U = \bigcup\limits_{i \in \{ 1, \dots, n \}} U_{a_i}$ and $V = \bigcap\limits_{i \in \{ 1, \dots, n \}} V_{a_i}$ are disjoint open sets of $X$ containing $A$ and $B$, as desired.
+\end{solution}
+
+\newpage
+
+\underline{Section 24 (Connected Subspaces of the Real Line), 24.2} \\
+
+\textbf{Let $f \colon S^1 \rightarrow \R$ be a continuous map. Show there exists a point $x$ of $S^1$ such that $f(x) = f(-x)$.}
+
+\begin{solution}
+Let us define $g \colon S^1 \rightarrow \R$ by $g(x) = f(x) - f(-x)$. Since $f(x)$ and $f(-x)$ are continuous, so is $g(x)$, as it is a difference of two continuous functions. 
+Furthermore, note that
+\[
+	g(x) = f(x) - f(-x) \text{ and } g(-x) = f(-x) - f(x) = -g(x)
+\]
+for any $x \in S^1$. Consider some $y$ in $S^1$. We can assume that $f(y) \neq f(-y)$, otherwise we would be done. 
+Equivalently, $g(y) \neq 0$. Suppose without loss of generality that $g(y) > 0$. It follows that $g(-y) = -g(y) < 0$.\\
+
+Since $g$ is a continuous map from the connected space $S^1$ to the ordered set $\R$ in the order topology, and $0$ is a point of $\R$ between $g(-y)$ and $g(y)$, we know by the Intermediate Value Theorem that there must be some point
+$x$ of $S^1$ such that $g(x) = 0$. It follows that for that point $x$, $f(x) = f(-x)$, as desired.
+\end{solution}
+
+\underline{Section 24 (Connected Subspaces of the Real Line), 24.3} \\
+
+\textbf{Let $f \colon X \rightarrow X$ be continuous. Show that if $X = [0, 1]$, there is a point $x$ such that $f(x) = x$. The point $x$ is called a \textit{fixed point} of $f$.
+What happens if $X$ equals $[0, 1)$ or $(0, 1)$?]}
+
+\begin{solution}
+Let $X = [0, 1]$. Let us define $g\colon X \rightarrow [-1, 1]$ by $g(x) = f(x) - x$. To show that $f$ has a fixed point, it suffices to show that $g$ has a zero in $X$. 
+Note that $g$ is continuous, as it is a difference of continuous functions $f(x)$ and $x$. \\
+
+Assume without loss of generality that $f(0) \neq 0$ and $f(1) \neq 1$; otherwise, $0$ or $1$ would be a fixed point for $f$. 
+Since $f\colon [0, 1] \rightarrow [0, 1]$ It follows that
+\[
+	g(0) = f(0) - 0 > 0 \text{ and } g(1) = f(1) - 1 < 0.
+\]
+Since $g$ is a continuous map from a connected space $[0, 1]$ to the ordered set $[-1, 1]$ and $g(0) < 0 < g(1)$, 
+it follows by the Intermediate Value Theorem that there must exist some point $x \in (0, 1)$ such that $g(x) = 0$. \\
+
+By construction, this point $x$ in $X$ satisfies $f(x) - x = 0$, and so it is a fixed point of $f$. \\
+
+Note that $f$ does not necessarily have a fixed point if $X$ equals $[0, 1)$ or $(0, 1)$. In the former case, consider the function
+\[
+	f\colon [0, 1) \rightarrow [0, 1) \text{ defined by } f(x) = \frac{x}{2} + \frac{1}{2}.
+\]
+
+This has no fixed point in $[0, 1)$: $\frac{x}{2} + \frac{1}{2} = x$ if and only if $x = 1 \notin [0, 1)$. Similarly, 
+in the latter case, consider
+\[
+	f\colon (0, 1) \rightarrow (0,1) \text{ defined by } f(x) = \frac{x}{2}.
+\]
+This has no fixed point in $(0, 1)$: $\frac{x}{2} = x$ if and only if $x = 0 \notin (0, 1)$. 
+\end{solution}
 \end{document}
