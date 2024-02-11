@@ -242,3 +242,91 @@ of $\mathscr{C}$, the intersection $C_1 \cap \dots \cap C_n$ is nonempty.
 Let $X$ be a topological space. Then $X$ is compact if and only if for every collection $\mathscr{C}$ of closed sets of $X$ having the finite intersection property,
 the intersection $\bigcap_{C \in \mathscr{C}} C$ of all the elements of $\mathscr{C}$ is nonempty.
 \end{theorem}
+
+\subsection{Compact Subspaces of the Real Line}
+
+\begin{theorem}[Extreme Value Theorem]
+Let $f\colon X \rightarrow Y$ be continuous, where $Y$ is an ordered set in the order topology. If $X$ is compact, then there exist points $c$ and $d$ in $X$ such that $f(c) \leq f(x) \leq f(d)$ for every $x \in X$.
+\end{theorem}
+
+\begin{lemma}[Lebesgue Number Lemma]
+Let $\mathscr{A}$ be an open covering of the metric space $(X, d)$. If $X$ is compact, there is a $\delta > 0$ such that for each subset of $X$ having diameter less than $\delta$, 
+there exists an element of $\mathscr{A}$ containing it.
+\end{lemma}
+
+\begin{remark}
+$\delta$ is known as the \textbf{Lebsegue number} for the covering $\mathscr{A}$.
+\end{remark}
+
+\begin{definition}[Uniform Continuity]
+A function $f$ from the metric space $(X, d_X)$ to the metric space $(Y, d_Y)$ is \textbf{uniformly continuous} if given $\varepsilon > 0$, there is a
+$\delta > 0$ such that for every pair of points $x_0, x_1$ of $X$,
+\[
+    d_X(x_0, x_1) < \delta \implies d_Y(f(x_0), f(x_1)) < \varepsilon.
+\]
+\end{definition}
+
+\begin{theorem}[Uniform Continuity Theorem]
+Let $f\colon X \rightarrow  Y$ be a continuous map of the compact metric space $(X, d_X)$ to the metric space $(Y, d_Y)$. Then $f$ is uniformly continuous.
+\end{theorem}
+
+\begin{theorem}
+Let $X$ be a nonempty compact Hausdorff space. If $X$ has no isolated points (one-point open sets) then $X$ is uncountable.
+\end{theorem}
+
+\begin{remark}
+It follows that every closed interval in $\R$ is uncountable.
+\end{remark}
+
+\subsection{Limit Point Compactness}
+
+Section skipped.
+
+\subsection{Local Compactness}
+
+\begin{definition}[Locally Compact]
+A space $X$ is \textbf{locally compact at $x$} if there is some compact subspace $C$ of $X$ that contains a neighborhood of $x$. \\
+
+If $X$ is locally compact at each of its points, $X$ is \textbf{locally compact}.
+\end{definition}
+
+\begin{eg}
+$\R$ is locally compact -- any point $x \in (a, b)$ which is contained in the compact subspace $[a, b]$. \\
+
+Similarly, $\R^n$ is locally compact, but $\R^\omega$ is not.
+\end{eg}
+
+\begin{theorem}
+Let $X$ be a space. Then $X$ is locally compact Hausdorff if and only if there exists a space $Y$ satisfying the following conditions:
+\begin{enumerate}
+    \item $X$ is a subspace of $Y$.
+    \item The set $Y \text{ -- } X$ consists of a single point.
+    \item $Y$ is a compact Hausdorff space.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}[(One-point) Compactification]
+If $Y$ is a compact Hausdorff space and $X$ is a proper subspace of $Y$ whose closure equals $Y$, then $Y$ is a \textbf{compactification} of $X$. \\
+
+If $Y \text{ -- } X$ equals a single point, then $Y$ is the \textbf{one-point-compactification} of $X$ ($Y$ is unique up to homeomorphism).
+\end{definition}
+
+\begin{remark}
+We have shown that $X$ has a one-point compactification $Y$ if and only if $X$ is a locally compact Hausdorff space that is not itself compact.
+\end{remark}
+
+\begin{eg}
+The one-point compactification of the real line $\R$ is homeomorphic to the circle; similarly, the one-point compactification of $\R^2$ is homeomorphic to the sphere $S^2$. \\
+
+\textit{Connection to Complex Analysis: if $\R^2$ is thought of as the space $\C$, then $C \cup \{ \infty \}$ is the Riemann sphere, or extended complex plane.}
+\end{eg}
+
+\begin{theorem}
+Let $X$ be a Hausdorff space. Then $X$ is locally compact if and only if given $x$ in $X$ and a neighborhood $U$ of $x$, there exist a neighborhood $V$ of $x$ such
+that $\overline{V} $ is compact and $\overline{V} \subset U$.
+\end{theorem}
+
+
+
+
+

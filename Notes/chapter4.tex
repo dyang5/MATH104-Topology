@@ -1,0 +1,103 @@
+\newpage
+
+\section{Countability and Separation Axioms}
+\setcounter{subsection}{29}
+
+\subsection{The Countability Axioms}
+
+\begin{definition}[First Countability Axiom]
+A space $X$ is said to have a \textbf{countable basis at $x$} if there is a countable collection $\mathscr{B}$ of neighborhoods of $x$ such
+that each neighborhood of $x$ contains at least one of the elements of $\mathscr{B}$. \\
+
+A space that has a countable basis at each of its points is said to satisfy the \textbf{first countability axiom}, or to be \textbf{first-countable}.
+\end{definition}
+
+\begin{theorem}
+Let $X$ be a topological space. 
+\begin{enumerate}[a)]
+    \item Let $A$ be a subset of $X$. If there is a sequence of points of $A$ converging to $x$, then $x \in \overline{A}$; 
+    the converse holds if $X$ is first-countable.
+    \item let $f\colon X \rightarrow Y$. If $f$ is continuous, then for every convergent sequence $x_n \rightarrow x$ in $X$, the function
+    $f(x_n)$ converges to $f(x)$. The converse holds if $X$ is first-countable.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}[Second Countability Axiom]
+If a space $X$ has a countable basis for its topology, then $X$ is said to satisfy the \textbf{second countability axiom}, or to be
+\textbf{second-countable}.
+\end{definition}
+
+\begin{remark}
+The second axiom implies the first; if $\mathscr{B}$ is a countable basis for $X$, then the elements of $\mathscr{B}$ containing $x$
+form a countable basis at $x$.
+\end{remark}
+
+\begin{eg}
+$\R$ and $\R^n$ have countable bases, constructed using the collection of (products) of intervals having rational end points. \\
+
+Similarly, $\R^\omega$ has a countable basis consisting of all products
+\[
+    \prod_{n \in \Z_+} U_n
+\]
+where $U_n$ is an open interval with rational end points for finitely many values of $n$ and $U_n = \R$ for all other values of $n$.
+\end{eg}
+
+\begin{theorem}
+A subspace of a first-countable space is first-countable, and a countable product of first-countable spaces is first-countable. \\
+
+The same properties hold for second-countable spaces.
+\end{theorem}
+
+\begin{definition}[Dense]
+A subset $A$ of a space is \textbf{dense} in $X$ if $\overline{A} = X$.
+\end{definition}
+
+\begin{theorem}
+Suppose that $X$ has a countable basis. Then
+\begin{enumerate}[a)]
+    \item Every open covering of $X$ contains a countable subcollection covering $X$. 
+    \item There exists a countable subset of $X$ that is dense in $X$.
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+A space for which every open covering contains a countable subcovering is a \textbf{Lindelof space}. A space having a countable dense subset is often said to be \textbf{separable}. \\
+
+Each of these properties is equivalent to the second countability axiom when the space is metrizable.
+\end{definition}
+
+\begin{eg}
+The product of two Lindelof spaces need not be Lindelof. \\
+
+$\R_l$ is Lindelof, whereas $\R_l^2$, the \textbf{Sorgenfrey plane}, is not.
+\end{eg}
+
+\subsection{The Separation Axioms}
+
+As a reminder, a space is \textit{Hausdorff} if for each pair $x, y$ of distinct points of $X$, there exist disjoint 
+open sets containing $x$ and $y$, respectively. 
+
+\begin{definition}[Regular and Normal Spaces]
+Suppose that one-point sets are closed in $X$. Then $X$ is \textbf{regular} if for each pair consisting of a point $x$ and a closed set $B$ disjoint from $x$,
+there exist disjoint open sets containing $x$ and $B$, respectively. \\
+
+The space $X$ is \textbf{normal} if for each pair $A, B$ of disjoint closed sets of $X$, there exist disjoint open sets containing $A$ and $B$, respectively.
+\end{definition}
+
+\begin{remark}
+A regular space is Hausdorff and a normal space is regular. \\
+
+These relations constitute the \textbf{separation axioms}.
+\end{remark}
+
+\begin{lemma}
+Let $X$ be a topological space. Let one-point sets in $X$ be closed.
+\begin{enumerate}[a)]
+    \item $X$ is regular if and only if given a point $x$ of $X$ and a neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\overline{V} \subset U$.
+    \item $X$ is normal if and only if given a closed set $A$ and an open set $U$ containing $A$, there is an open set $V$ containing $A$ such that $\overline{V} \subset U$.
+\end{enumerate}
+\end{lemma}
+
+\subsection{Normal Spaces}
+
+
