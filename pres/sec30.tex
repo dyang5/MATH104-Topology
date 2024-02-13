@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage{../styletemplate}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Spring 2024}\newline
+
+		{\Large The Countability Axioms}
+
+		David Yang and James Wang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\section{Introduction and Relevant Theorems}
+
+\begin{definition*}[First Countability Axiom]
+A space $X$ is said to have a \textbf{countable basis at $x$} if there is a countable collection $\mathscr{B}$ of neighborhoods of $x$ such that each neighborhood of $x$ contains at least one of the elements of $\mathscr{B}$. \\
+
+A space that has a countable basis at each of its points is said to satisfy the \textbf{first countability axiom}, or to be \textbf{first-countable}.
+\end{definition*}
+
+\begin{theorem*}
+Let $X$ be a topological space. 
+\begin{enumerate}[a)]
+    \item Let $A$ be a subset of $X$. If there is a sequence of points of $A$ converging to $x$, then $x \in \overline{A}$; 
+    the converse holds if $X$ is first-countable.
+    \item let $f\colon X \rightarrow Y$. If $f$ is continuous, then for every convergent sequence $x_n \rightarrow x$ in $X$, the function
+    $f(x_n)$ converges to $f(x)$. The converse holds if $X$ is first-countable.
+\end{enumerate}
+\end{theorem*}
+
+\begin{definition*}[Second Countability Axiom]
+If a space $X$ has a countable basis for its topology, then $X$ is said to satisfy the \textbf{second countability axiom}, or to be
+\textbf{second-countable}.
+\end{definition*}
+
+\noindent {\bf Motivation:} A topology on a space can have multiple bases of various sizes. We want to settle the size of a basis.
+
+    
+
+\section{Examples}
+
+\begin{eg}$\mathbb{R}^\omega$ is first-countable but not second-countable.\end{eg}
+
+\textit{Note: this should illustrate the difference between having a countable basis (second-countable) and having a countable basis at each of its points (first-countable).}
+
+\begin{lemma*}
+If $X$ is a space having a countable basis $B$, then any discrete subspace $A$ of $X$ must be countable.
+\end{lemma*}
+
+\begin{proof}
+Choose, for each $a \in A$, a basis element $B_a$ that intersects $A$ in the point $a$ alone. \\
+
+Then the map $a \mapsto B_a$ is injective; (as if $a \neq b$, the sets $B_a$ and $B_b$ are disjoint). It follows that $A$ must be countable.
+\end{proof}
+
+\begin{proof}[Proof of Example]
+First, note that $\R^\omega$ satisfies first countability axiom, as it is metrizable. \\
+
+We will show that it is not second-countable. Consider the subspace $A$ of $\mathbb{R}^\omega$ consisting of all sequences of $0$'s and $1$'s; this subspace is uncountable. \\
+
+Furthermore, this space has the discrete topology as for any distinct $x, y \in A$, $\bar{\rho}(x, y) = 1$. By the above lemma, since $A$ is uncountable, it follows that $\R^\omega$ cannot have a countable basis, so it is not second-countable.
+\end{proof}
+
+
+
+
+\begin{eg} $\mathbb{R}^n$ is second-countable. \end{eg}
+
+\begin{proof} We use the fact $\mathbb{Q}$ is dense in $\mathbb{R}$ (i.e. $\overline{\mathbb{Q}} = \mathbb{R}$).
+
+\begin{center}
+    $\mathbb{B}_1 = \{B_r(x) \ | \ x \in \mathbb{R}^n, r \in \mathbb{R}^+\}$\\
+    $\mathbb{B}_2 = \{B_q(x) \ | \ x \in \mathbb{Q}^n, q \in \mathbb{Q}^+\}$
+\end{center}
+
+\noindent We want to show $\mathbb{B}_2$ is also a basis for $\mathbb{R}^n$. Let $U$ be an open set of $\mathbb{R}^n$, then for all $u \in U$, there exists some $r \in \mathbb{R}^+$ such that $u \in B_r(u) \subseteq
+U$. By a version of the Archimedean Property, there exists some $q \in \mathbb{Q}$ such that $q \leq r$. \\
+
+\noindent Recall that $u \in \overline{\mathbb{Q}^n}$ if and only if every open set $U$ containing $u$ intersects $\mathbb{Q}^n$ (theorem* $17.5a$), so there exists $p \in \mathbb{Q}^n$ such that $d(u,p)<q/2$. We claim
+
+\begin{center}
+    $u \in B_{q/2} (p) \subseteq B_r(u) \subseteq U$, and\\
+    $\displaystyle \bigcup B_{2} = U$.
+\end{center}
+
+\end{proof}
+
+\end{document}
