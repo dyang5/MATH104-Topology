@@ -131,3 +131,59 @@ Then there exists a continuous map
 \]
 such that $f(x) = a$ for every $x$ in $A$ and $f(x) = b$ for every $x$ in $B$.
 \end{theorem}
+
+\begin{definition}
+If $A$ and $B$ are two subsets of the topological space $X$ and if there is a continuous function $f\colon X \rightarrow [0, 1]$ such that
+$f(A) = \{ 0 \}$ and $f(B) = \{ 1 \}$, we say that $A$ and $B$ \textbf{can be separated by a continuous function}. 
+\end{definition}
+
+\begin{remark}
+The Urysohn lemma says that if every pair of disjoint closed sets in $X$ can be separated by disjoint open sets,
+then each such pair can be separated by a continuous function. The converse is trivial $(f^{-1}[0, \frac{1}{2})$ and $f^{-1}(\frac{1}{2}, 1]$ are disjoint
+open sets containing $A$ and $B$, respectively.
+\end{remark}
+
+\begin{definition}
+A space $X$ is \textbf{completely regular} if one-point sets are closed in $X$ and for each point $x_0$ and each closed set $A$ not containing $x_0$,
+there is a continuous function $f\colon X \rightarrow [0, 1]$ such that $f(x_0) = 1$ and $f(A) = \{ 0 \}.$
+\end{definition}
+
+\begin{remark}
+A normal space is completely regular by the Urysohn lemma. A completely regular space is regular.
+\end{remark}
+
+\begin{theorem}
+A subspace of a completely regular space is completely regular. A product of completely regular spaces is completely regular.
+\end{theorem}
+
+\subsection{The Urysohn Metrization Theorem}
+
+\begin{theorem}[Urysohn Metrization Theorem]
+Every regular space $X$ with a countable basis is metrizable.
+\end{theorem}
+
+\begin{theorem}[Imbedding Theorem]
+Let $X$ be a space in which one-point sets are closed. Suppose that $\{ f_\alpha \}_{\alpha \in J}$ is an indexed family of continuous functions
+$f_\alpha \colon X \rightarrow \R$ satisfying the requirement that for each point $x_0$ of $X$ and each neighborhood $U$ of $x_0$, there is an index $\alpha$
+such that $f_\alpha$ is positive at $x_0$ and vanishes outside $U$. Then the function $F\colon X \rightarrow \R^J$ defined by
+\[
+    F(x) = (f_\alpha(x))_{\alpha \in J}
+\]
+is an imbedding of $X$ in $\R^J$. If $f_\alpha$ maps $X$ into $[0, 1]$ for each $\alpha$, then $F$ imbeds $X$ in $[0, 1]^J$.
+\end{theorem}
+
+\begin{theorem}
+A space $X$ is completely regular if and only if it is homeomorphic to a subspace of $[0, 1]^J$ for some $J$.
+\end{theorem}
+
+\subsection{The Tietze Extension Theorem}
+
+\begin{theorem}[The Tietze Extension Theorem]
+Let $X$ be a normal space; let $A$ be a closed subspace of $X$.
+\begin{enumerate}[a)]
+    \item Any continuous map of $A$ into the closed interval $[a, b]$ of $\R$ may be extended to a continuous map of all of $X$ into $[a, b]$.
+    \item Any continuous map $A$ of $\R$ may be extended to a continuous map of all of $X$ into $\R$.
+\end{enumerate}
+\end{theorem}
+
+
