@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 4}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 4 (Countability and Separation Axioms) Problems.\footnote{James Wang helped me ``make-up'' these problems after missing class.}} \\
+
+\underline{Section 31 (The Separation Axioms), 31.1} \\
+
+\textbf{Show that if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint.}
+
+\begin{solution}
+    
+\end{solution}
+
+\underline{Section 31 (The Separation Axioms), 31.7(a)} \\
+
+\textbf{Let $p\colon X \rightarrow Y$ be a closed continuous surjective map such that $p^{-1}(\{ y \})$ is compact for each $y \in Y$ (such a map is called a \textit{perfect map}).}
+\begin{enumerate}[a)]
+    \item \textbf{Show that if $X$ is Hausdorff, then so is $Y$.}
+    
+    \begin{solution}
+        Let $X$ be Hausdorff, and let $y_1$ and $y_2$ be two distinct points in $Y$. To show that $Y$ is Hausdorff, we will show that there are two disjoint neighborhoods of $y_1$ and $y_2$ in $Y$. \\
+        
+        Note that since $p$ is continuous, the preimages $p^{-1}(\{ y_1 \} )$ and $p^{-1}(\{ y_2 \} )$ are closed. Since $p$ is perfect, each preimage is compact. 
+        Furthermore, due to the surjectivity of $p$ and the fact that there is only one input for each output, the sets of preimages $p^{-1}(\{ y_1 \} )$ and $p^{-1}(\{ y_2 \} )$ are nonempty and disjoint. 
+        In summary, we know that  $p^{-1}(\{ y_1 \} )$ and $p^{-1}(\{ y_2 \} )$ are each nonempty, closed and compact, and are themselves disjoint. \\
+
+        It follows from Exercise 26.5 that since  $p^{-1}(\{ y_1 \} )$ and $p^{-1}(\{ y_2 \} )$ are disjoint compact subspaces of $X$, there exist nonempty disjoint open sets $U_1$ and $U_2$ of $X$ containing  $p^{-1}(\{ y_1 \} )$ and $p^{-1}(\{ y_2 \} )$, respectively. \\
+
+        We now claim that $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ are two disjoint open neighborhoods of $y_1$ and $y_2$, respectively. Equivalently, we will first show that $Y \setminus p(X \setminus U_1)$ is open and a neighborhood of $y_1$ (the argument
+        for $Y \setminus p(X \setminus U_2)$ follows by symmetry), and then show that $Y \setminus p(X \setminus U_1)$ is disjoint from $Y \setminus p(X \setminus U_2)$. \\
+
+        We will first show that $Y \setminus p(X \setminus U_1)$ is open. By construction, $U_1$ is open in $X$. Consequently, $X \setminus U_1$ is closed. Since $p$ is closed, it follows that $p(X \setminus U_1)$ is closed. Thus, $Y \setminus p(X \setminus U_1)$ is open, as desired. Next, we show
+        that $Y \setminus p(X \setminus U_1)$ is a neighborhood of $y_1$. Suppose for the sake of contradiction that $y_1 \notin Y \setminus p(X \setminus U_1)$. Then $y_1 \in p(X \setminus U_1)$, in which case $p^{-1}(y_1) \subset X \setminus U_1$. It follows that
+        $p^{-1}(y_1) \not\subset U_1$, which contradicts the fact our construction of $U_1$, which was to contain $p^{-1}(y_1)$. Thus, $Y \setminus p(X \setminus U_1)$ is open. \\
+        
+        By symmetry, it follows that $Y \setminus p(X \setminus U_2 )$ is open and a neighborhood of $y_2$. Finally, we show that $Y \setminus p(X \setminus U_1)$ is disjoint from $Y \setminus p(X \setminus U_2)$.
+        Suppose once again for the sake of contradiction that there exists some $\tilde{y} \in (Y \setminus p(X \setminus U_1)) \cap (Y\setminus p(X \setminus U_2))$. It follows that $\tilde{y} \in Y \setminus p(X \setminus U_1)$ and $\tilde{y} \in Y \setminus p(X \setminus U_2)$, or equivalently,
+        $\tilde{y} \notin p(X \setminus U_1)$ and $\tilde{y} \notin p(X \setminus U_2)$. Consequently, $p^{-1}(\{ \tilde{y} \}) \not\subset X \setminus U_1$ and $p^{-1}(\{ \tilde{y} \}) \not\subset X \setminus U_2$, or equivalently, 
+        $p^{-1}({y}) \subset U_1$ and $p^{-1}({y}) \subset U_2$. However, this contradicts the construction of $U_1$ and $U_2$, which were to be disjoint open sets in $X$. Thus, we conclude that
+        $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ are disjoint. \\
+
+        From an arbitrary choice of distinct $y_1$ and $y_2$ in $Y$, we constructed two nonempty, disjoint open sets  $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ in $Y$ containing $y_1$ and $y_2$, respectively. Equivalently, $Y$ is Hausdorff, as desired.
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+\underline{Section 32 (Normal Spaces), 32.3} \\
+
+\textbf{Show that every locally compact Hausdorff space is regular.}
+
+\begin{solution}
+    
+\end{solution}
+
+\newpage
+
+\underline{Section 35 (The Tietze Extension Theorem), 35.4(a), (b)} \\
+
+\textbf{Let $Z$ be a topological space. If $Y$ is a subspace of $Z$, we say that $Y$ is a \textit{retract} of $Z$ if there is a continuous map $r\colon Z \rightarrow Y$ such that $r(y) = y$ for each $y \in Y$.}
+\begin{enumerate}[a)]
+    \item \textbf{Show that if $Z$ is Hausdorff and $Y$ is a retract of $Z$, then $Y$ is closed in $Z$.}
+    \begin{solution}
+    Let $Z$ be Hausdorff, and let $Y$ be a retract of $Z$. To show that $Y$ is closed in $Z$, it is equivalent to show that $Z \setminus Y$ is open in $Z$. We will do so by showing that any arbitrary $z \in Z \setminus Y$ has a neighborhood around it in $Z \setminus Y$. \\
+
+    Let $z$ be an arbitrary element in $Z \setminus Y$. Since $Y$ is a retract of $Z$, there exists some continuous map $r\colon Z \rightarrow Y$ such that $r(y) = y$ for each $y \in Y$. Let $r(z) = \tilde{y}$, where $\tilde{y} \in Y$. 
+    Since $z \in Z \setminus Y$, it follows that $z$ and $Y$ are disjoint, so $z$ and $\tilde{y}$ are two distinct points in $Z$. Since $Z$ is Hausdorff, 
+    it follows that there must be two disjoint neighborhoods $U_z$ and $U_{\tilde{y}}$ of $Z$ containing $z$ and $\tilde{y}$, respectively. \\
+
+    We claim that $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is a neighborhood of $z$ in $Z \setminus Y$. We will show three properties separately --  $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is open, $z \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$, and that  $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is disjoint from $Y$. \\
+
+    We first show that $(r^{-1}(U_{\tilde{y}} \,\cap \, Y)) \cap U_z$ is open in $Z$. Note that by construction, $U_{\tilde{y}}$ is open in $Z$. Furthermore, $Y$ is a subspace of $Z$. Thus, under the subspace topology, $U_{\tilde{y}} \, \cap \, Y$ is open in $Z$. Furthermore,
+    $r$ is by definition continuous, so the preimage $(r^{-1}(U_{\tilde{y}} \, \cap \, Y))$ is open in $Z$. Finally, by construction, $U_z$ is open in $Z$. Since the intersection of open sets is open, it follows that
+    $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is open in $Z$, as desired. \\
+
+    Next, we show that $z$ is contained in $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. By construction, $z \in U_z$. Furthermore, since by construction, $r(z) = \tilde{y}$ and $\tilde{y} \in Y \cap U_y$, we have that
+    $z \in r^{-1}(U_{\tilde{y}} \, \cap \, Y)$. Thus, since $z \in U_z$ and $z \in r^{-1}(U_{\tilde{y}}) \cap \, Y$, it follows that $z \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. \\
+
+    Finally, we show that $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint. Suppose for the sake of contradiction that there exists some $y \in Y$ such that
+    $y \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. Then $y \in U_z$ and $y \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y))$. The latter condition, coupled with the continuity of $r$, tells us that $r(y) \in U_{\tilde{y}} \cap Y$, so $r(y) \in U_{\tilde{y}}$. Note however that
+    since $Y$ is a retraction of $Z$, $r(y) = y$ by definition. Consequently, we have that $y = r(y) \in U_{\tilde{y}}$ and $y \in U_{z}$, so $y$ is in both $U_{\tilde{y}}$ and $U_z$. However, this contradicts
+    the construction of $U_{\tilde{y}}$ and $U_z$, which were to be disjoint neighborhoods in $Z$. Thus, we know that  $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint. \\
+
+    To summarize, for an arbitrary element $z \in Z \setminus Y$, we constructed a neighborhood $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ which is open in $Z \setminus Y$. Thus, $Z \setminus Y$ is open and so equivalently, $Y$ is closed in $Z$.
+\end{solution}
+
+    \item \textbf{Let $A$ be a two-point set in $\R^2$. Show that $A$ is not a retract of $\R^2$.}
+    \begin{solution}
+    Let $A = \{ a_1, a_2 \}$ for distinct points $a_1$ and $a_2$ in $\R^2$. We will show that $A$ is not a retract of $\R^2$. Suppose for the sake of contradiction that $A$ is a retract of $\R^2$. By definition, this means that
+    there exists a continuous function $r\colon \R^2 \rightarrow A$ such that $r(a_1) = a_1$ and $r(a_2) = a_2$. \\
+
+    By Theorem 23.5, the image of a connected space under a continuous map is connected. Since $\R^2$ is connected and $r$ is a continuous map from $\R^2$ to $A$, it follows that $A$ must be connected. However, $A = \{ a_1, a_2 \}$
+    is certainly not connected; let $r = \frac{d(a_1, a_2)}{2}$, and take $B_r(a_1) \cap \{a_1, a_2\}$ and $B_r(a_2) \cap \{a_1, a_2\}$. By construction, these are two disjoint open sets in the subspace topology on $A$, and thus, they form
+    a separation of $A$. Since $A$ has a separation, it is not connected, giving a contradiction. Thus, $A$ is not a retract of $\R^2$. 
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+
+
+\end{document}
