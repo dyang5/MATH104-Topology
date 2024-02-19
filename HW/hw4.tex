@@ -33,11 +33,17 @@
 
 \underline{Section 31 (The Separation Axioms), 31.1} \\
 
-\textbf{Show that if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint.}
+\textbf{Show that if $X$ is regular, every pair of points\footnote{assuming distinct (not explicitly mentioned in textbook problem)} of $X$ have neighborhoods whose closures are disjoint.}
 
 \begin{solution}
-    
+Let $X$ be a regular space. Since regular spaces are Hausdorff, it follows that $X$ is a Hausdorff space. Since $X$ is Hausdorff, for any pair of distinct points $x_1, x_2$ in $X$,
+there exist disjoint neighborhoods $U_{x_1}$ and $U_{x_2}$ in $X$ of $x_1$ and $x_2$, respectively. By Lemma 31.1(a), since $X$ is regular, there must exist neighborhoods $V_{x_1}$ and $V_{x_2}$ of
+$x_1$ and $x_2$ respectively, such that $\overline{V}_{x_1} \subset U_{x_1}$ and $\overline{V}_{x_2} \subset U_{x_2}$. \\
+
+By construction, since $U_{x_1}$ and $U_{x_2}$ are themselves disjoint, $V_{x_1}$ and $V_{x_2}$ are two neighborhoods of $x_1$ and $x_2$ whose closures are disjoint. Thus, if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint
 \end{solution}
+
+\newpage
 
 \underline{Section 31 (The Separation Axioms), 31.7(a)} \\
 
@@ -57,14 +63,14 @@
         We now claim that $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ are two disjoint open neighborhoods of $y_1$ and $y_2$, respectively. Equivalently, we will first show that $Y \setminus p(X \setminus U_1)$ is open and a neighborhood of $y_1$ (the argument
         for $Y \setminus p(X \setminus U_2)$ follows by symmetry), and then show that $Y \setminus p(X \setminus U_1)$ is disjoint from $Y \setminus p(X \setminus U_2)$. \\
 
-        We will first show that $Y \setminus p(X \setminus U_1)$ is open. By construction, $U_1$ is open in $X$. Consequently, $X \setminus U_1$ is closed. Since $p$ is closed, it follows that $p(X \setminus U_1)$ is closed. Thus, $Y \setminus p(X \setminus U_1)$ is open, as desired. Next, we show
+        We first show that $Y \setminus p(X \setminus U_1)$ is open. By construction, $U_1$ is open in $X$. Consequently, $X \setminus U_1$ is closed. Since $p$ is a closed map, it follows that $p(X \setminus U_1)$ is closed. Thus, $Y \setminus p(X \setminus U_1)$ is open, as desired. Next, we show
         that $Y \setminus p(X \setminus U_1)$ is a neighborhood of $y_1$. Suppose for the sake of contradiction that $y_1 \notin Y \setminus p(X \setminus U_1)$. Then $y_1 \in p(X \setminus U_1)$, in which case $p^{-1}(y_1) \subset X \setminus U_1$. It follows that
-        $p^{-1}(y_1) \not\subset U_1$, which contradicts the fact our construction of $U_1$, which was to contain $p^{-1}(y_1)$. Thus, $Y \setminus p(X \setminus U_1)$ is open. \\
+        $p^{-1}(y_1) \not\subset U_1$, which contradicts the construction of $U_1$, which was defined to contain $p^{-1}(y_1)$. Thus, $Y \setminus p(X \setminus U_1)$ is open. By symmetry, it follows that $Y \setminus p(X \setminus U_2 )$ is open and a neighborhood of $y_2$. \\
         
-        By symmetry, it follows that $Y \setminus p(X \setminus U_2 )$ is open and a neighborhood of $y_2$. Finally, we show that $Y \setminus p(X \setminus U_1)$ is disjoint from $Y \setminus p(X \setminus U_2)$.
+        Finally, we show that $Y \setminus p(X \setminus U_1)$ is disjoint from $Y \setminus p(X \setminus U_2)$.
         Suppose once again for the sake of contradiction that there exists some $\tilde{y} \in (Y \setminus p(X \setminus U_1)) \cap (Y\setminus p(X \setminus U_2))$. It follows that $\tilde{y} \in Y \setminus p(X \setminus U_1)$ and $\tilde{y} \in Y \setminus p(X \setminus U_2)$, or equivalently,
         $\tilde{y} \notin p(X \setminus U_1)$ and $\tilde{y} \notin p(X \setminus U_2)$. Consequently, $p^{-1}(\{ \tilde{y} \}) \not\subset X \setminus U_1$ and $p^{-1}(\{ \tilde{y} \}) \not\subset X \setminus U_2$, or equivalently, 
-        $p^{-1}({y}) \subset U_1$ and $p^{-1}({y}) \subset U_2$. However, this contradicts the construction of $U_1$ and $U_2$, which were to be disjoint open sets in $X$. Thus, we conclude that
+        $p^{-1}(\{y\}) \subset U_1$ and $p^{-1}(\{y\}) \subset U_2$; $p^{-1}(\{ y \})$ is in both $U_1$ and $U_2$. However, this contradicts the construction of $U_1$ and $U_2$, which were defined to be disjoint open sets in $X$. Thus, we conclude that
         $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ are disjoint. \\
 
         From an arbitrary choice of distinct $y_1$ and $y_2$ in $Y$, we constructed two nonempty, disjoint open sets  $Y \setminus p(X \setminus U_1)$ and $Y \setminus p(X \setminus U_2)$ in $Y$ containing $y_1$ and $y_2$, respectively. Equivalently, $Y$ is Hausdorff, as desired.
@@ -78,7 +84,10 @@
 \textbf{Show that every locally compact Hausdorff space is regular.}
 
 \begin{solution}
-    
+Let $X$ be a locally compact Hausdorff space. By Theorem 29.1, since $X$ is locally compact Hausdorff, there exists a space $Y$ such that
+$Y$ is compact Hausdorff, $Y \text{ -- } X$ consists of a single point, and $X$ is a subspace of $Y$. By Theorem 32.3, since $Y$ is a compact Hausdorff space, it is normal. 
+Since $Y$ is a normal space, it is also regular. Finally, by Theorem 31.2, since $X$ is a subspace of a regular space $Y$, $X$ must also be regular. 
+We conclude that $X$, a locally compact Hausdorff space, must also be regular. Thus, every locally compact Hausdorff space is regular, as desired.
 \end{solution}
 
 \newpage
@@ -95,7 +104,7 @@
     Since $z \in Z \setminus Y$, it follows that $z$ and $Y$ are disjoint, so $z$ and $\tilde{y}$ are two distinct points in $Z$. Since $Z$ is Hausdorff, 
     it follows that there must be two disjoint neighborhoods $U_z$ and $U_{\tilde{y}}$ of $Z$ containing $z$ and $\tilde{y}$, respectively. \\
 
-    We claim that $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is a neighborhood of $z$ in $Z \setminus Y$. We will show three properties separately --  $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is open, $z \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$, and that  $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is disjoint from $Y$. \\
+    We claim that $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is a neighborhood of $z$ in $Z \setminus Y$. We will show three properties separately: $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is open, $z \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$, and that  $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is disjoint from $Y$. \\
 
     We first show that $(r^{-1}(U_{\tilde{y}} \,\cap \, Y)) \cap U_z$ is open in $Z$. Note that by construction, $U_{\tilde{y}}$ is open in $Z$. Furthermore, $Y$ is a subspace of $Z$. Thus, under the subspace topology, $U_{\tilde{y}} \, \cap \, Y$ is open in $Z$. Furthermore,
     $r$ is by definition continuous, so the preimage $(r^{-1}(U_{\tilde{y}} \, \cap \, Y))$ is open in $Z$. Finally, by construction, $U_z$ is open in $Z$. Since the intersection of open sets is open, it follows that
@@ -104,10 +113,10 @@
     Next, we show that $z$ is contained in $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. By construction, $z \in U_z$. Furthermore, since by construction, $r(z) = \tilde{y}$ and $\tilde{y} \in Y \cap U_y$, we have that
     $z \in r^{-1}(U_{\tilde{y}} \, \cap \, Y)$. Thus, since $z \in U_z$ and $z \in r^{-1}(U_{\tilde{y}}) \cap \, Y$, it follows that $z \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. \\
 
-    Finally, we show that $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint. Suppose for the sake of contradiction that there exists some $y \in Y$ such that
+    Finally, we show that $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint, to show that $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ is actually a neighborhood of $z$ in $Z \setminus Y$. Suppose for the sake of contradiction that there exists some $y \in Y$ such that
     $y \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$. Then $y \in U_z$ and $y \in (r^{-1}(U_{\tilde{y}} \, \cap \, Y))$. The latter condition, coupled with the continuity of $r$, tells us that $r(y) \in U_{\tilde{y}} \cap Y$, so $r(y) \in U_{\tilde{y}}$. Note however that
     since $Y$ is a retraction of $Z$, $r(y) = y$ by definition. Consequently, we have that $y = r(y) \in U_{\tilde{y}}$ and $y \in U_{z}$, so $y$ is in both $U_{\tilde{y}}$ and $U_z$. However, this contradicts
-    the construction of $U_{\tilde{y}}$ and $U_z$, which were to be disjoint neighborhoods in $Z$. Thus, we know that  $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint. \\
+    the construction of $U_{\tilde{y}}$ and $U_z$, which were defined to be disjoint neighborhoods in $Z$. Thus, we know that  $Y$ and $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ are disjoint. \\
 
     To summarize, for an arbitrary element $z \in Z \setminus Y$, we constructed a neighborhood $(r^{-1}(U_{\tilde{y}} \, \cap \, Y)) \cap U_z$ which is open in $Z \setminus Y$. Thus, $Z \setminus Y$ is open and so equivalently, $Y$ is closed in $Z$.
 \end{solution}

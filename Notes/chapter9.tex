@@ -1,0 +1,60 @@
+\newpage
+\setcounter{section}{8}
+
+\section{The Fundamental Group}
+
+\setcounter{subsection}{50}
+
+\subsection{Homotopy of Paths}
+
+\begin{definition}[Homotopy]
+If $f$ and $f^{\prime}$ are continuous maps of the space $X$ into the space $Y$, we say that $f$ is \textbf{homotopic} to $f^{\prime}$
+if there is a continuous map $F\colon X \times I \rightarrow Y$ such that
+\[
+    F(x, 0) = f(x) \text{ and } F(x, 1) = f^{\prime}(x)
+\]
+for each $x$. (Here $I = [0, 1]$.) The map $F$ is called a \textbf{homotopy} between $f$ and $f^{\prime}$. \\
+
+If $f$ is homotopic to $f^{\prime}$, we write $f \simeq f^{\prime}$. If $f \simeq f^{\prime}$ and $f^{\prime}$ is a constant map, we say that
+$f$ is \textbf{nulhomotopic}.
+\end{definition}
+
+\begin{remark}
+Think of a homotopy as a continuous one-parameter family of maps from $X$ to $Y$; the homotopy $F$ represents a continuous ``deforming'' of the map $f$ to $f^{\prime}$, 
+as $t$ goes from $0$ to $1$.
+\end{remark}
+
+\begin{definition}[Path Homotopy]
+Two paths $f$ and $f^{\prime}$, mapping the interval $I = [0, 1]$ into $X$, are said to be \textbf{path homotopic} if they have the same initial point
+$x_0$ and the same final point $x_1$, and if there is a continuous map $F\colon I \times I \rightarrow X$ such that
+\begin{align*}
+    F(s, 0) = f(s) &\text{ and } F(s, 1) = f^{\prime}(s), \\
+    F(0, t) = x_0 &\text{ and } F(1, t) = x_1,
+\end{align*}
+for each $s \in I$ and each $t \in I$. We call $F$ a \textbf{path homotopy} between $f$ and $f^{\prime}$. If $f$ is path homotopic to $f^{\prime}$, we write $f \simeq_p f^{\prime}$.
+\end{definition}
+
+\begin{remark}
+The first condition says that $F$ is a homotopy between $f$ and $f^{\prime}$, or equivalently, that $F$ representsa continuous way of deforming the path $f$ to the path $f^{\prime}$. \\
+
+The second condition says that for each $t$, the path $f_t$ definde by $f_t(s) = F(s, t)$ is a path from $x_0$ to $x_1$, or equivalently, the endpoints of path remain fixed during the deformation.
+\end{remark}
+
+\begin{lemma}
+The relations $\simeq$ and $\simeq_p$ are equivalence relations.
+\end{lemma}
+
+\begin{eg}
+Let $f$ and $g$ be any two maps of a space $X$ into $\R^2$. The map 
+\[
+    F(x, t) = (1-t) f(x) + tg(x)
+\]
+is known as the \textbf{straight-line homotopy} between them.
+\end{eg}
+
+\begin{remark}
+If $f$ and $g$ are paths from $x_0$ to $x_1$, then $F$ is a path homotopy. \\
+
+More generally, let $A$ be a convex subspace of $\R^n$. Then any two paths $f, g$ in $A$ from $x_0$ to $x_1$ are path homotopic in $A$, as
+the straight-line homotopy $F$ between them has image set in $A$.
+\end{remark}
