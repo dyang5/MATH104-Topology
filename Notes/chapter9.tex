@@ -154,3 +154,53 @@ $\hat{\alpha}$ is a group isomorphism.
 \begin{corollary}
 If $X$ is path connected and $x_0$ and $x_1$ are two points of $X$, then $\pi_1(X, x_0)$ is isomorphic to $\pi_1(X, x_1)$.
 \end{corollary}
+
+\begin{definition}[Simply Connected]
+A space $X$ is said to be \textbf{simply connected} if it is a path-connected space and if $\pi_1(X, x_0)$ is the trivial one-element group
+for some $x_0 \in X$, and hence for every $x_0 \in X$. (The trivial fundamental group is often expressed as $\pi_1(X, x_0) = 0$.)
+\end{definition}
+
+
+\begin{lemma}
+In a simply connected space $X$, any two paths having the same initial and final points are path homotopic.
+\end{lemma}
+
+\begin{definition}
+Let $h\colon (X, x_0) \rightarrow (Y, y_0)$ be a continuous map. Define 
+\[
+    h_{\ast} \colon \pi_1(X, x_0) \rightarrow \pi _1(Y, y_0)
+\]
+by the equation $h_{\ast}([f]) = [h \circ f]$. The map $h_{\ast} $ is called the \textbf{homomorphism induced by $h$}, relative to the base point $x_0$.
+\end{definition}
+
+\begin{theorem}
+If $h\colon (X, x_0) \rightarrow (Y, y_0)$ and $k\colon (Y, y_0) \rightarrow (Z, z_0)$ is continuous, then $(k \circ h)_{\ast} = k_{\ast} \circ h_{\ast}$. If $i\colon (X, x_0) \rightarrow (X, x_0)$ is the identity map,
+then $i_{\ast}$ is the identity homomorphism.
+\end{theorem}
+
+\begin{corollary}
+If $h\colon (X, x_0) \rightarrow (Y, y_0)$ is a homeomorphism of $X$ with $Y$, then $h_{\ast} $ is an isomorphism of $\pi_1(X, x_0)$ with $\pi_1(Y, y_0)$.
+\end{corollary}
+
+
+\subsection{Covering Spaces}
+
+\begin{definition}
+Let $p\colon E \rightarrow B$ be a continuous surjective map. The open set $U$ of $B$ is said to be \textbf{evenly covered} by $p$ if the inverse image $p^{-1}(U)$ can be written as the
+union of disjoint open sets $V_\alpha$ in $E$ such that for each $\alpha$, the restriction of $p$ to $V_\alpha$ is a homeomorphism of $V_\alpha$ onto $U$. \\
+
+The collection $\{ V_\alpha \}$ is a partition of $p^{-1}(U)$ into \textbf{slices}.
+\end{definition}
+
+\begin{definition}[Covering Spaces]
+Let $p\colon E \rightarrow B$ be a continuous surjective map. If every point $b$ of $B$ has a neighborhood $U$ that is evenly covered by $p$, then $p$ is a \textbf{covering map},
+and $E$ is said to be a \textbf{covering space} of $B$.
+\end{definition}
+
+\begin{eg}
+Let $X$ be any space; let $i\colon X \rightarrow X$ be the identity map. Then $i$ is a covering map. \\
+
+More generally, let $E$ be the space $X \times \{ 1, 2, \dots, n \}$ consisting of $n$ disjoint copies of $X$. The map $p\colon E \rightarrow X$ given by $p(x, i) = x$ 
+for all $i$ is a covering map.
+\end{eg}
+
