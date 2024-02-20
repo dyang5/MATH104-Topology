@@ -58,3 +58,99 @@ If $f$ and $g$ are paths from $x_0$ to $x_1$, then $F$ is a path homotopy. \\
 More generally, let $A$ be a convex subspace of $\R^n$. Then any two paths $f, g$ in $A$ from $x_0$ to $x_1$ are path homotopic in $A$, as
 the straight-line homotopy $F$ between them has image set in $A$.
 \end{remark}
+
+\begin{definition}[Product]
+If $f$ is a path in $X$ from $x_0$ to $x_1$, and if $g$ is a path in $X$ from $x_1$ to $x_2$, the \textbf{product} $f * g$ of $f$ and $g$ is the path $h$ given by
+\[
+    h(s) = \begin{cases}
+        f(2s) &\text{ for } s \in \left[ 0, \frac{1}{2} \right] \\
+        g(2s - 1) &\text{ for } s \in \left[ \frac{1}{2}, 1 \right]
+    \end{cases}
+\]
+\end{definition}
+
+\begin{remark}
+The function $h$ is well-defined and continuous, by the pasting lemma. It is a path in $X$ from $x_0$ to $x_2$. \\
+
+The product operation on paths induce a well-defined operation on path-homotopy classes: $[f] * [g] = [f*g]$.
+\end{remark}
+
+\begin{theorem}
+The operation $*$ has the following properties:
+\begin{enumerate}
+    \item (Associativity) If $[f] * ([g] * [h])$ is defined, so is $([f] * [g]) * [h]$, and they are equal.
+    \item (Right and left identities) Given $x \in X$, let $e_x$ denote the constant path $e_x\colon I \rightarrow X$ carrying all of $I$ to the point $x$.
+    If $f$ is a path from $x_0$ to $x_1$, then 
+    \[
+        [f] * [e_{x_1}] = [f] \text{ and } [e_{x_0}] * [f] = [f].
+    \]
+    \item (Inverse) Given the path $f$ in $X$ from $x_0$ to $x_1$, let $\overline{f}$ be the path defined by $\overline{f}(s) = f(1-s)$. It is the \textbf{reverse} of $f$. Then
+    \[
+        [f] * [\overline{f}] = [e_{x_0}] \text{ and } [\overline{f}] * [f] = [e_{x_1}].
+    \]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+Let $f$ be a path in $X$ and let $a_0, \dots, a_n$ be numbers such that $0 = a_0 < a_1 < \dots < a_n = 1$. Let $f_i\colon I \rightarrow X$ be the path that equals the positive linear map of $I$ onto $[a_{i-1}, a_i]$ followed by $f$. Then
+\[
+    [f] = [f_1] * \dots * [f_n].
+\]
+\end{theorem}
+
+
+\subsection{The Fundamental Group}
+
+\begin{definition}[Algebra Review]
+A \textbf{homomorphism} $f\colon G \rightarrow G^{\prime}$ is a map such that $f(x \cdot y) = f(x) \cdot f(y)$. (It follows that $f(e) = e^{\prime}$ and $f(x^{-1}) = f(x)^{-1}$.) \\
+
+The \textbf{kernel} of $f$ is the set $f^{-1}(e^{\prime})$ and is a subgroup of $G$. The image is also a subgroup of $G$. \\
+
+The homomorphism $f$ is called a \textbf{monomorphism} if it is injective (or equivalently, the kernel consists of $e$ alone), an \textbf{epimorphism} if it is surjective,
+and an \textbf{isomorphism} if it is bijective.
+\end{definition}
+
+\begin{definition}[Quotient Group]
+If $H$ is a normal subgroup of $G$, the operation $(xH) \cdot (yH) = (x \cdot y)H$ is a well-defined operation on $G/H$ that makes it a group.
+This is known as the \textbf{quotient} of $G$ by $H$.
+\end{definition}
+
+\begin{remark}
+The map $f\colon G \rightarrow G/H$ mapping $x$ to $xH$ is an epimorphism with kernel $H$. \\
+
+Conversely, if $f\colon G \rightarrow G^{\prime}$ is an epimorphism, then its kernel $N$ is a normal subgroup of $G$ and $f$ induces an isomorphism
+$G/N \rightarrow G^{\prime}$ that carries $xN$ to $f(x)$ for each $x \in G$.
+\end{remark}
+
+\begin{definition}[The Fundamental Group]
+Let $X$ be a space; let $x_0$ be a point of $X$. A path in $X$ that begins and ends at $x_0$ is called a \textbf{loop} based at $x_0$. \\
+
+The set of path homotopy classes of loops based at $x_0$, with the operation $*$, is the \textbf{fundamental group} of $X$ relative to the \textbf{base point} $x_0$,
+and is denoted by $\pi_1(X, x_0)$. This group is also sometimes called the \textbf{first homotopy group} of $X$.
+\end{definition}
+
+\begin{eg}
+$\pi_1(\R^n, x_0)$ is the trivial group -- if $f$ is a loop in $\R^n$ based at $x_0$, the straight-line homotopy is a path homotopy between $f$
+and the constant path at $x_0$. \\
+
+If $X$ is any convex subset of $\R^n$, then $\pi_1(X, x_0)$ is the trivial group.
+\end{eg}
+
+\begin{definition}
+Let $\alpha$ be a path in $X$ from $x_0$ to $x_1$. Define the map
+\[
+    \hat{\alpha} \colon \pi_1(X, x_0) \rightarrow \pi_1(X, x_1)
+\]
+by the equation
+\[
+    \hat{\alpha}([f]) = [\overline{\alpha}] * [f] * [\alpha].
+\]
+\end{definition}
+
+\begin{theorem}
+$\hat{\alpha}$ is a group isomorphism.
+\end{theorem}
+
+\begin{corollary}
+If $X$ is path connected and $x_0$ and $x_1$ are two points of $X$, then $\pi_1(X, x_0)$ is isomorphic to $\pi_1(X, x_1)$.
+\end{corollary}
