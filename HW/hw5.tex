@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 4}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 9 (The Fundamental Group) Problems.} \\
+
+\underline{Section 53 (Covering Spaces), 53.3} \\
+
+\textbf{Let $x_0$ and $x_1$ be points of the path-connected space $X$. Show that $\pi_1(X, x_0)$ is abelian if and only if every pair
+$\alpha$ and $\beta$ of paths from $x_0$ to $x_1$, we have $\hat{\alpha} = \hat{b}$.}
+
+\begin{solution}
+We begin with the forward implication. Let $[f] \in \pi_1(X, x_0)$ and let $\alpha$ and $\beta$ be two paths from $x_0$ to $x_1$. 
+Since $[\bar{\alpha}] * [\alpha] = e_{x_1}$ and $[\beta] * e_{x_1} * [\bar{\beta}] = e_{x_0}$, it follows  that
+\[
+    [f] = [\beta] * [\bar{\alpha}] * [\alpha] * [\bar{\beta}] * [f].
+\]
+Equivalently,
+\[
+    [f] = [\beta * \bar{\alpha}] * [\alpha * \bar{\beta}] * [f].
+\]
+Furthermore, note that $[\alpha * \bar{\beta}]$ is a loop based at $x_0$, so it is in $\pi_1(X, x_0)$, which is abelian. 
+Consequently, $[\alpha * \bar{\beta}]$ commutes with $[f]$, so $[\alpha * \bar{\beta}] * [f] = [f] * [\alpha * \bar{\beta}]$. This gives us
+
+\begin{align*}
+    [f] &= [\beta * \bar{\alpha}] * [\alpha * \bar{\beta}] * [f] \\
+    &= [\beta * \bar{\alpha}] * [f] * [\alpha * \bar{\beta}] \\
+    &= [\beta] * [\bar{\alpha}] * [f] * [\alpha] * [\bar{\beta}]
+\end{align*}
+Finally, multiplying both sides by $[\bar{\beta}]$ on the left and by $[\beta]$ on the right and simplifying, we get that
+\[
+    [\bar{\beta}] * [f] * [\beta] = [\bar{\alpha}] * [f] * [\alpha]
+\]
+and this is equivalent to
+\[
+    \hat{\alpha}([f]) = \hat{\beta}([f]).
+\]
+We conclude that for any two paths $\alpha$ and $\beta$ from $x_0$ to $x_1$, $\hat{\alpha} = \hat{\beta}$, as desired. \\
+
+It remains to show the reverse implication. Suppose that for any two paths $\alpha$ and $\beta$ of paths from $x_0$ to $x_1$, $\hat{\alpha} = \hat{b}$. Let
+$[f_1]$ and $[f_2]$ be distinct path homotopy classes in $\pi_1(X, x_0)$. To show that $\pi_1(X, x_0)$ is abelian, we will show that $[f_1] * [f_2] = [f_2] * [f_1]$. \\
+
+Note that $f_1 * \alpha$ and $f_2 * \alpha$ are two paths from $x_0$ to $x_1$, so we know that $\widehat{f_1 * \alpha} = \widehat{f_2 * \alpha}$. It follows that
+$\widehat{f_1 * \alpha}([f_1]) = \widehat{f_2 * \alpha}([f_1])$, so
+\[
+    [\overline{f_1 * \alpha}] * [f_1] * [f_1 * \alpha] = [\overline{f_2 * \alpha}] * [f_1] * [f_2 * \alpha].
+\]
+Simplifying, we have that
+\begin{align*}
+    [\overline{f_1 * \alpha}] * [f_1] * [f_1 * \alpha] &= [\overline{f_2 * \alpha}] * [f_1] * [f_2 * \alpha] \\
+    \implies [\bar{\alpha} * \bar{f_1}] * [f_1] * [f_1 * \alpha] &= [\bar{\alpha} * \bar{f_2}] * [f_1] * [f_2 * \alpha] \\
+    \implies [\bar{\alpha}] * [\bar{f_1}] * [f_1] * [f_1] * [\alpha] &= [\bar{\alpha}] * [\bar{f_2}] * [f_1] * [f_2] * [\alpha].
+\end{align*}
+Multiplying both sides on the left by $[\alpha]$ and on the right by $[\bar{\alpha}]$ and simplifying further, we have that
+\begin{align*}
+    [\bar{\alpha}] * [\bar{f_1}] * [f_1] * [f_1] * [\alpha] &= [\bar{\alpha}] * [\bar{f_2}] * [f_1] * [f_2] * [\alpha]. \\
+    \implies [f_1] = [\bar{f_2}] * [f_1] * [f_2].
+\end{align*}
+Finally, multiply both sides on the left by $[f_2]$, we get that 
+\[
+    [f_2] * [f_1] = [f_1] * [f_2]
+\]
+as desired. Thus, we conclude that for any two elements $[f_1]$ and $[f_2]$ in $\pi_1(X, x_0)$, $[f_1] * [f_2] = [f_2] * [f_1]$, so $\pi_1(X, x_0)$ is abelian, as desired.
+\end{solution}
+
+\newpage
+
+\underline{Section 53 (Covering Spaces), 53.6(b)} \\
+
+\textbf{Let $p\colon E \rightarrow B$ be a covering map.}
+
+\begin{enumerate}[b)]
+    \item \textbf{If $B$ is compact and $p^{-1}(b)$ is finite for each $b \in B$, then $E$ is compact.}
+    
+    \begin{solution}
+        
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+
+\end{document}
