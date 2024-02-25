@@ -20,7 +20,7 @@
 	\begin{center}
         \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
 
-		{\Large Homework 4}
+		{\Large Homework 5}
 
 		David Yang
 	\end{center}
@@ -81,9 +81,9 @@ Simplifying, we have that
 Multiplying both sides on the left by $[\alpha]$ and on the right by $[\bar{\alpha}]$ and simplifying further, we have that
 \begin{align*}
     [\bar{\alpha}] * [\bar{f_1}] * [f_1] * [f_1] * [\alpha] &= [\bar{\alpha}] * [\bar{f_2}] * [f_1] * [f_2] * [\alpha]. \\
-    \implies [f_1] = [\bar{f_2}] * [f_1] * [f_2].
+    \implies [f_1] &= [\bar{f_2}] * [f_1] * [f_2].
 \end{align*}
-Finally, multiply both sides on the left by $[f_2]$, we get that 
+Finally, multiplying both sides on the left by $[f_2]$, we get that 
 \[
     [f_2] * [f_1] = [f_1] * [f_2]
 \]
@@ -99,12 +99,68 @@ as desired. Thus, we conclude that for any two elements $[f_1]$ and $[f_2]$ in $
 \begin{enumerate}[b)]
     \item \textbf{If $B$ is compact and $p^{-1}(b)$ is finite for each $b \in B$, then $E$ is compact.}
     
-    \begin{solution}
-        
+    \begin{solution}\footnote{constructed with Zoe's help. Also, I think there are a few steps that are not quite correct in the proof but I have tried for quite a while to fix them to no avail.
+    Will be at Office Hours to talk about it.}
+    Let $U = \bigcup\limits_{\alpha \in J} U_\alpha$ be an open cover of $E$. Since $p$ is a covering map, it is both an open map, so that $p(U_\alpha)$ is open, and surjective onto $B$. Consequently,
+    $\bigcup\limits_{\alpha \in J} p(U_\alpha)$ is a union of open sets which covers $E$; equivalently, $\bigcup\limits_{\alpha \in J} p(U_\alpha)$ is an open cover of $B$. Let $b \in B$. Since $p$ is a covering map, 
+    $b$ has a neighborhood $V_b$ that is openly covered by $p$. For each $b \in B$, pick an arbitrary $p(U_\alpha^b)$ containing it; we denote this as $\tilde{V}_\alpha^b$. It follows that the collection of
+    \[
+        \{ V_b \cap \tilde{V}_\alpha^b \mid b \in B \} 
+    \]
+    is an open covering of $B$ -- each element is the intersection of open sets which is open, and this set contains every point $b \in B$. 
+    Since $B$ is compact, this open covering has a finite subcovering, which we will describe as
+    \[
+       \{ V_{b_i} \cap \tilde{V}_\alpha^{b_i} \mid i \in \{ 1, \dots, n \} \}
+    \]
+    for each $b_i \in B$. \\
+
+    Consider now 
+    \begin{align*}
+        p^{-1} \left( \bigcup_{i \in \{ 1, \dots, n \}} V_{b_1} \cap \tilde{V}_\alpha^{b_1} \right) &= \bigcup_{i \in \{ 1, \dots, n \}} p^{-1}(V_{b_1}) \cap p^{-1}(\tilde{V}_\alpha^{b_1}) \\
+        &= \bigcup_{i \in \{ 1, \dots, n \}} p^{-1}(V_{b_1}) \cap U_\alpha^{b_1}
+    \end{align*}
+
+    which is an open cover of $E$ -- each element is an intersection of open sets in $E$ and it covers $E$. Furthermore, it has a finite number of open sets, 
+    as $p^{-1}(b)$ is finite for any $b \in B$.\footnote{I don't think is quite true as I'm working with an open set and using the fact that the inverse image of a point in $E$ is finite.} \\
+
+    It follows that we can pick the set $U_\alpha^{b_i}$ for $i\in \{ 1, \dots, n \}$ to be an finite subcovering of the open cover $U$.\footnote{Also not sure about this, as I feel that I am neglecting the $p^{-1}(V_{b_1})$ part of the construction} Thus, any open cover of $E$ has a finite subcovering,
+    and so $E$ is compact.
     \end{solution}
 \end{enumerate}
 
 \newpage
 
+\textbf{Suppose $X$ is contractible. Prove that there is a bijection between $[X, Y]$ and the set of path components of $Y$.}
+
+\begin{solution}\footnote{constructed with Phil's help.}
+Since $X$ is contractible, the identity map $i_X$ is homotopic to a constant map. Let $F$ be this homotopy, the continuous map $F\colon X \times I \rightarrow  X$ satisfying
+\[
+    F(x, 0) = i_X(x) = x \text{ and } F(x, 1) = x_0
+\]
+for all $x \in X$ and some fixed $x_0 \in X$. \\
+
+Let $f$ be a continuous map from $X$ into $Y$ where $f(x_0) = y_0$ for some $y_0 \in Y$. It follows that $f$ is homotopic to the constant map from $X$ to $Y$ sending any element in $X$ to $y_0$. 
+The homotopy between these two maps, which we will denote as $G\colon X \times I \rightarrow Y$, is defined by $G(x, t) = f(F(x, t))$ and satisfies
+\[
+    G(x, 0) = f(F(x, 0)) = f(x) \text{ and } G(x, 1) = f(F(x, 1)) = f(x_0) = y_0.
+\]
+Furthermore, let $y_1 \in Y$ be in the same path component as $y_1$. We claim that $f$ is homotopic to the constant map from $X$ to $Y$ sending any element of $X$ to $y_0$. 
+Since $y_0$ and $y_1$ are in the same path component of $Y$, there is some path $p$ connecting them. Let us parametrize $p$ so that $p\colon I \rightarrow Y$ satisfies $p(0) = y_0$ and $p(1) = y_1$. 
+The homotopy between $f$ and the constant map from $X$ to $Y$ sending any element of $X$ to $y_1$ is $H\colon X \times I \rightarrow Y$ defined by
+\[
+    H(x, t) = \begin{cases}
+        G(x, 2t) &\text{ if $t \leq \frac{1}{2}$}  \\
+        p(2t - 1) &\text{ if $t > \frac{1}{2}$}
+    \end{cases}.
+\]
+$H$ is continuous, as $H\left( x, \frac{1}{2} \right) = G(x, 1) = p(0) = y_0$; furthermore, 
+\[
+    H(x, 0) = G(x, 0) = f(x) \text{ and } H(x, 1) = p(1) = y_1.
+\]
+
+Thus, the maps $f$ of $X$ into $Y$ correspond directly to the constant maps from $X$ to $Y$. Furthermore, if two constant maps 
+yield values in the same path component of $Y$, they are in the same homotopy class. Thus, we conclude that there is a bijection between $[X, Y]$, the set of
+homotopy classes of maps of $X$ into $Y$ and the path components of $Y$, as desired.
+\end{solution}
 
 \end{document}
