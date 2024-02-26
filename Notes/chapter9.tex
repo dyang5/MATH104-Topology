@@ -231,4 +231,77 @@ If $p\colon E \rightarrow B$ and $p^{\prime}\colon E^{\prime} \rightarrow B^{\pr
 is a covering map.
 \end{theorem}
 
+\subsection{The Fundamental Group of the Circle}
+
+\begin{definition}[Lifting]
+Let $p\colon E \rightarrow B$ be a map. If $f$ is a continuous mapping of some space $X$ into $B$, a \textbf{lifting} of $f$ is a map $\tilde{f}\colon X \rightarrow E$ such that $p \circ \tilde{f} = f$. 
+\end{definition}
+
+
+\begin{eg}
+Consider the covering $p\colon \R \rightarrow S^1$ given by $p(x) = (\cos (2\pi x), \sin (2\pi x))$. \\
+
+The path $f\colon [0, 1] \rightarrow S^1$ beginning at $b_0 = (1, 0)$ given by $f(s) = (\cos (\pi s), \sin (\pi s))$ lifts to the path $\tilde{f}(s) = \frac{s}{2}$ beginning at $0$ and ending at $\frac{1}{2}$.
+\end{eg}
+
+\begin{lemma}
+Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$. Any path $f\colon [0, 1] \rightarrow B$ beginning at $b_0$ has a unique lifting to a path $\tilde{f}$ in $E$ beginning at $e_0$.
+\end{lemma}
+
+\begin{lemma}
+Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$. Let the map $F\colon I \times I \rightarrow B$ be continuous, with $F(0, 0) = b_0$. There is a unique lifting of $F$ to a continuous map
+\[
+    \tilde{F}\colon I \times I \rightarrow E
+\]
+such that $\tilde{F}(0, 0) = e_0$. If $F$ is a path homotopy, then $\tilde{F}$ is a path homotopy.
+\end{lemma}
+
+\begin{theorem}
+Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$. Let $f$ and $g$ be two paths in $B$ from $b_0$ to $b_1$ and let $\tilde{f}$ and $\tilde{g}$ be their respective liftings to paths in $E$ beginning at $e_0$.
+If $f$ and $g$ are path homotopic, then $\tilde{f}$ and $\tilde{g}$ end at the same point of $E$ and are path homotopic.
+\end{theorem}
+
+\begin{definition}[Lifting Correspondence]
+Let $p\colon E \rightarrow B$ be a covering map and let $b_0 \in B$. Choose $e_0$ so that $p(e_0) = b_0$. Given an element $[f] \in \pi _1(X, x_0)$, let $\tilde{f}$ be the lifting of $f$ to a path in $E$ that begins at $e_0$. 
+Let $\phi([f])$ denote the endpoint of $\tilde{f}(1)$ of $\tilde{f}$. Then $\phi$ is a well-defined set map
+\[
+    \phi\colon \pi _1(B, b_0) \rightarrow p^{-1}(b_0).
+\]
+$\phi$ is the \textbf{lifting correspondence} derived from the covering map $p$, and depends on the choice of $e_0$.
+\end{definition}
+
+\begin{theorem}
+Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$. If $E$ is path connected then the lifting correspondence 
+\[
+    \phi\colon \pi _1(B, b_0) \rightarrow p^{-1}(b_0)
+\]
+is surjective. If $E$ is simply connected, it is bijective.
+\end{theorem}
+
+\begin{theorem}
+The fundamental group of $S^1$ is isomorphic to the additive group of integers.
+\end{theorem}
+
+\begin{theorem}
+Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$.
+\begin{enumerate}[a)]
+    \item The homomorphism $p_{\ast} \colon \pi _1(E, e_0) \rightarrow \pi _1(B, b_0)$ is a monomorphism.
+    \item Let $H = p_{\ast} (\pi _1(E, e_0))$. The lifting correspondence $\phi$ induces an injective map
+    \[
+        \Phi\colon \pi _1(B, b_0) / H \rightarrow p^{-1}(b_0)
+    \]
+    of the collection of right cosets of $H$ into $p^{-1}(b_0)$, which is bijective if $E$ is path connected.
+    \item If $f$ is a loop in $B$ based at $b_0$, then $[f] \in H$ if and only if $f$ lifts to a loop in $E$ based at $e_0$.
+\end{enumerate}
+\end{theorem}
+
+
+\subsection{Retractions and Fixed Points}
+
+\begin{definition}
+If $A \subset X$, a \textbf{retraction} of $X$ onto $A$ is a continuous map $r\colon X \rightarrow  A$ such that $r \mid A$ is the identity map of $A$. \\
+
+If such a map exists, then $A$ is known as a \textbf{retract} of $X$.
+\end{definition}
+
 
