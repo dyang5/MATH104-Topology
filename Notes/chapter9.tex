@@ -285,7 +285,7 @@ The fundamental group of $S^1$ is isomorphic to the additive group of integers.
 \begin{theorem}
 Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$.
 \begin{enumerate}[a)]
-    \item The homomorphism $p_{\ast} \colon \pi _1(E, e_0) \rightarrow \pi _1(B, b_0)$ is a monomorphism.
+    \item The homomorphism $p_{\ast} \colon \pi _1(E, e_0) \rightarrow \pi _1(B, b_0)$ is a monomorphism (injective).
     \item Let $H = p_{\ast} (\pi _1(E, e_0))$. The lifting correspondence $\phi$ induces an injective map
     \[
         \Phi\colon \pi _1(B, b_0) / H \rightarrow p^{-1}(b_0)
@@ -303,5 +303,26 @@ If $A \subset X$, a \textbf{retraction} of $X$ onto $A$ is a continuous map $r\c
 
 If such a map exists, then $A$ is known as a \textbf{retract} of $X$.
 \end{definition}
+
+\begin{lemma}
+If $A$ is a retract of $X$, then the homomorphism of fundamental groups induced by inclusion $j\colon A \rightarrow X$ is injective.
+\end{lemma}
+
+\begin{theorem}
+There is no retraction of $B^2$ onto $S^1$.
+\end{theorem}
+
+\begin{proof}
+The homomorphism induced by inclusion cannot be injective, as the fundamental group of $S^1$ is nontrivial and the fundamental group of $B^2$ is trivial.
+\end{proof}
+
+\begin{lemma}
+Let $h\colon S^1 \rightarrow X$ be a continuous map. Then the following conditions are equivalent:
+\begin{enumerate}[1)]
+    \item $h$ is nulhomotopic.
+    \item $h$ extends to a continuous map $k\colon B^2 \rightarrow X$.
+    \item $h_{\ast}$ is the trivial homomorphism of fundamental groups.
+\end{enumerate}
+\end{lemma}
 
 
