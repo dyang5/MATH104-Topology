@@ -1,5 +1,26 @@
 \documentclass[11pt]{article}
-\usepackage{../styletemplate}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathrsfs}
+
+\newcommand{\R}{\mathbb{R}}
+\theoremstyle{definition}
+\theoremstyle{theorem}
+
+
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{eg}{Example}
+
+
+\newenvironment{solution}
+{\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
 
 \begin{document}
 
@@ -18,13 +39,13 @@
 
 \section{Introduction and Relevant Theorems}
 
-\begin{definition*}[First Countability Axiom]
+\begin{definition}[First Countability Axiom]
 A space $X$ is said to have a \textbf{countable basis at $x$} if there is a countable collection $\mathscr{B}$ of neighborhoods of $x$ such that each neighborhood of $x$ contains at least one of the elements of $\mathscr{B}$. \\
 
 A space that has a countable basis at each of its points is said to satisfy the \textbf{first countability axiom}, or to be \textbf{first-countable}.
-\end{definition*}
+\end{definition}
 
-\begin{theorem*}
+\begin{theorem}
 Let $X$ be a topological space. 
 \begin{enumerate}[a)]
     \item Let $A$ be a subset of $X$. If there is a sequence of points of $A$ converging to $x$, then $x \in \overline{A}$; 
@@ -32,12 +53,12 @@ Let $X$ be a topological space.
     \item let $f\colon X \rightarrow Y$. If $f$ is continuous, then for every convergent sequence $x_n \rightarrow x$ in $X$, the function
     $f(x_n)$ converges to $f(x)$. The converse holds if $X$ is first-countable.
 \end{enumerate}
-\end{theorem*}
+\end{theorem}
 
-\begin{definition*}[Second Countability Axiom]
+\begin{definition}[Second Countability Axiom]
 If a space $X$ has a countable basis for its topology, then $X$ is said to satisfy the \textbf{second countability axiom}, or to be
 \textbf{second-countable}.
-\end{definition*}
+\end{definition}
 
 \noindent {\bf Motivation:} A topology on a space can have multiple bases of various sizes. We want to settle the size of a basis.
 
@@ -49,9 +70,9 @@ If a space $X$ has a countable basis for its topology, then $X$ is said to satis
 
 \textit{Note: this should illustrate the difference between having a countable basis (second-countable) and having a countable basis at each of its points (first-countable).}
 
-\begin{lemma*}
+\begin{lemma}
 If $X$ is a space having a countable basis $B$, then any discrete subspace $A$ of $X$ must be countable.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
 Choose, for each $a \in A$, a basis element $B_a$ that intersects $A$ in the point $a$ alone. \\
@@ -82,7 +103,7 @@ Furthermore, this space has the discrete topology as for any distinct $x, y \in 
 \noindent We want to show $\mathbb{B}_2$ is also a basis for $\mathbb{R}^n$. Let $U$ be an open set of $\mathbb{R}^n$, then for all $u \in U$, there exists some $r \in \mathbb{R}^+$ such that $u \in B_r(u) \subseteq
 U$. By a version of the Archimedean Property, there exists some $q \in \mathbb{Q}$ such that $q \leq r$. \\
 
-\noindent Recall that $u \in \overline{\mathbb{Q}^n}$ if and only if every open set $U$ containing $u$ intersects $\mathbb{Q}^n$ (theorem* $17.5a$), so there exists $p \in \mathbb{Q}^n$ such that $d(u,p)<q/2$. We claim
+\noindent Recall that $u \in \overline{\mathbb{Q}^n}$ if and only if every open set $U$ containing $u$ intersects $\mathbb{Q}^n$ (Theorem $17.5a$), so there exists $p \in \mathbb{Q}^n$ such that $d(u,p)<q/2$. We claim
 
 \begin{center}
     $u \in B_{q/2} (p) \subseteq B_r(u) \subseteq U$, and\\
