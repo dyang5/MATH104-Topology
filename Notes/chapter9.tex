@@ -325,4 +325,64 @@ Let $h\colon S^1 \rightarrow X$ be a continuous map. Then the following conditio
 \end{enumerate}
 \end{lemma}
 
+\begin{theorem}[Brouwer Fixed-Point Theorem for the Disc]
+If $f\colon B^2 \rightarrow B^2$ is continuous, then there exists a point $x \in B^2$ such that $f(x) = x$.
+\end{theorem}
 
+
+\subsection{The Fundamental Theorem of Algebra}
+\begin{theorem}[Fundamental Theorem of Algebra]
+A polynomial equation
+\[
+    x^n + a_{n-1}x^{n-1} + \dots + a_1 x + a_0 = 0
+\]
+of degree $n > 0$ with real or complex coefficients has at least one (real or complex) root.
+\end{theorem}
+
+\subsection{The Borsuk-Ulam Theorem}
+
+\subsection{Deformation Retracts and Homotopy Type}
+\begin{definition}[Deformation Retracts]
+Let $A$ be a subspace of $X$. $A$ is a \textbf{deformation retract} of $X$ if the identity map of $X$ is homotopic to a map that carries all of $X$ into $A$, such that each point of $A$ remains fixed during the homotopy. \\
+
+This means that there is a continuous map $H \colon X \times I \rightarrow X$ such that $H(x, 0) = x$ and $H(x, 1) \in A$ for all $x \in X$, and $H(a, t) = a$ for all $a \in A$. \\
+
+The homotopy $H$ is a \textbf{deformation retraction} of $X$ onto $A$. The map $r \colon X \rightarrow A$ defined by $r(x) = H(x, 1)$ is a retraction of $X$ onto $A$, and $H$ is a homotopy between the identity map of $X$ and the map $j \circ r$ where $j \colon A \rightarrow X$ is inclusion.
+\end{definition}
+
+\begin{theorem}[Isomorphism of Fundamental Groups under Deformation Retracts]
+Let $A$ be a deformation retract of $X$; let $x_0 \in A$. Then the inclusion map
+\[
+    j \colon (A, x_0) \rightarrow (X, x_0)
+\]
+induces an isomorphism of fundamental groups.
+\end{theorem}
+
+\begin{eg}
+Let $B$ denote the $z$-axis in $\R^3$ and consider $\R^3 - B$. It has the punctured $xy$-plane $(\R^2 - \mathbf{0}) \times 0$ as a deformation retract.
+\end{eg}
+
+\begin{eg}
+$\R^2 - p - q$, the doubly punctured plane, has the figure eight space as a deformation retract.
+\end{eg}
+
+\begin{eg}
+Another deformation retraction of the doubly punctured plane $\R^2 - p - q$ is the theta space
+\[
+    \theta = S^1 \cup (0 \times [-1, 1]).
+\]
+\end{eg}
+
+\begin{definition}[Homotopy Equivalence]
+Let $f \colon X \rightarrow Y$ and $g \colon Y \rightarrow X$ be continuous maps. Suppose that $g \circ f \colon X \rightarrow X$ is homotopic to the identity map of $X$, and the map $f \circ g \colon Y \rightarrow Y$ is homotopic to the identity map of $Y$. \\
+
+Then the maps $f$ and $g$ are \textbf{homotopy equivalences} and each is said to be a \textbf{homotopy inverse} of the other. \\
+
+Two spaces that are homotopy equivalent have the same $\textbf{homotopy type}$.
+\end{definition}
+
+\begin{remark}
+The relation of homotopy equivalence is more general than the notion of deformation retraction. \\
+
+Both the theta space and the figure eight spaces are deformation retracts of the doubly punctured plane, so they are homotopy equivalent to the doubly punctured plane and thus to each other. But neither is homeomorphic to a deformation retract of the other; in fact, neither of them can even be imbedded in each other. 
+\end{remark}
