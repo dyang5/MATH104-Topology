@@ -341,6 +341,14 @@ of degree $n > 0$ with real or complex coefficients has at least one (real or co
 
 \subsection{The Borsuk-Ulam Theorem}
 
+\begin{theorem}[Borsok-Ulam Theorem for $S^2$]
+Given a continuous map $f\colon S^2 \rightarrow \R^2$, there is a point $x$ of $S^2$ such that $f(x) = f(-x)$. 
+\end{theorem}
+
+\begin{theorem}[The Bisection Theorem]
+Given two bounded polygonal regions in $\R^2$, there exists a line in $\R^2$ that bisects both of them.
+\end{theorem}
+
 \subsection{Deformation Retracts and Homotopy Type}
 \begin{definition}[Deformation Retracts]
 Let $A$ be a subspace of $X$. $A$ is a \textbf{deformation retract} of $X$ if the identity map of $X$ is homotopic to a map that carries all of $X$ into $A$, such that each point of $A$ remains fixed during the homotopy. \\
@@ -380,6 +388,14 @@ Then the maps $f$ and $g$ are \textbf{homotopy equivalences} and each is said to
 
 Two spaces that are homotopy equivalent have the same $\textbf{homotopy type}$.
 \end{definition}
+
+\begin{theorem}
+Let $f\colon X \rightarrow Y$ be continuous; let $f(x_0) = y_0$. If $f$ is a homotopy equivalence, then
+\[
+    f_{\ast} \colon \pi _1(X, x_0) \rightarrow \pi _1(Y, y_0)
+\]
+is an isomorphism.
+\end{theorem}
 
 \begin{remark}
 The relation of homotopy equivalence is more general than the notion of deformation retraction. \\
