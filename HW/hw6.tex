@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 6}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 9 (The Fundamental Group) Problems.} \\
+
+\underline{Section 54 (The Fundamental Group of the Circle), 54.7} \\
+
+\textbf{Extend the proof of Theorem 54.5 (the fundamental group of $S^1$ is isomorphic to the additive group of integers) to show that the fundamental group of the torus
+is isomorphic to the group $\Z \times \Z$.}
+
+\begin{solution}
+Let $p\colon \R \times \R \rightarrow S^1 \times S^1$ be the covering map of Theorem 53.1 extended to two dimensions, so that $p(x, y) = (\left( \cos 2\pi x, \sin 2\pi x \right), \left( \cos 2\pi y, \sin 2\pi y \right) )$, 
+let $e_0 = (0, 0)$, and let $p(e_0) = b_0$ for $b_0 \in S^1 \times S^1$. Then $p^{-1}(b_0)$ is the set $\Z \times \Z$. By Theorem 54.4, since $\R \times \R$ is simply connected, the lifting correspondence
+\[
+    \varphi \colon \pi _1(S^1 \times S^1, b_0) \rightarrow \Z \times \Z
+\]
+is bijective. To show that $ \pi_1(S^1 \times S^1, b_0)$ is isomoporhic to $\Z \times \Z$, then, it remains to show that $\varphi$ is a homomorphism. \\
+
+Let $[f]$ and $[g]$ be two elements of $\pi_1(S^1 \times S^1, b_0)$, and let $\tilde{f}$ and $\tilde{g}$ be their respective liftings to paths on $\R \times \R$ beginning at $e_0 = (0, 0)$. 
+Let $\tilde{f}(1) = (a, b)$ and $\tilde{g}(1) = (c, d)$. This tells us that $\varphi([f]) = (a, b)$ and $\varphi([g]) = (c, d)$. Let $\tilde{\tilde{g}}$ be the path
+\[
+    \tilde{\tilde{g}}(s) = (a, b) + \tilde{g}(s)
+\]
+on $\R \times \R$. Since $p((a, b) + z) = p(z)$ for all $z \in \R \times \R$, the path $\tilde{\tilde{g}}$ is a lifting of $g$, beginning at $(a, b)$. It follows that the product $\tilde{f} * \tilde{\tilde{g}}$ is defined
+-- it is the lifting on $f \times g$ beginning at $(0, 0)$. The endpoint of this path is $\tilde{\tilde{g}}(1) = (a + c, b + d)$. Thus, we see that
+\[
+    \varphi([f] * [g]) = (a + c, b + d) = (a, b) + (c, d) = \varphi([f]) + \varphi([g])
+\]
+and so $\varphi$ is a homomorphism. We conclude that $\varphi$ is an isomorphism between $\pi_1(S^1 \times S^1, b_0)$ and $\Z \times \Z$. Thus, the fundamental group of the torus is isomorphic to the group $\Z \times \Z$.
+\end{solution}
+\newpage
+
+\underline{Section 55 (Retractions and Fixed Points), 55.1} \\
+
+\textbf{Show that if $A$ is a retract of $B^2$, then every continuous map $f\colon A \rightarrow A$ has a fixed point.}
+
+\begin{solution}
+Since $A$ is a retract of $B^2$, by definition, there exists a continuous map $r\colon B^2 \rightarrow A$ such that $r \mid A$ is the identity map of $A$. Let $f$ be an arbitrary continuous map from $A$ to $A$, and
+let $j\colon A \rightarrow B^2$ be the inclusion map, which is continuous. \\
+
+Since $j$, $f$ and $r$ are continuous maps and the composition of continuous maps is continuous, it follows that $j \circ f \circ r$ is a continuous map from $B^2$ to $B^2$. \\
+
+By Brouwer's Fixed-Point Theorem for the Disc, it follows that $j \circ f \circ r$ has a fixed point $x \in B^2$. Furthermore, since the image of $j \circ f \circ r$ is the subspace $A$ of $B^2$ (as $j$ is
+the inclusion map from $A$ to $B^2$), it must be that $x \in A$. Consequently, for that fixed point $x \in A$, we have that
+\[
+    x = (j \circ f \circ r)(x) = j(f(r(x))) = j(f(x)) = f(x)
+\]
+where the third equality follows from the fact that $r$ is the retraction map and the fourth equality from the fact that $j$ is the inclusion map. 
+Thus, we must have that $f(x) = x$ for some $x \in A$, so every continuous map $f\colon A \rightarrow A$ must have a fixed point, as desired.
+\end{solution}
+
+\newpage
+
+
+\underline{Section 57 (The Borsuk-Ulam Theorem), 57.2} \\
+
+\textbf{Show that if $g\colon S^2 \rightarrow S^2$ is continuous and $g(x) \neq g(-x)$ for all $x$, then $g$ is surjective. [\textit{Hint:} If $p \in S^2$, then $S^2 \text{ -- } \{ p \}$ is homeomorphic to $\R^2$.]}
+
+\begin{solution}
+Suppose for the sake of contradiction that $g$ is not surjective. Then there exists some $p \in S^2$ such that $g(x) \neq p$ for all $x \in S^2$. Note that per the hint,  $S^2 \text{ -- } \{ p \}$ is homeomorphic to $\R^2$; 
+let $f$ be the homeomorphism from $S^2 \text{ -- } \{ p \}$ to $\R^2$. \\
+
+Since $f$ and $g$ are both continuous and the composition of continuous functions is continuous, it follows that $f \circ g$ is a continuous map from $S^2$ to $\R^2$. 
+By the Borsuk-Ulam Theorem for $S^2$, we know that there is a point $y \in S^2$ such that $(f \circ g)(y) = (f \circ g)(-y)$, or equivalently,
+\[
+    f(g(y)) = f(g(-y)).
+\]
+Since $f$ is a homeomorphism, it must be injective. Consequently, if $f(g(y)) = f(g(-y))$, then $g(y) = g(-y)$ for that $y \in S^2$. However, this contradicts the fact that $g(x) \neq g(-x)$ for all $x \in S^2$. \\
+
+Thus, we conclude that if $g\colon S^2 \rightarrow S^2$ is continuous and $g(x) \neq g(-x)$ for all $x \in S^2$, then $g$ is surjective, as desired.\end{solution}
+
+\newpage
+
+\underline{Section 58 (Deformation Retracts and Homotopy Type), 58.5} \\
+
+\textbf{Recall that a space $X$ is said to be \textit{contractible} if the identity map of $X$ to itself is nulhomotopic. Show that $X$ is contractible if and only if $X$ has the homotopy type of a one-point space.}
+
+\begin{solution}
+We will prove both directions of the implication. \\
+
+Suppose that $X$ is contractible. Then the identity map of $X$ is homotopic to a constant map $f$, where $f(x) = x_0$ for all $x \in X$ and some $x_0 \in X$.
+Let $Y$ be the one-point space consisting of the point $x_0$. We will show that $X$ and $Y$ are homotopy equivalent. Consider the map $g\colon Y \rightarrow X$ by inclusion. It follows that
+$g \circ f = f$. Furthermore, $X$ is contractible, so $f$ is homotopic to the identity map of $X$. Thus, we conclude that $g \circ f$ is homotopic to the identity map of $X$. Furthermore, note that $f \circ g$ maps $x_0$ to itself;
+consequently, since $x_0$ is the only element in $Y$, it follows that $f \circ g$ is homotopic to the identity map of $Y$. 
+Since $g \circ f$ is homotopic to the identity map of $X$ and $f \circ g$ is homotopic to the identity map of $Y$, we know that $X$ and $Y$ have the same homotopy type, and so $X$ has the homotopy type of a one-point space. \\
+
+On the other hand, suppose that $X$ has the homotopy type of a one-point space; equivalently, $X$ is homotopy equivalent to the space $Y = \{ y \}$. By definition, this means that
+there exists continuous maps $f\colon X \rightarrow Y$ and $g\colon Y \rightarrow X$ where $f \circ g$ is homotopic to the identity map of $Y$ and $g \circ f$ is homotopic to the identity map of $X$. Note that since
+$Y$ is a one-point space consisting of the single element $y$, $g$ is defined by where it sends $y$; let $g(y) = x_0$ for some $x_0 \in X$. It follows that for all $x \in X$,
+\[
+    (g \circ f)(x) = g(f(x)) = g(y) = x_0
+\]
+meaning that $g \circ f$ is the constant map sending every element of $X$ to $x_0$. Equivalently, $g \circ f$ is homotopic to the constant map sending everything to $x_0$, and so $X$ is by definition contractible. \\
+
+We conclude that $X$ is contractible if and only if $X$ has the homotopy type of a one-point space, as desired.\end{solution}
+
+
+\end{document}
