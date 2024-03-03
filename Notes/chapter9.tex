@@ -270,7 +270,7 @@ Let $\phi([f])$ denote the endpoint of $\tilde{f}(1)$ of $\tilde{f}$. Then $\phi
 $\phi$ is the \textbf{lifting correspondence} derived from the covering map $p$, and depends on the choice of $e_0$.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{lifting_surj}
 Let $p\colon E \rightarrow B$ be a covering map, let $p(e_0) = b_0$. If $E$ is path connected then the lifting correspondence 
 \[
     \phi\colon \pi _1(B, b_0) \rightarrow p^{-1}(b_0)
@@ -402,3 +402,81 @@ The relation of homotopy equivalence is more general than the notion of deformat
 
 Both the theta space and the figure eight spaces are deformation retracts of the doubly punctured plane, so they are homotopy equivalent to the doubly punctured plane and thus to each other. But neither is homeomorphic to a deformation retract of the other; in fact, neither of them can even be imbedded in each other. 
 \end{remark}
+
+\subsection{The Fundamental Group of $S^n$}
+
+\begin{theorem}
+Suppose $X = U \cup V$ where $U$ and $V$ are open sets of $X$. Suppose that $U \cap V$ is path connected, and that $x_0 \in U \cap V$. Let $i$ and $j$ be the inclusion mappings of $U$ and $V$, respectively, into $X$. 
+Then the images of the induced homomorphisms
+\[
+    i_{\ast} \colon \pi_1(U, x_0) \rightarrow \pi_1(X, x_0) \text{ and } j_{\ast} \colon \pi_1(V, x_0) \rightarrow \pi_1(X, x_0)
+\]
+generate $\pi_1(X, x_0)$.
+\end{theorem}
+
+\begin{corollary}
+Suppose $X = U \cup V$ where $U$ and $V$ are open sets of $X$. Suppose that $U \cap V$ is nonempty and path connected. If $U$ and $V$ are simply connected, then $X$ is simply connected.
+\end{corollary}
+
+\begin{theorem}
+If $n \geq 2$, the $n$-sphere $S^n$ is simply connected.
+\end{theorem}
+
+\begin{remark}
+The proof of the above theorem requires two steps: step 1 shows that the punctured sphere $S^n \text{ -- } p$ is homeomorphic to $\R^n$ for $n \geq 1$ using the stereographic projection map. \\
+
+For step 2, note that $U = S^n \text{ -- } p$ and  $V = S^n \text{ -- } q$ are homeomorphic through a reflection map. Use the previous corollary to conclude that $S^n$ is simply connected.
+\end{remark}
+
+\subsection{Fundamental Group of Some Surfaces}
+
+\begin{theorem}
+$\pi_1(X \times Y, x_0, y_0)$ is isomorphic to $\pi_1(X, x_0) \times \pi_2(Y, y_0)$. 
+\end{theorem}
+
+\begin{corollary}
+The fundamental group of the torus $S^1 \times S^1$ is isomorphic to $\Z \times \Z$.
+\end{corollary}
+
+\begin{definition}[Projective Plane]
+The \textbf{projective plane} $P^2$ is the quotient space obtained from $S^2$ by identifying each point $x$ of $S^2$ with its antipodal point $-x$.
+\end{definition}
+
+\begin{remark}
+The above definition can be generalized to define the \textbf{projective n-space}, obtained by identifying points with their antipodes in $S^n$. \\
+
+An equivalent definition is that the projective plane is the quotient of $\R^2 \text{ -- } 0$ under the equivalence relation $x \sim tx$ for $t \neq 0$. \\
+\end{remark}
+
+\begin{theorem}
+The projective plane $P^2$ is a compact surface (a Hausdorff space with a countable basis), and the quotient map $p\colon S^2 \rightarrow P^2$ is a covering map.
+\end{theorem}
+
+\begin{corollary}
+$\pi_1(P^2, y)$ is a group of order $2$.
+\end{corollary}
+
+\begin{proof}
+Since $S^2$ is simply connected, \cref{lifting_surj} tells us that there is a bijective correspondence between $\pi_1(P^2, y)$ and $p^{-1}(y)$, a two element set.
+\end{proof}
+
+\begin{lemma}
+The fundamental group of the figure eight is not abelian. 
+\end{lemma}
+
+\begin{remark}
+The figure eight's fundamental group is the free group on two generators.
+\end{remark}
+
+\begin{theorem}
+The fundamental group of the double torus is not abelian.
+\end{theorem}
+
+\begin{corollary}
+The $2$-sphere, torus, projective plane, and double torus are topologically distinct.
+\end{corollary}
+
+
+
+
+
