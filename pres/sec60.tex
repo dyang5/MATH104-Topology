@@ -1,0 +1,99 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{mathrsfs}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\theoremstyle{definition}
+\theoremstyle{theorem}
+
+
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{corollary}{Corollary}
+\newtheorem*{remark}{Remark}
+
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{eg}{Example}
+
+\setlength{\parindent}{0pt}
+\newenvironment{solution}
+{\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Spring 2024}\newline
+
+		{\Large The Fundamental Group of Some Surfaces}
+
+		David Yang and Jeffrey Zhang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\underline{Section 60 (The Fundamental Group of Some Surfaces)}
+\begin{theorem}[60.1]
+$\pi_1(X \times Y, x_0, y_0)$ is isomorphic to $\pi_1(X, x_0) \times \pi_2(Y, y_0)$. 
+\end{theorem}
+\begin{proof}
+    We can consider their projective mappings and thus the induced homomorphisms $p_*:\pi_1(X\times Y, x_0\times y_0)\rightarrow\pi_1(X,x_0)$ and $q_x:\pi_1(X\times Y,x_0\times y_0)\rightarrow\pi_1(Y,y_0)$. This allows us to define a homomorphism $\phi:\pi_1(X\times Y, x_0\times y_0)\rightarrow\pi_1(X,x_0)\times \pi_1(Y,y_0)$ with $\phi([f])=p_*([f])\times q_*([f])=[p\circ f]\times [q\circ f]$. The homomorphism is surjective since $f=g\times h$ implies that $\phi([f])=[g]\times [h]$ for any arbitrary loops $g$ and $h$ starting at $x_0$ and $y_0$, respectively. Now let $\phi([f])$ be the identity element, where $f$ is a loop based at $x_0\times y_0$, then we know that $[p\circ f]$ and $[q\circ f]$ are path homotopic to the constant loops at $x_0$ and $y_0$ under $G$ and $H$, respectively. Then, $F=G\times H$ is a path homotopy between $f$ and the constant loop based at $x_0\times y_0$.
+\end{proof}
+
+\begin{corollary}[60.2]
+The fundamental group of the torus $S^1 \times S^1$ is isomorphic to $\Z \times \Z$.
+\end{corollary}
+
+\begin{definition}[Projective Plane]
+The \textbf{projective plane} $P^2$ is the quotient space obtained from $S^2$ by identifying each point $x$ of $S^2$ with its antipodal point $-x$.
+\end{definition}
+
+\begin{remark}
+The above definition can be generalized to define the \textbf{projective n-space}, obtained by identifying points with their antipodes in $S^n$. \\
+
+An equivalent definition is that the projective plane is the quotient of $\R^3 \text{ -- } 0$ under the equivalence relation $a \sim ta$ for $t \neq 0$. (so the projective plane can be thought of as ``the set of lines in $\R^3 \text{ -- } 0$ passing through the origin.")
+\end{remark}
+
+
+\begin{definition}
+A \textbf{surface} is a Hausdorff space with a countable basis, each point of which has a neighborhood that is homeomorphic to an open subset of $\R^2$.
+\end{definition}
+
+\begin{theorem}[60.3]
+The projective plane $P^2$ is a compact surface, and the quotient map $p\colon S^2 \rightarrow P^2$ is a covering map.
+\end{theorem}
+
+\begin{proof}[Proof Outline]
+$p$ is an open map: let $U$ be an open set in $S^2$. Then the antipodal map $a \colon S^2 \rightarrow S^2$ given by $a(x) = -x$ is a homeomorphism of $S^2$, so $p^{-1}(p(U)) = U \cup a(U)$ is open, as it is a union of open sets. By definition, this tells us that the quotient map $p$ is open. \\
+
+$p$ is a covering map: given $y \in P^2$, choose $x \in p^{-1}(y)$, and let $U$ be an $\epsilon$-neighborhood of $x$ in $S^2$ for $\epsilon < 1$. Then $U$ has no pair of antipodal points, so $p \colon U \rightarrow p(U)$ and $p \colon a(U) \rightarrow p(a(U)) = p(U)$ are homeomorphisms. Then $p^{-1}(p(U)) = U \cup a(U)$, which are disjoint open sets that are mapped homeomorphically to $p(U)$ under $p$, from which it follows that $p(U)$ is a neighborhood of $P^2$ that is evenly covered by $p$. \\
+
+$P^2$ is Hausdorff: let $y_1$ and $y_2$ be distinct points in $P^2$. Then $p^{-1}(y_1) \cup p^{-1}(y_2)$ consists of four points; let $2\epsilon$ be the minimum distance between them, and let $U_1$ be the $\epsilon$-neighborhood of one point of $p^{-1}(y_1)$ and let $U_2$ be the $\epsilon$-neighborhood of one point of $p^{-1}(y_2)$. Then $U_1 \cup a(U_1)$ and $U_2 \cup a(U_2)$ are disjoint, and so $p(U_1)$ and $p(U_2)$ are disjoint neighborhoods of $y_1$ and $y_2$ in $P^2$. \\
+
+$P^2$ has a countable basis: $S^2$ has a countable basis $\{U_n\}$ so $P^2$ has the countable basis $\{p(U_n)\}$. \\
+
+Since $S^2$ is a compact surface, and every point of $P^2$ is homeomorphic to an open subset of $S^2$, $P^2$ is also a compact surface.
+\end{proof}
+
+\begin{remark}
+We can also use Section 31 Exercise 6. We would need to show that $p$ is closed (which can be done similar to how we've shown $p$ is open). Since $p$ is a covering map, though, it is also continuous and subjective. Furthermore, $S^2$ is normal, so by the exercise, $P^2$ is normal and in turn Hausdorff.
+\end{remark}
+
+\begin{corollary}
+$\pi_1(P^2, y)$ is a group of order $2$.
+\end{corollary}
+
+\begin{proof}
+Since $S^2$ is simply connected, Theorem 54.4 tells us that there is a bijective correspondence between $\pi_1(P^2, y)$ and $p^{-1}(y)$, a two element set. Thus, $\pi_1(P^2, y)$ is a group of order $2$, i.e. isomorphic to $\Z / 2\Z.$
+\end{proof}
+\end{document}
