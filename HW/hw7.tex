@@ -37,9 +37,16 @@
 \textbf{Let $X$ be the quotient space obtained from $B^2$ by identifying each point $x$ of $S^1$ with its antipode $-x$. 
 Show that $X$ is homeomorphic to the projective plane $P^2$.} 
 
-\begin{solution}
+\begin{solution}\footnote{constructed with Hillary's help.}
+Let $\pi$ represent the quotient map from $B^2$ to $X$ defined by identifying each point $x$ of $S^1$ with its antipode. 
+Consider the projection of the upper hemisphere of $S^2$ onto $B^2$, a homemomorphism. Let $h$ represent the inverse of this projection; $h$ is a homeomorphism from $B^2$ to $S^2$ mapping the unit disk to the upper hemisphere. 
+Finally, let $p$ represent the canonical quotient map from $S^2$ to $P^2$, defined by identifying each point of $S^2$ with its antipode. \\
+
+
 
 \end{solution}
+
+\newpage
 
 \underline{Section 63 (The Jordan Curve Theorem), 63.1} \\
 
@@ -50,8 +57,34 @@ Show that $X$ is homeomorphic to the projective plane $P^2$.}
     of $S^2 \text{ -- } C_1$ disjoint from $C_2$, and if $W_2$ is the component of $S^2 \text{ -- } C_2$ disjoint from $C_1$, show that
     $\overline{W}_1 \cup \overline{W}_2$ does not separate $S^2$.]}
 
+    \begin{solution}\footnote{constructed with Hillary's help.}
+    By the Jordan Curve Theorem, $C_1$ separates $S^2$ into two components, which we will denote as $W_1$ and $V_1$.
+    Similarly, by the Jordan Curve Theorem, $C_2$ separates $S^2$ into two components, which we will denote as $W_2$ and $V_2$. Furthermore, define
+    $W_1$ and $W_2$ to be the components matching the hint: $W_1$ is the component of $S^2 \text{ -- } C_1$ disjoint from $C_2$ and $W_2$ is the component of $S^2 \text{ -- } C_2$ disjoint from $C_1$. \\
+    
+    Note that since $C_1$ and $C_2$ are disjoint, it follows that $W_1 \subset V_2$ and $W_2 \subset V_1$, with $W_1 \cap W_2 = \varnothing$. Consequently, $W_1$ and $W_2$ are two components 
+    of $S^2 \text{ -- } C_1 \text{ -- } C_2$. Note that by construction, $V_1 = S^2 \text{ -- } \overline{W}_1$, and $V_2 = S^2 \text{ -- } \overline{W}_2$. 
+    Furthermore, $C_1$ and $C_2$ are disjoint, so $\overline{W}_1 \cap \overline{W}_2 = \varnothing$, and $S^2 \text{ -- } (\overline{W}_1 \cap \overline{W}_2) = S^2$ is simply connected. Finally, 
+    neither $\overline{W}_1$ nor $\overline{W}_2$ separate $S^2$, so by Theorem 63.3 (the general nonseparation theorem), $\overline{W}_1 \cup \overline{W}_2$ does not separate $S^2$. Thus, the 
+    third component of $S^2 \text { -- } C_1 \text{ -- } C_2$ is precisely $\overline{W}_1 \cup \overline{W}_2 = V_1 \cap V_2$. \\
+
+    We conclude that $S^2 \text { -- } C_1 \text{ -- } C_2$ has three components: $W_1$, $W_2$, and $V_1 \cap V_2$. 
+    \end{solution}
+    
     \item \textbf{Show that these three components have boundaries $C_1$ and $C_2$ and $C_1 \cup C_2$, respectively.}
     
+    \begin{solution}\footnote{constructed with Hillary's help.}
+    By construction, the boundaries of $W_1$ and $W_2$, two of the components of $S^2 \text{ -- } C_1 \text{ -- } C_2$, are $C_1$ and $C_2$, respectively. 
+    It remains to show that the boundary of $V_1 \cap V_2$ is $C_1 \cup C_2$. Since $V_1 = S^2 \text{ -- } \overline{W}_1$, and $V_2 = S^2 \text{ -- } \overline{W}_2$, we have that
+    \begin{align*}
+        \overline{V}_1 \cap \overline{V}_2 \text{ -- } V_1 \cap V_2 &= ((S^2 \text{ -- } W_1) \cap (S^2 \text{ -- } W_2)) \text{ -- } ((S^2 \text{ -- } \overline{W}_1) \cap (S^2 \text{ -- } \overline{W}_2)) \\
+        &= (\overline{W}_1 \cup \overline{W}_2) \text{ -- } (W_1 \cup W_2) \\
+        &= (\overline{W}_1 \text{ -- } W_1) \cup (\overline{W}_2 \text{ -- } W_2) \\
+        &= C_1 \cup C_2.
+    \end{align*}
+
+    Thus, the boundary of $V_1 \cap V_2$ is by definition $C_1 \cup C_2$, as desired.
+    \end{solution}
 \end{enumerate}
 
 \end{document}
