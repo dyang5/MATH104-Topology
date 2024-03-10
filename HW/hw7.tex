@@ -30,7 +30,7 @@
 
 \vspace{1em}
 
-\textit{Chapter 9 (The Fundamental Group) Problems.} \\
+\textit{Chapter 9 (The Fundamental Group) and Chapter 10 (Separation Theorems in the Plane) Problems.} \\
 
 \underline{Section 60 (Fundamental Groups of Some Surfaces), 60.2} \\
 
@@ -42,8 +42,20 @@ Let $\pi$ represent the quotient map from $B^2$ to $X$ defined by identifying ea
 Consider the projection of the upper hemisphere of $S^2$ onto $B^2$, a homemomorphism. Let $h$ represent the inverse of this projection; $h$ is a homeomorphism from $B^2$ to $S^2$ mapping the unit disk to the upper hemisphere. 
 Finally, let $p$ represent the canonical quotient map from $S^2$ to $P^2$, defined by identifying each point of $S^2$ with its antipode. \\
 
+Note that by construction, $p \circ h \colon B^2 \rightarrow P^2$ is a map that is constant on each set $\pi^{-1}(\{ x \})$ for each $x \in X$: if $x \in S^1$, then $\pi^{-1}(\{ x \}) = \{ x, -x \}$ which is mapped to one point by $p \circ h$.
+On the other hand, if $x \notin S^1$, then $\pi^{-1}(x)$ is a one-point set, and is consequently mapped to a constant by $p \circ h$. Since $\pi$ is a quotient map from $B^2$ to $X$, we know by Theorem 22.2 that $p \circ h$ induces a map $f\colon X \rightarrow P^2$ such that $f \circ \pi = p \circ h$. It remains to show that $f$ is a homeomorphism. \\
 
+Note that $X = \{ (p \circ h)^{-1} (\{ z \}) \mid z \in P^2 \}$. We show containment in both directions. 
+Suppose that $x \in X$. Then $x \in \{ (p \circ h)^{-1} (\{ z \}) \mid z \in P^2 \}$ as $(p \circ h)^{-1} ((p \circ h)(x)) = x$, where $(p \circ h)(x)$ is a singular point in $P^2$. 
+On the other hand, suppose that $y \in \{ (p \circ h)^{-1} (\{ z \}) \mid z \in P^2 \}$. Then $y = \pi(y) \in X$. It follows that $X = \{ (p \circ h)^{-1} (\{ z \}) \mid z \in P^2 \}$. \\
 
+We also claim that $p \circ h$ is a quotient map. Note that $p$ and $h$ are both continuous maps, and so their composition is continuous. 
+$p$ is a quotient map from $S^2$ to $P^2$, so it is surjective. Also, $h$ is a homeomorphism from the unit disk to the upper hemisphere, so it is by definition a bijection, and in turn, is surjective. 
+The composition of two surjective maps $p$ and $h$ must be surjective, so $p \circ h$ is also surjective. Finally, $p$ is a quotient map so both $p$ and $p^{-1}$ map open sets to open sets. Furthermore, $h$ is a homeomorphism so both $h$ and $h^{-1}$ are continuous, and map open sets to open sets. 
+Thus, it follows that a subset $U$ of $P^2$ is open if and only if $(p \circ h)^{-1}(U)$ is open in $B^2$. Since $p \, \circ \, h$ is also both continuous and surjective, it follows
+by definition that $p \circ h$ is a quotient map from $B^2$ to $P^2$. \\
+
+Thus, by Corollary 22.3, since $p \circ h$ is a quotient map (and so it is both surjective and continuous), the induced continuous map $f\colon X \rightarrow P^2$ is a homeomorphism. Thus, $X$ is homeomorphic to $P^2$, as desired.
 \end{solution}
 
 \newpage
