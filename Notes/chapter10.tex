@@ -90,7 +90,7 @@ then $C_1 \cup C_2$ separates $S^2$ into precisely two components.
 \end{theorem}
 
 \begin{theorem}[Schoenflies Theorem]
-If $C$ is a simple closed curve in$ S^2$ and $U$ and $V$ are the components of $S^2 \text{ -- } C$, then $\overline{U}$ and $\overline{V}$
+If $C$ is a simple closed curve in $S^2$ and $U$ and $V$ are the components of $S^2 \text{ -- } C$, then $\overline{U}$ and $\overline{V}$
 are each homeomorphic to the closed unit ball $B^2$. 
 \end{theorem}
 
@@ -103,5 +103,81 @@ The separation theorems can be generalized to higher dimensions as follows:
 \end{enumerate}
 \end{remark}
 
+\subsection{Imbedding Graphs in the Plane}
+
+\begin{definition}[Linear Graph]
+A \textbf{linear graph} $G$ is a Hausdorff space that is written as the union of finitely many arcs, 
+each pair of which intersect in at most a common end point. The arcs are called the \textbf{edges} of the graph, and the end points of the arcs are the \textbf{vertices} of the graph.
+\end{definition}
+
+\begin{definition}[Theta Space]
+A \textbf{theta space} $X$ is a Hausdorff space that is written as the union of three arcs $A$, $B$, and $C$, each pair
+of which intersect precisely in their end points.
+\end{definition}
+
+\begin{lemma}
+Let $X$ be the theta space that is a subspace of $S^2$; let $A$, $B$, and $C$ be the arcs whose union is $X$. Then $X$ separates $S^2$ into three components,
+whose boundaries are $A \cup B$, $B \cup C$, $A \cup C$, respectively. The component having $A \cup B$ as its boundary equals one of the components of $S^2 \text{ -- } A \cup B$. 
+\end{lemma}
+
+\begin{theorem}
+Let $X$ be the utilities graph. Then $X$ cannot be imbedded in the plane.
+\end{theorem}
+
+\begin{lemma}
+Let $X$ be a subspace of $S^2$ that is a complete graph on four vertices $a_1$, $a_2$, $a_3$, and $a_4$. Then $X$ separates $S^2$ into four components.
+The boundaries of these components are the sets $X_1$, $X_2$, $X_3$, and $X_4$, where $X_i$ is the union of those edges of $X$ that do not have $a_i$ as a vertex.
+\end{lemma}
+
+\begin{theorem}
+The complete graph on five vertices cannot be imbedded in the plane.
+\end{theorem}
+
+\subsection{The Winding Number of a Simple Closed Curve}
+
+\begin{definition}
+If $h\colon S^1 \rightarrow \R^2 \text{ -- } 0$ is a continuous map, then the induced homomorphism $h_{\ast}$ carries a generator of the
+fundamental group of $S^1$ to some integral power of a generator of the fundamental group of $\R^2 \text{ -- } 0$. The integral power $n$ is the \textbf{winding number of $h$ with respect to $0$.} 
+\end{definition}
+
+\begin{lemma}
+Let $G$ be a subspace of $S^2$ that is a complete graph on four vertices $a_1, \dots, a_4$. Let $C$ be the subgraph $a_1 a_2 a_3 a_4 a_1$, which is a simple closed curve. 
+Let $p$ and $q$ be interior points of the edges $a_1 a_3$ and $a_2 a_4$, respectively. Then
+\begin{enumerate}[a)]
+    \item The points $p$ and $q$ lie in different components of $S^2 \text{ -- } C$. 
+    \item The inclusion $j\colon C \rightarrow S^2 \text{ -- } p \text{ -- } q$ induces an isomorphism of fundamental groups.
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+Let $C$ be a simple closed curve in $S^2$; let $p$ and $q$ lie in different components of $S^2 \text{ -- } C$. Then the inclusion mapping
+$j\colon C \rightarrow S^2 \text{ -- } p \text{ -- } q$ induces an isomorphism of fundamental groups.
+\end{theorem}
+
+\subsection{The Cauchy Integral Formula}
+
+\begin{definition}[Winding Number]
+Let $f$ be a loop in $\R^2$, and let $a$ be a point not in the image of $f$. Set
+\[
+    g(s) = [f(s) - a]/||f(s) - a||;
+\]
+then $g$ is a loop in $S^1$. Let $p\colon \R \rightarrow S^1$ be the standard covering map, and let $\tilde{g}$ be a lifting of $g$ to $S^1$. 
+Because $g$ is a loop, the difference $\tilde{g}(1) - \tilde{g}(0)$ is an integer, and is \textbf{winding number of $f$ with respect to $a$,} and is denoted $n(f, a)$.
+\end{definition}
+
+\begin{definition}[Free Homotopy]
+Let $F\colon I \times I \rightarrow X$ be a continuous map such that $F(0, t) = F(1, t)$ for all $t$. Then for each $t$, the map $f_t(s) = F(s, t)$ is a loop in $X$. 
+The map $F$ is called a \textbf{free homotopy} between the loops $f_0$ and $f_1$. It is a homotopy of loops in which the base point of the loop
+is allowed to move during the homotopy.
+\end{definition}
+
+\begin{lemma}
+Let $f$ be a loop in $\R^2 \text{ -- } a$. 
+\begin{enumerate}[a)]
+    \item If $\tilde{f}$ is the reverse of $f$, then $n(\tilde{f}, a) = -n(f, a)$. 
+    \item If $f$ is freely homotopic to $f^{\prime}$, through loops lying in $\R^2 \text{ -- } a$, then $n(f, a) = n(f^{\prime}, a)$.
+    \item If $a$ and $b$ lie in the same component of $\R^2 \text{ -- } f(I)$, then $n(f, a) = n(f, b)$. 
+\end{enumerate}
+\end{lemma}
 
 
