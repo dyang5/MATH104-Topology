@@ -1,0 +1,35 @@
+\newpage
+
+\section{The Seifert-van Kampen Theorem}
+
+\setcounter{subsection}{66}
+\subsection{Direct Sums of Abelian Groups}
+
+\begin{definition}
+Suppose $G$ is an abelian group, and $\{ G_\alpha \}_{\alpha \in J}$ is an indexed family of subgroups of $G$. \\
+
+The groups $G_\alpha$ \textbf{generate} $G$ if every element $x$ of $G$ can be written as a finite sum of elements of the groups $G_\alpha$. \\
+
+$G$ is a \textbf{direct sum} of the groups $G_\alpha$ if for each $x \in G$, there is only one $J$-tuple $(x_\alpha)_{\alpha \in J}$ with $x_\alpha = 0$ for all 
+but finitely many $\alpha$ such that $x = \sum x_\alpha$. $G$ is written as
+\[
+    G = \bigoplus_{\alpha \in J} G_\alpha.
+\]
+\end{definition}
+
+\begin{eg}
+The cartesian product $\R^\omega$ is an abelian group under the operation of coordinate-wise addition. The set $G_n$ consisting 
+of those tuples $(x_i)$ such that $x_i = 0$ for $i \neq n$ is a subgroup isomorphic to $\R$.
+\end{eg}
+
+The following lemma characterize the extension condition for direct sums:
+\begin{lemma}
+Let $G$ be an abelian group; let $\{ G_\alpha \}$ be a family of subgroups of $G$. If $G$ is the direct sum of the groups $G_\alpha$, then
+$G$ satisfies the following condition: \\
+
+\textit{Given any abelian group $H$ and any family of homomorphisms $h_\alpha \colon G_\alpha \rightarrow H$, there exists a homomorphism $h\colon G \rightarrow H$ whose restriction
+to $G_\alpha$ equals $h_\alpha$, for each $\alpha$.}
+\end{lemma}
+
+\subsection{Free Products of Groups}
+
