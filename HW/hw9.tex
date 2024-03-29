@@ -45,11 +45,25 @@
     \item \textbf{Show that $h$ is an isomorphism. [\textit{Hint:} Use Theorem 70.1 to define a left inverse for $h$.]}
 \end{enumerate}
 
-\underline{Hatcher} \\
+\newpage
 
-\textbf{Let $X$ be the union of $n$ lines through the origin in $\R^3$. Compute the fundamental group of $R^3 \text{ -- } X$.}
+\underline{Hatcher Problem} \\
 
+\textbf{Let $X$ be the union of $n$ lines through the origin in $\R^3$. Compute the fundamental group of $\R^3 \text{ -- } X$.}
 
+\begin{solution}
+We claim that there is a deformation retract of $\R^3 \text{ -- } X$ to $S^2$ with $2n$ points removed. To conceptualize this,
+we describe the deformation retract. For any point of $\R^3 \text{ -- } X$ that is on $S^2$, then stay as is. 
+Otherwise, for any point $y$ of $R^3 \text{ -- } X$ that is not on $S^2$, let $\ell$ be the line passing through the origin and $y$.
+Deformation retract $y$ to its closest intersection of $\ell$ with $S^2$. Each of the $n$ lines removed passes through $S^2$ twice,
+so this description characterizes a deformation retract from $\R^3 \text{ -- } X$ to $S^2$ with $2n$ points removed. \\
+
+Through stereographic projection, we know that there is a homeomorphism from $S^2 \text{ -- pt}$ to $\R^2$. 
+By defining one of our $2n$ points removed from $S^2$ to be the ``north pole'' and applying the stereographic projection map,
+we get a homeomorphism from $S^2$ with $2n$ points removed to $\R^2$ with $2n-1$ points removed. \\
+
+The fundamental group of $\R^2$ with $2n-1$ points removed is simply the fundamental group of the wedge of $2n-1$ circles, which is the free group with $2n-1$ generators.
+\end{solution}
 
 
 \end{document}
