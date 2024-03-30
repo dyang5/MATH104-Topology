@@ -38,13 +38,88 @@
 \begin{enumerate}[a)]
     \item \textbf{Show that $j_1$ induces an epimorphism}
     \[
-        h\colon \pi_1(U, x_0) \rightarrow \pi_1(X, x_0),
+        h\colon \pi_1(U, x_0) / M \rightarrow \pi_1(X, x_0),
     \]
-    \textbf{where $M$ is the least normal subgroup of $\pi_1(U, x_0)$ containing $i_1(\mathrm{ker} i_2)$. [\textit{Hint:} Show $j_1$ is surjective.]}
+    \textbf{where $M$ is the least normal subgroup of $\pi_1(U, x_0)$ containing $i_1(\mathrm{ker} \, i_2)$. [\textit{Hint:} Show $j_1$ is surjective.]}
 
-    \item \textbf{Show that $h$ is an isomorphism. [\textit{Hint:} Use Theorem 70.1 to define a left inverse for $h$.]}
+    \begin{solution}
+    We begin by following the hint and showing that $j_1$ is surjective. Since $i_2$ is surjective, it follows that for all $v \in \pi_1(V, x_0)$, 
+    there exists some $y \in \pi_1(U \cap V, x_0)$ such that $i_2(y) = v$. It follows then that
+    \[
+        j_2(v) = j_2(i_2(y)) = i_{\ast}(y) = j_1(i_1(y)).
+    \]
+    Since $j_2(v) = j_1(i_1(y))$ for all $v \in \pi_1(V, x_0)$ (the domain of $j_2$), we know that $\mathrm{im}(j_2) \subseteq \mathrm{im}(j_1)$. 
+    By Theorem 59.1, the images of $j_1$ and $j_2$ generate $\pi_1(X, x_0)$. Since $\mathrm{im}(j_2) \subseteq \mathrm{im}(j_1)$, 
+    it follows that $\mathrm{im}(j_1)$ generates $\pi_1(X, x_0)$ and so $j_1$ is surjective. \\
+
+    Let $M$ be the least normal subgroup of $\pi_1(U, x_0)$ containing $i_1(\ker \, i_2)$. We will show that $i_1(\ker i_2) \subseteq \ker j_1$, 
+    from which it would follow by the construction of $M$ that $M$ is a normal subgroup of $\ker j_1$. Let $x \in \ker i_2$ where $x \in \pi_1(U \cap V, x_0)$. 
+    Then
+    \[
+        (j_2 \circ i_2)(x) = j_2(i_2(x)) = j_2(e) = e.
+    \]
+    Furthermore, $(j_2 \circ i_2)(x) = i_{\ast}(x) = (j_1 \circ i_1)(x)$, so $(j_1 \circ i_1)(x) = e$. Equivalently, we have that $j_1(i_1(x)) = e$, and so
+    $i_1(x) \in \ker j_1$. Since this holds true for any $x \in \ker i_2$, we have that $i_1(\ker i_2) \subset \ker j_1$. \\
+
+    Since $M$ is by definition the least normal subgroup of $\pi_1(u, x_0)$ containing $i_1(\ker i_2)$, we can conclude that $M$ is a normal subgroup of $\ker j_1$. 
+    By the Very Useful Lemma\footnote{Let $\psi \colon G \rightarrow G^{\prime}$ be a group homomorphism. Suppose $N$ is a normal subgroup of $G$, and that $N \subseteq \ker(\psi)$. 
+    Then there exists a group homomorphism $\overline{\psi} \colon G/N \rightarrow G^{\prime}$ given by $\overline{\psi}(gN) = \psi(g)$.},
+    $j_1$ induces a homomorphism 
+    \[ 
+        h\colon \pi_1(U, x_0) / M \rightarrow \pi_1(X, x_0).
+    \] 
+    Since $j_1$ is surjective, so is $h$; this gives us the epimorphism $h\colon \pi_1(U, x_0) / M \rightarrow \pi_1(X, x_0)$, as desired.
+    \end{solution}
+
+    \item \textbf{Show that $h$ is an isomorphism. [\textit{Hint:} Let $H = \pi_1(U, x_0)/M$. Let $\varphi_1\colon \pi_1(U, x_0) \rightarrow  H$ be the projection.
+    Use the fact that $\pi_1(U \cap V, x_0)/\ker i_2$ is isomorphic to $\pi_1(V, x_0)$ to define a homomorphism $\varphi_2\colon \pi_1(V, x_0) \rightarrow H$. 
+    Use Theorem 70.1 to define a left inverse for $h$.]}
+
+    \begin{solution}
+    We follow the hint. Let $H = \pi_1(U, x_0)/M$, and let $\varphi_1\colon \pi_1(U, x_0) \rightarrow  H$ be the projection.
+    By the First Isomorphism Theorem, since $i_2$ is surjective, we know that $\pi_1(U \cap V, x_0) / \ker i_2$ is isomorphic to $\pi_1(V, x_0)$. 
+    Let $f\colon \pi_1(V, x_0) \rightarrow \pi_1(U \cap V, x_0) / \ker i_2$ be such an isomorphism. \\
+
+    Note that by the construction of $M$, we have that $\ker i_2 \subseteq \ker (\varphi_1 \circ i_1)$. Consequently, by the Very Useful Lemma, we have a homomorphism 
+    $\varphi_1 \circ i_1 \colon \pi_1(U \cap V, x_0) \rightarrow H$. Since $f$ and $\varphi_1 \circ i_1$ are both well-defined homomorphisms, 
+    it follows that their composition $\varphi_1 \circ i_1 \circ f$ is also a well-defined homomorphism from $\pi_1(V, x_0)$ to $H$. 
+    Let us use $\varphi_2$ to denote this homomorphism. \\
+
+    The assumptions of the Seifert-van Kampen are satisfied. By construction, we have that $\varphi_2 \circ i_2 = \varphi_1 \circ i_1$, for homomorphisms
+    \[
+        \varphi_1\colon \pi_1(U, x_0) \rightarrow H \text{ and } \varphi_2\colon \pi_1(V, x_0) \rightarrow H.
+    \]
+    By Theorem 70.1 (Seifert-van Kampen), it follows that there is a unique homomorphism $\Phi \colon \pi_1(X, x_0) \rightarrow H$ satisfying $\Phi \circ j_1 = \varphi_1$ and $\Phi \circ j_2 = \varphi_2$. \\
+    
+    We claim that $\Phi$ is a left inverse of $h$: note that
+    \[
+        \Phi \circ h \circ \varphi_1 = \Phi (h(\varphi_1)) = \Phi \circ j_1 = \varphi_1
+    \]
+    Thus, $\Phi \circ h$ is the identity map of $H$, and so $\Phi$ is the left inverse of $h$. Thus, $h$ is an isomorphism, as desired.
+    \end{solution}
 \end{enumerate}
 
+\newpage
+
+\underline{Section 71 (The Fundamental Group of a Wedge of Circles), 71.5(a)} \\
+
+\textbf{Let $S_n$ be the circle of radius $n$ in $\R^2$ whose center is at the point $(n, 0)$. Let $Y$ be the subspace of $\R^2$ that is the union of these circles;
+let $p$ be their common point.}
+\begin{enumerate}[a)]
+    \item \textbf{Show that $Y$ is not homeomorphic to a countably infinite wedge of circles, nor to the space of Example 1 (in Section 71).}
+    \begin{solution}
+    Let $X$ be a countably infinite wedge of the circles $T_\alpha$. By definition, the topology $X$ is coherent with the subspaces $T_\alpha$. 
+    To show that $Y$ is not homeomorphic to $X$, we will show that $Y$ is not coherent with its subspaces $S_i$ for $i \in \mathbb{N}$.
+    Let $C$ be the set of $Y$ defined as the set of all points of intersection (with positive $y$-coordinate) of $S_i$ with the circle of radius $\frac{1}{i}$ centered at the origin, for all $i \in \mathbb{N}$.
+    Each $C \cap S_i$ for $i \in \mathbb{N}$ is a singleton element, and thus, is closed. However, the set $C$ is not closed in $Y$, as it does not contain its limit point at the origin.
+    Thus, the topology of $Y$ is not coherent with its subspaces $S_i$ for $i \in \mathbb{N}$. Since $X$ is coherent with its subspaces and $Y$ is not, we know that $Y$ cannot be homeomorphic to $X$. \\
+
+    To show that $Y$ and the infinite earring space in Example 1 are not homeomorphic, we consider a neighborhood around the respective shared points at the origin. 
+    A neighborhood around the origin in $Y$ contains at most finitely many loops of the respective circular subspaces, whereas a neighborhood around the origin in the infinite earring
+    contains infinitely many loops of its respective circular subspaces. Thus, since the neighborhoods of the common points in the infinite earring and $Y$ are not homeomorphic, 
+    we conclude that $Y$ is also not homeomorphic to the infinite earring space. 
+    \end{solution}
+\end{enumerate}
 \newpage
 
 \underline{Hatcher Problem} \\
@@ -53,17 +128,22 @@
 
 \begin{solution}
 We claim that there is a deformation retract of $\R^3 \text{ -- } X$ to $S^2$ with $2n$ points removed. To conceptualize this,
-we describe the deformation retract. For any point of $\R^3 \text{ -- } X$ that is on $S^2$, then stay as is. 
+we describe the deformation retract. For any point of $\R^3 \text{ -- } X$ that is on $S^2$, the point stays as is. 
 Otherwise, for any point $y$ of $R^3 \text{ -- } X$ that is not on $S^2$, let $\ell$ be the line passing through the origin and $y$.
 Deformation retract $y$ to its closest intersection of $\ell$ with $S^2$. Each of the $n$ lines removed passes through $S^2$ twice,
 so this description characterizes a deformation retract from $\R^3 \text{ -- } X$ to $S^2$ with $2n$ points removed. \\
 
-Through stereographic projection, we know that there is a homeomorphism from $S^2 \text{ -- pt}$ to $\R^2$. 
+Through stereographic projection, we know that there is a homeomorphism from $S^2$ with a point removed (at $\infty$ i.e. the north pole) to $\R^2$. 
 By defining one of our $2n$ points removed from $S^2$ to be the ``north pole'' and applying the stereographic projection map,
 we get a homeomorphism from $S^2$ with $2n$ points removed to $\R^2$ with $2n-1$ points removed. \\
 
-The fundamental group of $\R^2$ with $2n-1$ points removed is simply the fundamental group of the wedge of $2n-1$ circles, which is the free group with $2n-1$ generators.
+Extending the procedure in Section 58 Example 2, which highlights a deformation retract from the doubly punctured plane to the figure eight space (which is the wedge of two circles),
+we can get a deformation retract from $\R^2$ with $2n-1$ points to the wedge of $2n-1$ circles. Thus, the fundamental group of $\R^2$ with $2n-1$ points removed is simply the fundamental group of the wedge of $2n-1$ circles.
+By Theorem 71.1, this is the \boxed{\text{free group with $2n-1$ generators}}.
 \end{solution}
+
+\newpage
+
 
 
 \end{document}
