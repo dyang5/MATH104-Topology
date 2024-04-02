@@ -5,4 +5,58 @@
 \setcounter{subsection}{73}
 \subsection{Fundamental Groups of Surfaces}
 
+\begin{definition}[Polygonal Region, Labelling, Labelling Schemes]
+A \textbf{polygonal region} can be thought of as the space that is the interaction of half-spaces of a set of line segments joining adjacent points on a circle. \\
+    
+A \textbf{labelling} of the edges is a map from the set of edges to a set of labels of $P$. For edges that have the same label, form an equivalence class between a point $x$ on one edge and $h(x)$ on the other, where $h$ is the positive linear map from one edge onto the other. \\
+    
+The quotient space $X$ arising from this equivalence relation on the polygonal region $P$ is obtained by \textbf{pasting the edges of $P$ together} according to the given orientations and labelling. \\
 
+For each polygonal region, we have a notion of a \textbf{labelling scheme}, which is a sequence of labels corresponding to edges and their orientations.
+\end{definition}
+
+\begin{theorem}
+Let $X$ be the space obtained from a finite collection of polygonal regions by pasting edges together according to some labelling scheme. Then $X$ is a compact Hausdorff space.
+\end{theorem}
+
+\begin{theorem}
+    Let $P$ be a polygonal region; let 
+    \[ 
+        w = (a_{i_1})^{\epsilon_1} \cdots (a_{i_n})^{\epsilon_n}
+    \]
+    be a labelling scheme for the edges of $P$. Let $X$ be the resulting quotient space; let $\pi \colon P \rightarrow X$ be the quotient map. If $\pi$ maps all the vertices of $P$ to a single point $x_0$ of $X$, and if $a_1, \dots, a_k$ are the distinct labels that appear in the labelling scheme, then $\pi_1(X, x_0)$ is isomorphic to the quotient of the free group on $k$ generators $\alpha_1, \dots, \alpha_k$ by the least normal subgroup containing the element 
+    \[
+        (\alpha_{i_1})^{\epsilon_1} \cdots (\alpha_{i_n})^{\epsilon_n}.
+    \]
+\end{theorem}
+
+\begin{definition}[$N$-fold Torus]
+    Consider the space obtained from a $4n$-sided polygonal region $P$ by means of the labelling scheme
+    \[
+        (a_1b_1a_1^{-1}b_1^{-1}) \dots (a_nb_na_n^{-1}b_n^{-1}).
+    \]
+    This space is called the \textbf{$n$-fold connected sum of tori}, denoted $T \# \dots \# T$.
+\end{definition}
+    
+\begin{theorem}[Fundamental Group of $n$-fold Torus]
+Let $X$ denote the $n$-fold torus. Then $\pi_1(X, x_0)$ is isomorphic to the quotient of the free group on the $2n$ generators $\alpha_1, \beta_1, \dots, \alpha_n, \beta_n$ by the least normal subgroup containing the element
+\[
+    [\alpha_1, \beta_1] \cdots [\alpha_n, \beta_n]. 
+\]
+\end{theorem}
+
+\begin{definition}[$M$-fold Projective Plane]
+Let $m > 1$. Consider the space obtained from a $2m$-sided polygonal region $P$ by means of the labelling scheme
+\[
+    (a_1a_1) \dots (a_na_n).
+\]
+This space is called the \textbf{$m$-fold connected sum of projective planes}, denoted $P^2 \dots \# P^2$.
+\end{definition}
+
+\begin{theorem}[Fundamental Group of $m$-fold Projective Plane]
+Let $X$ denote the $m$-fold projective plane. Then $\pi_1(X, x_0)$ is isomorphic to the quotient of the free group on the $m$ generators $\alpha_1, \dots, \alpha_m$ by the least normal subgroup containing the element
+\[
+    (\alpha_1)^2\cdots (\alpha_m)^2.
+\]
+\end{theorem}
+    
