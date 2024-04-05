@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 10}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Chapter 12 (Classification of Surfaces) Problems.} \\
+
+\underline{Section 74 (Classification of Surfaces), 74.7} \\
+
+\textbf{If $m > 1$, show the fundamental group of the $m$-fold projective plane is not abelian. [\textit{Hint}: There is a homomorphism mapping this group onto the group $\Z / 2 * \Z / 2$.]}
+
+
+\newpage
+
+\underline{Section 78 (Constructing Compact Surfaces), 78.2(a)(b)} \\
+
+\textbf{Let $H^2$ be the subspace of $\R^2$ consisting of all points $(x_1, x_2)$ with $x_2 \geq 0$. A 2-\textit{manifold with boundary (or surface with boundary)}
+is a Hausdorff space $X$ with a countable basis such that each point $x$ of $X$ has a neighborhood homeomorphic with an open set of $\R^2$ or $H^2$.
+The \textit{boundary} of $X$ (denoted $\partial X$) consists of those points $x$ such that $x$ has no neighborhood homeomorphic with an open set of $\R^2$.}
+
+\begin{enumerate}[a)]
+    \item \textbf{Show that no point of $H^2$ of the form $(x_1, 0)$ has a neighborhood (in $H^2$) that is homeomorphic to an open set of $\R^2$.}
+    \item \textbf{Show that $x \in \partial X$ if and only if there is a homeomorphism $h$ mapping a neighborhood of $x$ onto an open set of $H^2$ such that $h(x) \in \R \times 0$.}
+\end{enumerate}
+
+\end{document}
