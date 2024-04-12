@@ -48,13 +48,45 @@ or (2) $ma_1, na_2$ is a basis for $N$, where $m$ and $n$ are positive integers.
 
 \newpage
 
+\underline{Section 80 (The Universal Covering Space), 80.1(a)} \\
+
+\textbf{Let $q\colon X \rightarrow Y$ and $r\colon Y \rightarrow Z$ be maps; let $p = r \circ q$.}
+\begin{enumerate}[a)]
+    \item \textbf{Let $q$ and $r$ be covering maps. Show that if $Z$ has a universal covering space, then $p$ is a covering map. (Compare Exercise $4$ of Section $53$.)}
+    \begin{solution}
+    
+    Let $E$ be the universal covering space of $Z$; $E$ is simply connected. By definition, there is a covering map $s \colon E \rightarrow Z$. 
+    By Theorem 80.3, since $s \colon E \rightarrow Z$ and $r \colon Y \rightarrow Z$ are covering maps, there exists a covering map $t \colon E \rightarrow Y$ such that $s = r \circ t$. 
+    Furthermore, by Theorem 80.3, since $t \colon E \rightarrow Y$ and $q \colon X \rightarrow Y$ are covering maps, there exists a covering map $u\colon E \rightarrow X$ such that $t = q \circ u$. \\
+
+    Note that $u \colon E \rightarrow X$ and $s \colon E \rightarrow Z$ are covering maps. Furthermore, we have that
+    \[
+        p \circ u = (r \circ q) \circ u = r \circ (q \circ u) = r \circ t = s
+    \]
+    by construction. By Lemma 80.2(b), since $s = p \circ u$, and $u$ and $s$ are covering maps, then so is $p$. 
+    Thus, if $q$ and $r$ are covering maps, and if $Z$ has a universal covering space, then $p$ is a covering map.
+    \end{solution}
+\end{enumerate}
+
+
+
+
+\newpage
+
 \underline{Section 81 (Covering Transformations), 81.4} \\
 
 \textbf{Let $G$ be a group of homeomorphisms of $X$. The action of $G$ on $X$ is said to be fixed-point free if no element of $G$ other than the identity $e$ has a fixed point. 
 Show that if $X$ is Haussdorf, and if $G$ is a finite group of homeomorphisms of $X$ whose action is fixed-point free, then the action of $G$ is properly discontinuous.}
 
 \begin{solution}
+Let $x \in X$. Let $g$ be a homeomorphism in $G$ not equal to the identity. Consider $g(x)$. 
+Since the action of $G$ on $X$ is fixed-point free, it follows that $g(x) \neq x$. Since $x$ and $g(x)$ are distinct points in $X$ and $X$ is Hausdorff,
+it follows that there are disjoint open sets $V$ and $W$ about $x$ and $g(x)$ that are disjoint in $X$. \\
 
+Since $g$ is a homeomorphism, it is continuous, and so $g^{-1}(W)$ is also open, and contains $x$. Consider $U = g^{-1}(W) \cap V$. 
+Note that by construction, $U \subseteq V$ and $g(U) \subseteq W$. Since $V \cap W$ is empty, it follows that $g(U)$ and $U$ are disjoint. \\
+
+Thus, since for every $x \in X$, there is a neighborhood $U$ of $x$ such that $g(U)$ is disjoint from $U$ whenever $g \neq e$, the action of $G$ is properly discontinuous, as desired.
 \end{solution}
 
 
