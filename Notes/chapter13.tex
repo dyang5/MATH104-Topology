@@ -1,0 +1,195 @@
+\section{Classification of Covering Spaces}
+
+\subsection{Equivalence of Covering Spaces}
+
+\begin{definition}[Equivalence of Covering Maps/Spaces]
+Let $p \colon E \rightarrow B$ and $p' \colon E' \rightarrow B$. They are said to be \textbf{equivalent} if there exists a homeomorphism
+$h \colon E \rightarrow E'$ such that $p = p' \circ h$. 
+\end{definition}
+
+\begin{lemma}[The General Lifting Lemma]
+Let $p\colon E \rightarrow B$ be a covering map; let $p(e_0) = b_0$. Let $f\colon Y \rightarrow B$ a continuous map, with $f(y_0) = b_0$. 
+Suppose $Y$ is path connected and locally path connected. The map $f$ can be lifted to a map
+$\tilde{f} \colon  Y \rightarrow E$ such that $\tilde{f}(y_0) = e_0$ if and only if
+\[
+    f_{\ast}(\pi_1(Y, y_0)) \subset p_{\ast}(\pi_1(E, e_0)).
+\]
+Furthermore, if such a lifting exists, it is unique.
+\end{lemma}
+
+\begin{theorem}
+Let $p \colon E \rightarrow B$ and $p' \colon E' \rightarrow B$; let $p(e_0) = p'(e'_0) = b_0$. There is an equivalence $h \colon E \rightarrow E'$ such that $h(e_0) = e'_0$ if and only if the groups
+\[
+    H_0 = p_*(\pi_1(E, e_0)) \text{ and } H'_0 = p'_*(\pi_1(E', e'_0))
+\]
+are equal. If $h$ exists, it is unique.
+\end{theorem}
+
+The above lemma tells us a necessary and sufficient condition for there to exist an equivalence $h \colon E \rightarrow E'$ carrying the point $e_0$ to $e'_0$. The following lemma/theorem will tell us whether such an equivalence exists. 
+
+\begin{lemma}
+Let $p \colon E \rightarrow B$ be a covering map. Let $e_0$ and $e_1$ be points of $p^{-1}(b_0)$ and let $H_i = p_*(\pi_1(E, e_i))$.
+\begin{enumerate}[a)]
+    \item If $\gamma$ is a path in $E$ from $e_0$ to $e_1$, and $\alpha$ is the loop $p \circ \gamma$ in $B$, then the equation $[\alpha] * H_1 * [\alpha]^{-1} = H_0$ holds; hence $H_0$ and $H_1$ are conjugate.
+    \item Conversely, given $e_0$, and a subgroup $H$ of $\pi(B, b_0)$ conjugate to $H_0$, there exists a point $e_1$ of $p^{-1}(b_0)$ such that $H_1 = H$.
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+This lemma builds on the idea that conjugate subgroups in the images of induced homomorphisms give the existence of equivalences.
+\end{remark}
+
+\begin{theorem}
+Let $p \colon E \rightarrow B$ and $p' \colon E' \rightarrow B$; let $p(e_0) = p'(e'_0) = b_0$. The covering maps $p$ and $p'$ are equivalent if and only if the subgroups
+\[
+    H_0 = p_*(\pi_1(E, e_0)) \text{ and } H'_0 = p'_*(\pi_1(E', e'_0))
+\]
+of $\pi_1(B, b_0)$ are conjugate.
+\end{theorem}
+
+\begin{proof}
+If $h \colon E \rightarrow E'$ is an equivalence, let $h(e_0) = e'_1$, and let $H'_1 = p_*(\pi_1(E', e'_1))$. By the forward direction of 79.2, the existence of the equivalence implies that $H_0 = H'_1$. By part (a) of 79.3, we have a path from $e'_0$ to $e'_1$ in $E'$, so we know $H'_1$ is conjugate to $H'_0$, so both of these together tell us that $H'_0$ is conjugate to $H_0$. \\
+
+On the other hand, if $H_0$ and $H'_0$ are conjugate, then by part (b) of 79.3, we know there exists some point $e'_1$ of $E'$ such that $H'_1 = H_0$. Then the converse of 79.2 gives an equivalence $h \colon E \rightarrow E'$ such that $h(e_0) = e'_1$.
+\end{proof}
+
+\begin{eg}
+Consider covering spaces of the circle $B = S^1$. Since the fundamental group of $B$ is abelian ($\Z$), two subgroups of $B$ are conjugate if and only if they are equal. Thus, two coverings of $B$ are equivalent if their induced homomorphisms correspond to the same subgroup of $\pi_1(B, b_0)$. Furthermore, all subgroups of the integers are multiples of $n$ for any $n \in \Z^+$. \\
+
+Consider our two coverings $p \colon \R \rightarrow S^1$ and $p': S^1 \rightarrow S^1$ of the circle. The former corresponds to the trivial subgroup of $\pi_1(B, b_0)$ whereas the latter corresponds to the subgroup $G_n$ of $\Z$ when the generator $\pi_1(S^1, b_0)$ is mapped to $n$ times itself. \\
+
+Since these two covering maps represent all possible induced subgroups, every covering space of $S^1$ is equivalent to one of these coverings. 
+\end{eg}
+
+\subsection{The Universal Covering Space}
+
+\begin{definition}[Universal Covering Space]
+Suppose $p\colon E \rightarrow B$ is a covering map, with $p(e_0) = b_0$. If $E$ is simply connected, then $E$ is called a \textbf{universal covering space} of $B$.
+Since $\pi_1(E, e_0)$ is trivial, this covering space corresponds to the trivial subgroup of $\pi_1(B, b_0)$.
+\end{definition}
+
+\begin{lemma}
+Let $p, q$, and $r$ be continuous maps with $p = r \circ q$. 
+\begin{enumerate}
+    \item If $p$ and $r$ are covering maps, so is $q$.
+    \item If $p$ and $q$ are covering maps, so is $r$.
+\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+Let $p\colon E \rightarrow B$ be a covering map, with $E$ simply connected. Given any covering map $r\colon Y \rightarrow B$, there is a covering map
+$q\colon E \rightarrow Y$ such that $r \circ q = p$.
+\end{theorem}
+
+\begin{remark}
+$E$ is called the \textit{universal} covering space of $B$ as it covers every other covering space of $B$.
+\end{remark}
+
+\begin{lemma}
+Let $p\colon E \rightarrow B$ is a covering map, with $p(e_0) = b_0$. If $E$ is simply connected, then $b_0$ has a neighborhood $U$ such that the inclusion
+$i \colon U \rightarrow B$ induces the trivial homomorphism
+\[
+    i_{\ast} \colon \pi_1(U, b_0) \rightarrow \pi_1(B, b_0).
+\]
+\end{lemma}
+
+\begin{remark}
+The infinite earring is path connected and locally path connected, but has no universal covering space (the homomorphism of fundamental groups induced by inclusion at the origin is nontrivial).
+\end{remark}
+
+\subsection{Covering Transformations}
+
+\begin{definition}[Covering Transformations]
+Given a covering map $p\colon E \rightarrow B$, an equivalence of a covering space with itself is a \textbf{covering transformation}. \\
+
+The \textbf{group of covering transformations} is denoted $\mathcal{C}(E, p, B)$.
+\end{definition}
+
+\begin{remark}
+    No non-identity covering transformation can fix a point in $E$; this follows from the uniqueness guaranteed by the General Lifting Lemma. 
+\end{remark}
+
+\begin{definition}[Normalizer]
+If $H < G$, then the \textbf{normalizer} of $H$ in $G$ is the subset of $G$ defined by
+\[
+    N(H) = \{ g \mid gHg^{-1} = H \}. 
+\]
+It is also the largest normal subgroup containing $H$.
+\end{definition}
+
+\begin{definition}
+Let $p\colon E \rightarrow B$ is a covering map, with $p(e_0) = b_0$, let $F$ be the set $F = p^{-1}(b_0)$. Let
+\[
+    \Phi \colon \pi_1(B, b_0) / H_0 \rightarrow F
+\]
+be the lifting correspondence of Theorem 54.6; it is a bijection. Define also the correspondence
+\[
+    \Psi \colon \mathcal{C}(E, p, B) \rightarrow  F
+\]
+by setting $\Psi (h) = h(e_0)$ for each covering transformation $h$. The correspondence $\Psi$ is injective, as $h$ is uniquely determined by its value at $e_0$.
+\end{definition}
+
+\begin{theorem*}[81.2]
+The bijection
+\[
+    \Phi^{-1} \circ \Psi \colon \mathcal{C}(E, p, B) \rightarrow N(H_0) / H_0
+\]
+is an isomorphism of groups.
+\end{theorem*}
+
+\begin{corollary}
+The group $H_0 = p_{\ast}(\pi_1(E, e_0))$ is a normal subgroup of $\pi_1(B, b_0)$ if and only if for every pair of points $e_1$ and $e_2$ of $p^{-1}(b_0)$,
+there is a covering transformation $h \colon E \rightarrow E$ with $h(e_1) = e_2$. In this case, there is an isomorphism
+\[
+    \Phi^{-1} \circ \Psi \colon \mathcal{C}(E, p, B) \rightarrow \pi_1(B, b_0) / H_0.
+\] 
+\end{corollary}
+
+\begin{definition}[Regular Covering Map]
+If $H_0$ is a normal subgroup of $\pi_1(B, b_0)$ then $p$ is a \textbf{regular covering map}.
+\end{definition}
+
+\begin{eg}
+Every covering of $S^1$ is regular, as $\pi_1(S^1)$ is abelian. If $p \colon \R \rightarrow S^1$ is the canonical covering map, the covering transformations are the homeomorphisms $x \rightarrow x+n$, and the 
+group of covering transformations is isomorphic to $\Z$.
+\end{eg}
+
+\begin{definition}[Orbit Space]
+Let $X$ be a space, and let $G$ be a subgroup of the group of homeomorphisms of $X$ with itself. 
+
+The \textbf{orbit space} $X/G$  is defined to be the quotient space obtained from $X$ by means of the equivalence relation $x \sim g(x)$ for all $x \in X$ and all $g \in G$.
+The equivalence class of $x$ is called the \textbf{orbit} of $x$.
+\end{definition}
+
+\begin{definition}[Properly Discontinuous]
+If $G$ is a group of homeomorphisms of $X$, the action of $G$ on $X$ is said to be \textbf{properly discontinuous} if for every $x \in X$ there is a neighborhood $U$ of $x$ such that $g(U)$ is disjoint from $U$ whenever $g \neq e$. 
+It follows that $g_0(U)$ and $g_1(U)$ are disjoint whenever $g_0 \neq g_1$, for otherwise $U$ and $g_0^{-1} g_1(U)$ would be disjoint.
+\end{definition}
+
+\begin{theorem*}[81.5]
+Let $X$ be path connected and locally path connected; let $G$ be a group of homemorphisms of $X$. The quotient map $\pi\colon  X \rightarrow X/G$ is a covering map if and only if the action of $G$ is properly discontinuous.
+In this case, the covering map $\pi$ is regular and $G$ is its group of covering transformations.
+\end{theorem*}
+
+
+\subsection{Existence of Covering Spaces}
+
+\begin{definition}[Semilocally Simply Connected]
+A space $B$ is said to be \textbf{semilocally simply connected} if for each $b \in B$, there is a neighborhood $U$ of $b$ such that the homomorphism
+\[
+    i_{\ast} \colon \pi_1(U, b) \rightarrow \pi_1(B, b)
+\]
+induced by inclusion is trivial.
+\end{definition}
+
+\begin{theorem}
+Let $B$ be path connected, locally path connected, and semilocally simply connected. Let $b_0 \in B$. Given a subgroup $H$ of $\pi_1(B, b_0)$, there exists a covering map $p\colon E \rightarrow B$
+and a point $e_0 \in p^{-1}(b_0)$ such that
+\[
+    p_{\ast}(\pi_1(E, e_0)) = H.
+\]
+\end{theorem}
+
+\begin{corollary}
+The space $B$ has a universal covering space if and only if $B$ is path connected, locally path connected, and semilocally simply connected.
+\end{corollary}
