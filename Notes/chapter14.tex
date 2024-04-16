@@ -29,3 +29,56 @@ Let $p\colon E \rightarrow  X$ be a covering map, where $X$ is a linear graph. I
 onto $A_\alpha$. Furthermore, the space $E$ is a linear graph, with the path components of the spaces $p^{-1}(A_\alpha)$ as its edges.
 \end{theorem*}
 
+\subsection{The Fundamental Group of a Graph}
+
+\begin{definition}
+An \textbf{oriented edge} $e$ oif a graph $X$ is an edge of $X$ together with an ordering of its vertices. \\
+
+An \textbf{edge path} in $X$ is a sequence of oriented edges of $X$.
+\end{definition}
+
+\begin{definition}[Reduced Edge Path]
+Let $e_1, \dots, e_n$ be an edge path in the linear graph $X$. It can happen that for some $i$, the oriented edges
+$e_i$ and $e_{i+1}$ consist of the same edge of $X$, but with opposite orientations. If this does not occur,
+then the edge path is said to be a \textbf{reduced edge path}.
+\end{definition}
+
+\begin{definition}
+A subgraph $T$ of $X$ is said to be a \textbf{tree} in $X$ if $T$ is connected and contains no closed reduced edge paths.
+\end{definition}
+
+\begin{lemma*}[84.2]
+If $T$ is a tree in $X$, and if $A$ is an edge of $X$ that intersects $T$ in a single vertex, then 
+$T \cup A$ is a tree in $X$. Conversely, if $T$ is a finite tree in $X$ that consists of more than one edge, then there is 
+a tree $T_0$ in $X$ and an edge $A$ of $X$ that intersects $T_0$ in a single vertex, so that $T = T_0 \cup A$. 
+\end{lemma*}
+
+\begin{definition}
+A tree $T$ in $X$ is \textbf{maximal} if there is no tree in $X$ that properly contains $T$.
+\end{definition}
+
+\begin{theorem*}[84.7]
+Let $X$ be a connected graph that is not a tree. Then the fundamental group of $X$ is a nontrivial free group.
+Indeed, if $T$ is a maximal tree in $X$, then the fundamental group of $X$ has a system of free generators that is in
+bijective correspondence with the collection of edges of $X$ that are not in $T$.
+\end{theorem*}
+
+\subsection{Subgroups of Free Groups}
+
+\begin{theorem}
+If $H$ is a subgroup of a free group $F$, then $H$ is free.
+\end{theorem}
+
+\begin{definition}
+If $X$ is a finite linear graph, the \textbf{Euler number} of $X$, denoted $\chi(X)$ is the number of vertices of $X$ minus the number of edges.
+\end{definition}
+
+\begin{lemma}
+If $X$ is a finite, connected linear graph, then the cardinality of a system of free generators 
+for the fundamental group of $X$ is $1 - \chi(X)$.
+\end{lemma}
+
+\begin{theorem}
+Let $F$ be a free group with $n + 1$ free generators; let $H$ be a subgroup of $F$. If $H$ has index $k$ in $F$, then $H$
+has $kn+1$ free generators.
+\end{theorem}
