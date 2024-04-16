@@ -1,0 +1,31 @@
+\section{Applications to Group Theory}
+
+\setcounter{subsection}{82}
+\subsection{Covering Spaces of a Graph}
+
+\begin{definition}[Linear Graph]
+A \textbf{linear graph} is a space $X$ that is written as the union of a collection of subspaces $A_\alpha$, each of which is an arc, such that
+\begin{enumerate}[1)]
+    \item The intersection $A_\alpha \cap A_\beta$ of two arcs is either empty or consists of a single point that is an endpoint of each.
+    \item The topology of $X$ is coherent with the subspaces $A_\alpha$.
+\end{enumerate}
+The arcs $A_\alpha$ are the \textbf{edges} of $X$, and the endpoints are the \textbf{vertices} of $X$.
+\end{definition}
+
+\begin{lemma}
+Every linear graph $X$ is Hausdorff and normal.
+\end{lemma}
+
+\begin{eg}
+If $X$ is the wedge of the circles $S_\alpha$ with common point $p$, then $X$ can be expressed as a linear graph (each $S_\alpha$ is a graph with three edges.)
+\end{eg}
+
+\begin{definition}[Subgraph]
+Let $X$ be a linear graph. Let $Y$ be a subspace of $X$ that is a union of edges of $X$. Then $Y$ is closed in $X$ and is itself a linear graph, known as a \textbf{subgraph} of $X$.
+\end{definition}
+
+\begin{theorem*}[83.4]
+Let $p\colon E \rightarrow  X$ be a covering map, where $X$ is a linear graph. If $A_\alpha$ is an edge of $X$ and $B$ is a path component of $p^{-1}(A_\alpha)$, then $p$ maps $B$ homeomorphically
+onto $A_\alpha$. Furthermore, the space $E$ is a linear graph, with the path components of the spaces $p^{-1}(A_\alpha)$ as its edges.
+\end{theorem*}
+
