@@ -35,7 +35,7 @@
 \underline{Section 26 (Compact Spaces), 26.13(a)(b)} \\
 
 \textbf{Let $G$ be a topological group.}
-\begin{enumerate}
+\begin{enumerate}[a)]
     \item \textbf{Let $A$ and $B$ be subspaces of $G$. If $A$ is closed and $B$ is compact, show $A \cdot B$ is closed. [\textit{Hint:} If $c$ is not in $A \cdot B$, find a neighborhood $W$ of $c$ such that
     $W \cdot B^{-1}$ is disjoint from $A$.]}
 
@@ -55,16 +55,21 @@
     \[
         W \cdot B^{-1} \subseteq A^C.
     \]
-    It follows that $(W \cdot B^{-1}) \cap A = \varnothing$. Consequently, $wb^{-1} \neq a$ for any $w \in W, a \in A$ and $b \in B$. Equivalently, $w \neq ab$, so $W \cap (A \cdot B) = \varnothing$. \\
+    It follows that $(W \cdot B^{-1}) \cap A = \varnothing$. Consequently, $wb^{-1} \neq a$, or $w \neq ab$ for any $w \in W, a \in A$ and $b \in B$. Thus, $W \cap (A \cdot B) = \varnothing$. \\
 
-    For any arbitrary $c \in (A \cdot B)^C$, we have found a neighborhood $W$ of $c$ such that $W \cap (A \cdot B) = \varnothing$, or equivalently, $W \subseteq (A \cdot B)^C$. It follows by definition that $(A \cdot B)^C$ is open in $G$,
+    For any arbitrary $c \in (A \cdot B)^C$, we have found a neighborhood $W$ of $c$ such that $W \, \cap \, (A \cdot B) = \varnothing$, or equivalently, $W \subseteq (A \cdot B)^C$. It follows by definition that $(A \cdot B)^C$ is open in $G$,
     so $A \cdot B$ is closed, as desired.
     \end{solution}
 
     \item \textbf{Let $H$ be a subgroup of $G$; let $p \colon G \rightarrow G/H$ be the quotient map. If $H$ is compact, show that $p$ is a closed map.}
     
     \begin{solution}
-    
+    Let $A$ be a closed set in $G$. Note that $p(A)$ consists of all the cosets of $G/H$ containing elements of $A$. Then $p^{-1}(p(A))$ is
+    \[
+        p^{-1}(p(A)) = \{ ah \mid a \in A, h \in H \} = A \cdot H.
+    \]
+    Since $H$ is compact and $A$ is closed, we know from part (a) that $A \cdot H$ is closed. Since $p$ is a quotient map, we know by definition that
+    $p^{-1}(p(A))$ is closed if and only if $p(A)$ is closed. Consequently, since $p^{-1}(p(A))$ is closed, $p(A)$ must also be closed, so $p$ is a closed map, as desired.
     \end{solution}
 \end{enumerate}
 
@@ -77,12 +82,61 @@ let us define a loop $f \otimes g$ by the rule}
 \[
     (f \otimes g)(s) = f(s) \cdot g(s).
 \]
-\begin{enumerate}[a)]
+\begin{enumerate}[c)]
     \item \textbf{Show that the two group operations $*$ and $\otimes$ on $\pi_1(G, x_0)$ are the same. [\textit{Hint:} Compute $(f * e_{x_0}) \otimes (e_{x_0} * g)$.]}
+    
+    \begin{solution}
+    Let $[f]$ and $[g]$ be any two arbitrary elements in $\pi_1(G, x_0)$. We will show that $[f] \otimes [g] = [f] * [g]$.
+    Consider $[f] \otimes [g]$. Since $[f] = [f] * [e_{x_0}]$ and $[g] = [e_{x_0}] * [g]$, it follows that
+    \begin{align*}
+        [f] \otimes [g] &= ([f] * [e_{x_0}]) \otimes ([e_{x_0}] * [g]) \\
+        &= ([f] * [e_{x_0}]) \cdot ([e_{x_0}] * [g]) \\
+        &= ([f] \cdot [e_{x_0}]) * ([e_{x_0}] \cdot [g])
+    \end{align*}
+    where the final step follows by the construction of products of paths:  
+    \begin{align*}
+        ([f] * [e_{x_0}]) \cdot ([e_{x_0}] * [g]) 
+        &= \begin{cases}
+            f(2s) &\text{ for } s \in \left[ 0, \frac{1}{2} \right]  \\
+            e_{x_0} &\text{ for } s \in \left[\frac{1}{2}, 1 \right]
+        \end{cases}
+        \cdot
+        \begin{cases}
+            e_{x_0} &\text{ for } s \in \left[ 0, \frac{1}{2} \right]  \\
+            g(2s-1) &\text{ for } s \in \left[\frac{1}{2}, 1 \right]
+        \end{cases} \\
+        &= \begin{cases}
+            f(2s) \cdot e_{x_0} &\text{ for } s \in \left[ 0, \frac{1}{2} \right]  \\
+            e_{x_0} \cdot g(2s-1) &\text{ for } s \in \left[\frac{1}{2}, 1 \right]
+        \end{cases} \\
+        &= ([f] \cdot [e_{x_0}]) * ([e_{x_0}] \cdot [g]).
+    \end{align*}
+    Simplifying further by noting that $[f] \cdot [e_{x_0}] = [f]$ and $[e_{x_0}] \cdot [g] = [g]$, we get that
+    \begin{align*}
+        [f] \otimes [g] &= ([f] \cdot [e_{x_0}]) * ([e_{x_0}] \cdot [g]) \\
+        &= [f] * [g]
+    \end{align*}
+    and so the two group operations $*$ and $\otimes$ on $\pi_1(G, x_0)$ are the same.
+    \end{solution}
+
     \item \textbf{Show that $\pi_1(G, x_0)$ is abelian.}
+    \begin{solution}
+    Let $[f]$ and $[g]$ be two arbitary elements in $\pi_1(G, x_0)$. 
+    so we will show that $\pi_1(G, x_0)$ is abelian by showing $[f] * [g] = [g] * [f]$. \\
+    
+    Note that $[f] = [e_{x_0}] * [f] = [e_{x_0} * f]$ and $[g] = [g] * [e_{x_0}] = [g * e_{x_0}]$, so
+    \begin{align*}
+        [f] \otimes [g] &= [e_{x_0} * f] \otimes [g * e_{x_0}] \\
+        &= [e_{x_0} * f] \cdot [g * e_{x_0}] \\
+        &= [e_{x_0} \cdot g] * [f \cdot e_{x_0}] \footnotemark \\
+        &= [g] * [f].
+    \end{align*}\footnotetext{this follows by the ``distributive property'' proved in the previous part.}
+    
+    From part (c), we know that the group operations $*$ and $\otimes$ on $\pi_1(G, x_0)$ are the same, so $[f] \otimes [g] = [f] * [g]$. It follows that
+    \[
+        [f] * [g] = [g] * [f],
+    \]
+    so $\pi_1(G, x_0)$ is abelian, as desired.
+    \end{solution}
 \end{enumerate}
-
-\begin{solution}
-
-\end{solution}
 \end{document}
