@@ -1,0 +1,88 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 13}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Assorted Topological Groups Problems.} \\
+
+\underline{Section 26 (Compact Spaces), 26.13(a)(b)} \\
+
+\textbf{Let $G$ be a topological group.}
+\begin{enumerate}
+    \item \textbf{Let $A$ and $B$ be subspaces of $G$. If $A$ is closed and $B$ is compact, show $A \cdot B$ is closed. [\textit{Hint:} If $c$ is not in $A \cdot B$, find a neighborhood $W$ of $c$ such that
+    $W \cdot B^{-1}$ is disjoint from $A$.]}
+
+    \begin{solution}
+    To show that $A \cdot B$ is closed, we will show that $(A \cdot B)^C$ is open. Let $c \in (A \cdot B)^C$. As the hint says, we will show that there is a neighborhood $W$ of $c$ such that
+    $W \cdot B^{-1}$ is disjoint from $A$. \\
+    
+    Since $G$ is a topological group, it follows from Exercise 145.1 that the map $f \colon G \times G \rightarrow G$ sending $(x, y)$ to $xy^{-1}$ is continuous. $A$ is closed, so $A^C$ is open. Since $f$ is continuous, the preimage of an open set is open, and so $f^{-1}(A^C)$ is open. The one-point set $\{ c \}$ and $B$ are each compact. We claim that $\{c\} \times B \subseteq f^{-1}(A^C)$. 
+    Equivalently, we will show that $f(\{ c \} \times B) \subseteq A^C$. Since $c \in (A \cdot B)^C$, or equivalently, $c \notin A \cdot B$, it follows that $c \neq ab$ for any $a \in A$, $b \in B$. Equivalently, $c b^{-1} \neq a$ for any $a \in A$ and $b \in B$. Since $f(\{ c \} \times B)$ is defined as $\{cb^{-1} \mid b \in B\}$, 
+    it follows that $f(\{c \} \times B)$ and $A$ are disjoint, or equivalently, $f(\{ c \} \times B) \subseteq A^C$. \\
+
+    To summarize, we have that $f^{-1}(A^C)$ is an open set in $G \times G$, and $\{ c\}$ and $B$ are each compact in $G$, with $\{c \} \times B \subseteq f^{-1}(A^C)$. It follows by Exercise 26.9 that there exist open sets $W$ and $V$ in $G$ such that
+    \[
+        \{ c \} \times B \subseteq W \times V \subseteq f^{-1}(A^C).
+    \]
+    Note that $c \in W$ by construction, and $W \times B \subseteq W \times V$. Consequently, since $W \times B \subseteq W \times V \subseteq f^{-1}(A^C)$, it follows that $f(W \times B) \subseteq A^C$, or equivalently
+    \[
+        W \cdot B^{-1} \subseteq A^C.
+    \]
+    It follows that $(W \cdot B^{-1}) \cap A = \varnothing$. Consequently, $wb^{-1} \neq a$ for any $w \in W, a \in A$ and $b \in B$. Equivalently, $w \neq ab$, so $W \cap (A \cdot B) = \varnothing$. \\
+
+    For any arbitrary $c \in (A \cdot B)^C$, we have found a neighborhood $W$ of $c$ such that $W \cap (A \cdot B) = \varnothing$, or equivalently, $W \subseteq (A \cdot B)^C$. It follows by definition that $(A \cdot B)^C$ is open in $G$,
+    so $A \cdot B$ is closed, as desired.
+    \end{solution}
+
+    \item \textbf{Let $H$ be a subgroup of $G$; let $p \colon G \rightarrow G/H$ be the quotient map. If $H$ is compact, show that $p$ is a closed map.}
+    
+    \begin{solution}
+    
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+\underline{Section 52 (The Fundamental Group), 52.7(c)(d)} \\
+
+\textbf{Let $G$ be a topological group with operation $\cdot$ and identity element $x_0$. Let $\Omega(G, x_0)$ denote the set of all loops in $G$ based at $x_0$. If $f, g \in \Omega(G, x_0)$, 
+let us define a loop $f \otimes g$ by the rule}
+\[
+    (f \otimes g)(s) = f(s) \cdot g(s).
+\]
+\begin{enumerate}[a)]
+    \item \textbf{Show that the two group operations $*$ and $\otimes$ on $\pi_1(G, x_0)$ are the same. [\textit{Hint:} Compute $(f * e_{x_0}) \otimes (e_{x_0} * g)$.]}
+    \item \textbf{Show that $\pi_1(G, x_0)$ is abelian.}
+\end{enumerate}
+
+\begin{solution}
+
+\end{solution}
+\end{document}
