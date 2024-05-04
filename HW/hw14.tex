@@ -1,0 +1,111 @@
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newenvironment{solution}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Solution]}
+  {\end{proof}}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+
+	\hrule
+	\begin{center}
+        \textbf{MATH104: Topology}\hfill \textbf{Fall 2023}\newline
+
+		{\Large Homework 14}
+
+		David Yang
+	\end{center}
+
+\hrule
+
+\vspace{1em}
+
+\textit{Swarthmore Honors Exams Problems.} \\
+
+\underline{2022, Problem 11} \\
+
+\textbf{Let $X$ be the one point union of a torus and a $2$-sphere.}
+\begin{enumerate}[a)]
+    \item \textbf{Compute $\pi_1(X)$.}
+    
+    \begin{solution} 
+    Let $x_0$ be the shared point between the torus $T$ and $2$-sphere $S$ in $X$. Consider 
+    \[
+        U = T \vee W_1, \, V = S \vee W_2
+    \]
+    where $W_1$ and $W_2$ are neighborhoods of $x_0$ in $S$ and $T$ that deformation retract to $x_0$, respectively. 
+    Note that $U$ and $V$ are each open in $X$. Furthermore, the intersection $U \cap V = W_1 \vee W_2$ is simply connected (it deformation retracts to $x_0$
+    which has trivial fundamental group and is path-connected -- for any two points in the intersection, there is either a path fully in $W_1$ or $W_2$ or there is a path in $W_1$ to $x_0$ to $W_2$ or vice versa). 
+    By Seifert-Van Kampen, since $U \cap V$ is simply connected,
+    the fundamental group of $X$ is isomorphic to the free product of the fundamental groups of $U$ and $V$. Thus, since $\pi_1(U, x_0) \cong \Z \times \Z$, and $\pi_1(V, x_0)$ is trivial, we 
+    get that $\boxed{\pi_1(X) \cong \Z \times \Z}$. 
+    \end{solution}
+
+    \item \textbf{Describe the universal cover of $X$.}
+    \begin{solution}
+    The universal cover of $X$ is $\R \times \R$ with a $2$-sphere attached at each point in $\Z \times \Z$. \\
+
+    It remains to show that this universal cover is simply connected. Note that it is path-connected; $\R^2$ is path-connected, and the union of
+    a $2$-sphere at each point in $\Z \times \Z$ is a union of path-connected spaces at a common point, which is path-connected. On the other hand,
+    the fundamental group of the universal cover is also trivial. Consider any loop in the universal covering space. It is composed of a number of components, which are either paths in $\R^2$ or
+    loops around a $2$-sphere at an integer grid point. Since the $2$-sphere is simply connected, each of the loops around a $2$-sphere can be continuously deformed to a constant map at the point of intersection. Consequently,
+    the loop in the universal covering space can deformation retract to a loop in $\R^2$ (by applying the above deformation to each part of the loop around a $2$-sphere). This loop in $\R^2$ similarly deformation retracts to the trivial loop at a given base point. 
+    Thus, the fundamental group of our universal cover is trivial, and we have our universal cover.
+    \end{solution}
+\end{enumerate}
+
+\newpage
+
+\underline{2019, Problem 2} \\
+
+\textbf{Let $X$ be the set of all functions $f\colon \R \rightarrow \R$. For each $t \in \R$, let $X_t$ be the subset of all $f \in X$ such that}
+\[
+    \sup\limits_{x \in \R} f(x) < t.
+\]
+\textbf{Let $\tau$ be the coarsest topology on $X$ that contains $X_t$ for each $t \in \R$.}
+\begin{enumerate}[a)]
+    \item \textbf{Show that $(X, \tau)$ is not Hausdorff.}
+    \begin{solution}
+    First, note that open sets in $(X, \tau)$ are simply the sets $X_t$; any union or intersection of such sets remain of the same form. \\
+
+    Let $f(x) = x$ and let $g(x) = 1$. Note that since $\mathrm{sup}(f(x))$ is infinite, the only open set in $(X, \tau)$ containing $f(x)$ is $X$ itself. Thus, any open set containing $g(x)$ must also intersect $X$,
+    the only open set containing $f(x)$, so $(X, \tau)$ is not Hausdorff.
+    \end{solution}
+
+    \item \textbf{Show that every subset $K \subseteq (X, \tau)$ that contains the identity function is compact.}
+    
+    \begin{solution}
+    Let $K$ be a subset of $(X, \tau)$ containing the identity function. Following the above reasoning, since the supremum of the identity function defined over the reals is infinite, the only open set in $(X, \tau)$ containing
+    the identity function is $X$ itself. Consequently, any open cover of $K$ must include $X$. Clearly, any open cover of $K$ will then have a finite subcover consisting of the open set $X$ itself.
+    Thus, every subset $K \subseteq (X, \tau)$ containing the identity function is compact.
+    \end{solution}
+
+    \item \textbf{Let $Y \subseteq (X, \tau)$ be the subset of all constant functions. Is $Y$ compact? Is it connected? Is it path-connected?}
+    
+    \begin{solution}
+    $Y$ is not compact. Consider the open cover $A = \{ X_t \mid t \in \R \}$ of $Y$. Let $X_{t_1}, \dots, X_{t_n}$ correspond to an arbitrary finite collection of open sets in $A$. Let us use $f_a$ to denote the constant function $f(x) = a$ for all $x \in \R$.
+    Note that the constant function $f_{\max(t_1, \dots, t_n) + 1}$ in $Y$ is not covered by this finite collection of open sets, so $A$ has no finite subcovers. Thus, by definition, $Y$ is not compact. \\
+
+    $Y$ is connected. Note that any two open sets in $X$ must intersect in $Y$ -- the open sets $X_a$ and $X_b$ both include the constant functions $f_{c}$ where $c < \mathrm{min}(a, b)$. Thus, there cannot be two open sets $U$ and $V$ of $Y$ such that
+    $U$ and $V$ are disjoint satisfying $U \cup V = Y$, or equivalently, there is no separation of $Y$. Thus, $Y$ is connected. \\
+
+    $Y$ is path-connected. Let $f_a$ and $f_b$ be an arbitrary pair of constant functions in $Y$. We will construct a path between them. Consider $\gamma \colon I \rightarrow Y$ defined by
+    \[
+        \gamma(t) = f_{(1-t)a + tb}.
+    \]
+    This path $\gamma$ is constructed from the straight-line homotopy between $f_a$ and $f_b$, which is the composition (sum and product) of continuous functions, so it is itself continuous. 
+    Furthermore, $\gamma(0) = f_a$, $\gamma(1) = f_b$, and $\gamma(t) \in Y$ for all $t \in [0, 1]$.  Thus, $\gamma$ is a path from $f_a$ to $f_b$ in $Y$, so $Y$ is path-connected.\footnote{note that since every path-connected space is connected, it also follows that $Y$ is connected.}
+    \end{solution}
+\end{enumerate}
+
+\end{document}
